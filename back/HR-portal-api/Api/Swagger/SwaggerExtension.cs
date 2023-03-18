@@ -5,11 +5,28 @@ namespace Core.Swagger;
 
 public static class SwaggerExtension
 {
-    public static void SetDescriptions(this SwaggerGenOptions options)
+    public static IServiceCollection ConfigureSwaggerService(this IServiceCollection services)
+    {
+        services.AddSwaggerGen(options =>
+        {
+            options.SetDescriptions();
+            options.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Version = "v1",
+                Title = "HR-portal API",
+                Description = "API for HR-portal project",
+            });
+        });
+
+        return services;
+    }
+
+    private static void SetDescriptions(this SwaggerGenOptions options)
     {
         var authScheme = new OpenApiSecurityScheme
         {
-            Description = "AccessToken от IdentityServer ВМЕСТЕ со словом Bearer, напр. 'Bearer kM1Q0EiLCJ0eXAiOiJK...'",
+            Description =
+                "AccessToken от IdentityServer ВМЕСТЕ со словом Bearer, напр. 'Bearer kM1Q0EiLCJ0eXAiOiJK...'",
             Name = "Authorization",
             In = ParameterLocation.Header,
             Type = SecuritySchemeType.ApiKey,
