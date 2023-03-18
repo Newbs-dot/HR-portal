@@ -5,7 +5,7 @@ using Logic;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddSwaggerGen(options => { options.SetDescriptions(); });
+builder.Services.ConfigureSwaggerService();
 builder.Services.AddDalService();
 builder.Services.AddLogicServices();
 
