@@ -1,0 +1,111 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "!**/*"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "@angular-eslint/eslint-plugin",
+    "unused-imports"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ]
+    },
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "currencyConverter",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/array-type": [
+          "error",
+          {
+            "default": "array-simple"
+          }
+        ],
+        "@typescript-eslint/typedef": [
+          "error",
+          {
+            "arrowParameter": true,
+            "variableDeclaration": true,
+            "arrayDestructuring": true,
+            "parameter": true,
+            "propertyDeclaration": true,
+            "memberVariableDeclaration": true,
+            "objectDestructuring": true,
+            "variableDeclarationIgnoreFunction": true
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "explicit",
+            "overrides": {
+              "constructors": "no-public"
+            }
+          }
+        ],
+        "max-classes-per-file": [
+          "error",
+          1
+        ],
+        "curly": "error",
+        "eqeqeq": [
+          "error",
+          "always"
+        ],
+        "indent": [
+          "error",
+          4,
+          {
+            "SwitchCase": 1
+          }
+        ],
+        "quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "@angular-eslint/prefer-on-push-component-change-detection": "error",
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
+        "unused-imports/no-unused-imports": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "rules": {}
+    }
+  ]
+}

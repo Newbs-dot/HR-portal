@@ -1,0 +1,48 @@
+{
+  "name": "front",
+  "version": "0.0.0",
+  "scripts": {
+    "npm:install": "npm i",
+    "start": "ng serve",
+    "lint": "ng lint --fix",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "15.2.0",
+    "@angular/common": "15.2.0",
+    "@angular/compiler": "15.2.0",
+    "@angular/core": "15.2.0",
+    "@angular/forms": "15.2.0",
+    "@angular/platform-browser": "15.2.0",
+    "@angular/platform-browser-dynamic": "15.2.0",
+    "@angular/router": "15.2.0",
+    "@taiga-ui/cdk": "^3.20.0",
+    "@taiga-ui/core": "^3.20.0",
+    "@taiga-ui/icons": "^3.20.0",
+    "@taiga-ui/kit": "^3.20.0",
+    "@tinkoff/ng-dompurify": "3.0.0",
+    "dompurify": "2.2.9",
+    "rxjs": "~7.8.0",
+    "tslib": "2.3.0",
+    "zone.js": "~0.12.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "15.2.4",
+    "@angular-eslint/builder": "15.2.1",
+    "@angular-eslint/eslint-plugin": "15.2.1",
+    "@angular-eslint/eslint-plugin-template": "15.2.1",
+    "@angular-eslint/schematics": "15.2.1",
+    "@angular-eslint/template-parser": "15.2.1",
+    "@angular/cli": "~15.2.4",
+    "@angular/compiler-cli": "15.2.0",
+    "@babel/core": "^7.21.3",
+    "@types/dompurify": "2.2.3",
+    "@typescript-eslint/eslint-plugin": "5.48.2",
+    "@typescript-eslint/parser": "5.48.2",
+    "eslint": "^8.36.0",
+    "eslint-plugin-unused-imports": "2.0.0",
+    "typescript": "~4.9.4"
+  }
+}
