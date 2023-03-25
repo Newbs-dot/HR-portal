@@ -1,0 +1,1 @@
+export * from './components/start-page-base.component';
