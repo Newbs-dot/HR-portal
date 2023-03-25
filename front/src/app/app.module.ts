@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -16,7 +16,7 @@ import { RouterOutlet } from '@angular/router';
         TuiRootModule,
         TuiDialogModule,
         TuiAlertModule,
-        RouterOutlet
+        RouterOutlet,
     ],
     providers: [
         { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }
