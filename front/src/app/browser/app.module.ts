@@ -4,7 +4,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet, Routes } from '@angular/router';
+
+const routes: Routes = [
+    {
+        path: '',
+        loadChildren: () => import('./children/unauthorized/unauthorized.module')
+            .then((m: any) => m.UnauthorizedModule)
+    },
+    {
+        path: 'cabinet',
+        loadChildren: () => import('./children/authorized/authorized.module')
+            .then((m: any) => m.AuthorizedModule),
+    },
+];
 
 @NgModule({
     declarations: [
@@ -17,6 +30,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
         TuiDialogModule,
         TuiAlertModule,
         RouterOutlet,
+        RouterModule.forRoot(routes),
     ],
     providers: [
         { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }

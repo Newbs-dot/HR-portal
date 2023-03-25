@@ -1,0 +1,1 @@
+export * from './start-page/account-start-page.component';

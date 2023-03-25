@@ -28,5 +28,5 @@ const routes: Routes = [
     ],
     declarations: [...components, ...pages],
 })
-export class CabinetModule {
+export class AuthorizedModule {
 }
