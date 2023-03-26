@@ -17,12 +17,12 @@ const routes: Routes = [
         component: AccountStartPageComponent,
         children:[
             {
-                path: 'vacncy',
+                path: 'vacancies',
                 component: AccountStartPageComponent,
             },
             {
                 path: '',
-                redirectTo: 'vacncy',
+                redirectTo: 'vacancies',
                 pathMatch: 'full'
             },
         ]
