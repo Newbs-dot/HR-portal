@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
+import { NotFoundComponent } from '../common/not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,12 @@ const routes: Routes = [
         loadChildren: () => import('./children/authorized/authorized.module')
             .then((m: any) => m.AuthorizedModule),
     },
+    {
+        path: '**',
+        pathMatch: 'full',
+        component: NotFoundComponent
+    },
+
 ];
 
 @NgModule({
