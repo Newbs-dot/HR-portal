@@ -8,17 +8,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Dal\Dal.csproj" />
-      <ProjectReference Include="..\Logic\Logic.csproj" />
+        <ProjectReference Include="..\Dal\Dal.csproj"/>
+        <ProjectReference Include="..\Logic\Logic.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\AuthController\Dto\Requests" />
-      <Folder Include="Controllers\AuthController\Dto\Responses" />
+        <Folder Include="Controllers\AuthController\Dto\Requests"/>
+        <Folder Include="Controllers\AuthController\Dto\Responses"/>
     </ItemGroup>
 
 </Project>
