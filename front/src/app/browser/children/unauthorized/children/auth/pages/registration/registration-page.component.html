@@ -1,4 +1,82 @@
-<app-not-auth-layout></app-not-auth-layout>
-<div>
-    register page !!!!!
+<app-not-auth-layout>
+</app-not-auth-layout>
+<head>
+  <link rel="stylesheet" href="./registration-page.component.scss">
+</head>
+<div class = 'flex flex-col absolute justify-center items-center rounded-3xl border-1 w-2/5 right-0 h-screen bg-white'>
+  <div class='w-2/3'>
+    <form
+      class="input-wrapper"
+      [formGroup]="testForm"
+    >
+      <div
+        tuiGroup
+        class=""
+      >
+        <div class="mb-8">
+          <tui-input
+            formControlName="fio"
+            tuiHintContent="Фамилия имя отчество"
+            class="tui-group__inherit-item"
+          >
+            ФИО
+            <input
+              tuiTextfield
+              placeholder="ФИО в формате.."
+            />
+          </tui-input>
+          <tui-error
+            formControlName="fio"
+            [error]="[] | tuiFieldError | async"
+          ></tui-error>
+        </div>
+        <div class="mb-8">
+          <tui-input
+            formControlName="login"
+            tuiHintContent="Логин"
+            class="tui-group__inherit-item"
+          >
+            Логин
+            <input
+              tuiTextfield
+            />
+          </tui-input>
+          <tui-error
+            formControlName="login"
+            [error]="[] | tuiFieldError | async"
+          ></tui-error>
+        </div>
+        <div class="mb-8">
+          <tui-input
+            formControlName="password"
+            tuiHintContent="Пароль"
+            class="tui-group__inherit-item"
+          >
+            Пароль
+            <input
+              tuiTextfield
+            />
+          </tui-input>
+          <tui-error
+            formControlName="password"
+            [error]="[] | tuiFieldError | async"
+          ></tui-error>
+        </div>
+      </div>
+    </form>
+  </div>
+  <button
+    tuiButton
+    type="button"
+    class="tui-space_right-3 tui-space_bottom-3 bg-black"
+    (click)="onClick($event)"
+  >
+    Создать аккаунт
+  </button>
+
+
 </div>
+
+
+
+
