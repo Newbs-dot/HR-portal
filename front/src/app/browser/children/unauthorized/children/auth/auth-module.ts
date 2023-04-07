@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent, RegistrationPageComponent } from './pages';
+import { LoginPageComponent, MainPageComponent, RegistrationPageComponent } from './pages';
 import { UnauthorizedLayoutComponent } from '../../components';
-import {TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule } from "@taiga-ui/core";
-import {ReactiveFormsModule} from "@angular/forms";
-import {TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule,TuiFieldErrorPipeModule} from "@taiga-ui/kit";
+import { TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule } from '@taiga-ui/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule,TuiFieldErrorPipeModule } from '@taiga-ui/kit';
 
 const components: any[] = [];
 
-const pages: any[] = [LoginPageComponent, RegistrationPageComponent];
+const pages: any[] = [LoginPageComponent, RegistrationPageComponent, MainPageComponent];
 
 const routes: Routes = [
     {
@@ -25,22 +25,26 @@ const routes: Routes = [
         path: 'reg',
         component: RegistrationPageComponent,
     },
+    {
+        path: 'main',
+        component: MainPageComponent,
+    },
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    UnauthorizedLayoutComponent,
-    TuiErrorModule,
-    ReactiveFormsModule,
-    TuiMultiSelectModule,
-    TuiTextfieldControllerModule,
-    TuiInputModule,
-    TuiDataListWrapperModule,
-    TuiFieldErrorPipeModule,
-    TuiButtonModule,
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        UnauthorizedLayoutComponent,
+        TuiErrorModule,
+        ReactiveFormsModule,
+        TuiMultiSelectModule,
+        TuiTextfieldControllerModule,
+        TuiInputModule,
+        TuiDataListWrapperModule,
+        TuiFieldErrorPipeModule,
+        TuiButtonModule,
+    ],
     declarations: [...components, ...pages],
 })
 export class AuthModule {
