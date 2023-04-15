@@ -3,3 +3,96 @@
 @tailwind utilities;
 
 
+header {
+  display: flex;
+  height: 100%;
+  background: url("./../../../../../../../../../img/yg1.png") center no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+h1{
+  font-size: 2em;
+  font-weight: bold;
+}
+h2{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.categories ul{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.main-center{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+.categories ul li{
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  height: 150px;
+  margin: 20px 20px 20px 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: center;
+}
+
+
+
+.new-vacancies li{
+  border-radius: 20px;
+  margin: 10px;
+  background-color: white;
+  flex-grow: 1;
+  width: 33%;
+}
+.new-vacancies ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+.vacancy{
+  margin: 20px;
+}
+.department{
+  font-size: 1.3em;
+  display: inline-flex;
+}
+.department-img{
+  background-color: blue; /* url to img*/
+  height: 50px;
+  width: 50px;
+}
+.department div{
+  margin: 10px;
+}
+.company-departments ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.company-departments li{
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  font-size: 25px;
+}
+.developer-img{
+  background: url("./../../../../../../../../../img/programmer.png") center no-repeat;
+  width: 300px;
+  height: 300px;
+}
+.manager-img{
+  background: url("./../../../../../../../../../img/manager.png") center no-repeat;
+  width: 300px;
+  height: 300px;
+}
+.tester-img{
+  background: url("./../../../../../../../../../img/programmer2.png") center no-repeat;
+  width: 300px;
+  height: 300px;
+}
