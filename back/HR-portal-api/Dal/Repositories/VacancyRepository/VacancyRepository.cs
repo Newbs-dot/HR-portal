@@ -1,12 +1,12 @@
 ﻿using Dal.Models;
+using Dal.Repositories.BaseRepository;
 using Dal.Repositories.VacancyRepository.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace Dal.Repositories.VacancyRepository;
 
 public class VacancyRepository : BaseRepository<Vacancy>, IVacancyRepository
 {
-    public VacancyRepository(DbContext context) : base(context)
+    public VacancyRepository(DataContext context) : base(context)
     {
     }
 }

@@ -1,12 +1,11 @@
 ﻿using Dal.Models;
-using Dal.Repositories.TagsRepository.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using Dal.Repositories.BaseRepository;
 
 namespace Dal.Repositories.TagRepository;
 
 public class TagRepository : BaseRepository<Tag>, ITagRepository
 {
-    public TagRepository(DbContext context) : base(context)
+    public TagRepository(DataContext context) : base(context)
     {
     }
 }

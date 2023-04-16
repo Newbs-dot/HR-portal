@@ -1,8 +1,7 @@
 ﻿using Dal.Models.Interfaces;
-using Dal.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Dal.Repositories;
+namespace Dal.Repositories.BaseRepository;
 
 public class BaseRepository<T> : IBaseRepository<T> where T : class, IBaseModel
 {
@@ -10,12 +9,14 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class, IBaseModel
 
     protected DbSet<T> DbSet => DbContext.Set<T>();
 
-    public BaseRepository(DbContext context)
+    public BaseRepository(DataContext context)
     {
         DbContext = context;
     }
 
     public async Task<IEnumerable<T>> GetAllAsync() => await DbSet.ToListAsync();
+
+    public async Task<T?> FindWithPredicateAsync(Func<T, bool> predicate) => await DbSet.FirstOrDefaultAsync(x => predicate(x));
 
     public async Task<T?> FindAsync(int id) => await DbSet.FindAsync(id);
 

@@ -4,7 +4,7 @@ namespace Dal.Models;
 
 public class Vacancy : IBaseModel
 {
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     public string Experience { get; set; }
 

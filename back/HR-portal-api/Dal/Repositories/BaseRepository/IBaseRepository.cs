@@ -1,11 +1,11 @@
-﻿using Dal.Models.Interfaces;
+﻿namespace Dal.Repositories.BaseRepository;
 
-namespace Dal.Repositories.Interfaces;
-
-public interface IBaseRepository<T> where T : IBaseModel
+public interface IBaseRepository<T>
 {
     Task<IEnumerable<T>> GetAllAsync();
 
+    Task<T?> FindWithPredicateAsync(Func<T, bool> predicate);
+    
     Task<T?> FindAsync(int id);
 
     Task CreateAsync(T item);
