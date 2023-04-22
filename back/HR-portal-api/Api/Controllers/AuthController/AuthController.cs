@@ -1,4 +1,5 @@
-﻿using Core.Controllers.AuthController.Dto.Request;
+﻿using System.IdentityModel.Tokens.Jwt;
+using Core.Controllers.AuthController.Dto.Request;
 using Dal;
 using Dal.Constants;
 using Dal.Models;
@@ -111,16 +112,36 @@ public class AuthController : ControllerBase
         });
     }
 
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     [HttpPost("/refresh")]
-    public async Task<IActionResult> Check()
+    [Authorize(Policy = PolicyConstants.AllRoles)]
+    public async Task<IActionResult> Check(TokenModel? tokenModel)
     {
-        return Ok();
-    }
+        if (tokenModel is null)
+            return BadRequest("Invalid client request");
 
-    [HttpGet("/logout")]
-    public async Task<IActionResult> Logout()
-    {
-        return Ok();
+        var accessToken = tokenModel.AccessToken;
+        var refreshToken = tokenModel.RefreshToken;
+        var principal = _jwtSettings.GetPrincipalFromExpiredToken(accessToken);
+
+        if (principal == null)
+            return BadRequest("Invalid access token or refresh token");
+
+        var username = principal.Identity!.Name;
+        var user = await _userManager.FindByNameAsync(username!);
+
+        if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
+            return BadRequest("Invalid access token or refresh token");
+
+        var newAccessToken = _jwtSettings.CreateToken(principal.Claims.ToList());
+        var newRefreshToken = _jwtSettings.GenerateRefreshToken();
+
+        user.RefreshToken = newRefreshToken;
+        await _userManager.UpdateAsync(user);
+
+        return new ObjectResult(new
+        {
+            accessToken = new JwtSecurityTokenHandler().WriteToken(newAccessToken),
+            refreshToken = newRefreshToken
+        });
     }
 }
