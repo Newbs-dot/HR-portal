@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  <link href="https://fonts.googleapis.com/icon?family=Montserrat:100,200,300,400,500,600,700,800"
         rel="stylesheet">
   <link rel="stylesheet" href="styles/main-page.component.scss">
   <meta name="viewport"
@@ -11,26 +11,33 @@
   <title>Document</title>
 
 </head>
-<body>
 
-<div class="flex flex-col h-screen justify-between">
-<header class="text-white">
-  <div class="container">
-    <nav class="flex p-[42px] w-screen">
-      <a href="#"><img src = "" alt=""/></a>
-      <ul class="flex gap-[62px] items-center">
-        <li class="pl"><a href="">Вакансии</a></li>
-        <li><a href="">Департаменты</a></li>
-      </ul>
-      <ul class="flex absolute gap-[42px] items-center right-20">
-        <li class = "flex"><a class="" href="#">Войти</a></li>
-        <li class="text-white flex"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" href="#">Зарегистрироваться</a></li>
-      </ul>
-    </nav>
-  </div>
+<body>
+<header>
+  <!--сделать через сетку нормально-->
+
+  <nav class="flex p-[42px] w-screen text-white">
+    <a href="#"></a>
+    <ul class="flex gap-[62px] items-center">
+      <li class="pl"><a href="">Вакансии</a></li>
+      <li><a href="">Департаменты</a></li>
+    </ul>
+    <ul class="flex absolute gap-[42px] items-center right-20">
+      <li class = "flex"><a class="" href="#">Войти</a></li>
+      <li class="text-white flex"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" href="#">Зарегистрироваться</a></li>
+    </ul>
+  </nav>
+  <div class="slogan"><span class = 'sl-1'>ЭТА РАБОТА</span> <span class = 'sl-2'> ЖДЕТ ТЕБЯ</span></div>
+  <button class = "search">Найти работу</button>
+  <img class = "main-bg" src ='yg1.png'/>
+
 </header>
 
+
+
 <main>
+
+
   <div class = 'main-center'>
     <h1>Подборки вакансий</h1>
     <div class="categories">
@@ -47,103 +54,121 @@
         <li>
           <div class = 'vacancy'>
             <div class = 'department'>
-              <div class = 'department-img'></div>
-              <div>Department</div>
+              <div class = 'department-logo'></div>
+              <div>department</div>
+              <div class = 'like'></div>
             </div>
             <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 00 рублей</div>
+            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
             <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
-              Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor"
+              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
             </p>
+
+              <div class = 'vacancy-buttons'>
+                <button class = 'respond'>Откликнуться</button>
+                <button class = 'details'>Подробнее</button>
+
+            </div>
           </div>
         </li>
         <li>
           <div class = 'vacancy'>
             <div class = 'department'>
-              <div class = 'department-img'></div>
-              <div>Department</div>
+              <div class = 'department-logo'></div>
+              <div>department</div>
+              <div class = 'like'></div>
             </div>
             <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 00 рублей</div>
+            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
             <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
-              Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor"
+              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
             </p>
+
+            <div class = 'vacancy-buttons'>
+              <button class = 'respond'>Откликнуться</button>
+              <button class = 'details'>Подробнее</button>
+
+            </div>
           </div>
         </li>
         <li>
           <div class = 'vacancy'>
             <div class = 'department'>
-              <div class = 'department-img'></div>
-              <div>Department</div>
+              <div class = 'department-logo'></div>
+              <div>department</div>
+              <div class = 'like'></div>
             </div>
             <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 00 рублей</div>
+            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
             <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
-              Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor"
+              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
             </p>
+
+            <div class = 'vacancy-buttons'>
+              <button class = 'respond'>Откликнуться</button>
+              <button class = 'details'>Подробнее</button>
+
+            </div>
           </div>
         </li>
         <li>
           <div class = 'vacancy'>
             <div class = 'department'>
-              <div class = 'department-img'></div>
-              <div>Department</div>
+              <div class = 'department-logo'></div>
+              <div>department</div>
+              <div class = 'like'></div>
             </div>
             <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 00 рублей</div>
+            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
             <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
-              Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor"
+              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
             </p>
+
+            <div class = 'vacancy-buttons'>
+              <button class = 'respond'>Откликнуться</button>
+              <button class = 'details'>Подробнее</button>
+
+            </div>
           </div>
         </li>
         <li>
           <div class = 'vacancy'>
             <div class = 'department'>
-              <div class = 'department-img'></div>
-              <div>Department</div>
+              <div class = 'department-logo'></div>
+              <div>department</div>
+              <div class = 'like'></div>
             </div>
             <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 00 рублей</div>
+            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
             <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
-              Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor"
+              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
             </p>
+
+            <div class = 'vacancy-buttons'>
+              <button class = 'respond'>Откликнуться</button>
+              <button class = 'details'>Подробнее</button>
+
+            </div>
           </div>
         </li>
         <li>
           <div class = 'vacancy'>
             <div class = 'department'>
-              <div class = 'department-img'></div>
-              <div>Department</div>
+              <div class = 'department-logo'></div>
+              <div>department</div>
+              <div class = 'like'></div>
             </div>
             <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 00 рублей</div>
+            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
             <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua.
-              Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat. Duis aute irure dolor"
+              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
             </p>
+
+            <div class = 'vacancy-buttons'>
+              <button class = 'respond'>Откликнуться</button>
+              <button class = 'details'>Подробнее</button>
+
+            </div>
           </div>
         </li>
       </ul>
@@ -154,17 +179,24 @@
         <li>
           <div class="developer-img"></div>
           Департамент разработки
+          <hr>
         </li>
+
         <li>
           <div class="manager-img"></div>
           Департамент развития
+          <hr>
         </li>
+
         <li>
           <div class="tester-img"></div>
           Департамент тестирования
+          <hr>
         </li>
+
       </ul>
     </div>
+
   </div>
 </main>
 
@@ -193,7 +225,7 @@
       </div>
     </div>
 </footer>
-</div>
+
 </body>
 
 </html>
