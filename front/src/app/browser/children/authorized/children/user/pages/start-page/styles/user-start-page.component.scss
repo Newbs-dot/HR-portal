@@ -24,7 +24,41 @@ h2{
 .but1{
   height: 58px;
   background-color: #6F08FF;
+  border-radius: 10px;
+  width: 150%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
 }
+.but2{
+  height: 58px;
+  background-color: #6F08FF;
+  border-radius: 10px;
+  width: 130%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+}
+
+.but3{
+  height: 72px;
+  background-color: black;
+  border-radius: 10px;
+  width: 25%;
+  color: white;
+  float:right;
+  text-align: center;
+  padding-top: 14px;
+  font-size: 25px;
+}
+
+
+.im{
+  padding-left: 20px;
+}
+
 .cat{
   background-color: white;
   border-radius: 20px;
