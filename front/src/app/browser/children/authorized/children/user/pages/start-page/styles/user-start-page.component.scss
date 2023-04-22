@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header{
+  background-color: white;
+}
+
+.main-center{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+h1{
+  font-size: 2em;
+  font-weight: bold;
+}
+h2{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.but1{
+  height: 58px;
+  background-color: #6F08FF;
+}
+.cat{
+  background-color: white;
+  border-radius: 20px;
+
+}
+.cat2{
+  background-color: white;
+  border-radius: 20px;
+  padding-bottom: 10px;
+
+}
+.text1{
+  font-weight:bold;
+  font-size: 25px;
+}
+.text2{
+  height: 32px;
+  background: gray;
+  width: 11%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+.vert1{
+
+  vertical-align: middle;
+}
+
+.text3{
+  font-size: 22px;
+}
+
+.text4{
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+.text5{
+  text-align: start;
+}
+.cat3{
+  background-color: white;
+  border-radius: 20px;
+}
+
+.cat3 ul li{
+  color: black;
+  display: flex;
+  margin: 20px 10px 20px 20px;
+
+}
+.cat3 ul{
+  display: flex;
+
+
+}
+
+.cat2 ul li{
+  color: black;
+  display: flex;
+  margin: 20px 10px 20px 20px;
+
+}
+.cat2 ul{
+  display: flex;
+
+}
+
+.cat ul li{
+  color: black;
+  display: flex;
+  margin: 20px 10px 20px 20px;
+  border-radius: 20px;
+
+}
+.cat ul{
+  display: flex;
+
+}
+
+.categories ul li{
+  color: black;
+  font-weight:bold;
+  display: flex;
+  justify-content: center;
+  font-size: 17px;
+  margin: 20px 20px 20px 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: center;
+}
+.categories ul{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.categories{
+  background-color: white;
+  border-radius: 20px;
+}
