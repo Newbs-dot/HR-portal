@@ -1,5 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.main-bg{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size:cover;
+  background:url("../reg-bg.png") no-repeat  center center fixed;
 
+  width: 100vw;
+
+}
+.reg-form{
+  z-index: 1000;
+  position: absolute;
+  font-weight: 600;
+  font-size: 18px;
+  top: 4%;
+}
+.slogan {
+  position: relative;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 100px;
+  margin-top: 400px;
+  margin-left: 300px;
+  width: 800px;
+  line-height: 120px;
+
+}
+span.sl-1{
+  color: black;
+}
+span.sl-2{
+  color: #6F08FF;
+}
 

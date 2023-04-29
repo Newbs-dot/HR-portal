@@ -3,20 +3,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserLayoutComponent } from './components';
 import { UserStartPageComponent } from './pages';
-
+import { UserJobSearchComponent } from './pages';
 const components: any[] = [];
 
-const pages: any[] = [UserStartPageComponent];
+const pages: any[] = [UserStartPageComponent,UserJobSearchComponent];
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'vacancy'
+        redirectTo: 'profile'
     },
     {
-        path: 'vacancy',
+        path: 'profile',
         component: UserStartPageComponent
+    },
+    {
+        path: 'search',
+        component: UserJobSearchComponent
     }
 ];
 

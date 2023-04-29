@@ -31,7 +31,7 @@ h2{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size:cover;
-  background: no-repeat  center center fixed;
+  background: url("../yg1.png") no-repeat  center center fixed;
   width: 100vw;
 
 }
@@ -56,6 +56,7 @@ nav{
   margin-left: 300px;
   width: 800px;
   line-height: 120px;
+
 }
 span.sl-1{
   color: white;
