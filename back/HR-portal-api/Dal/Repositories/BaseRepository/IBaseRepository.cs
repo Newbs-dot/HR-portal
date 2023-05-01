@@ -6,11 +6,11 @@ public interface IBaseRepository<T>
 
     Task<T?> FindWithPredicateAsync(Func<T, bool> predicate);
     
-    Task<T?> FindAsync(int id);
+    Task<T?> FindAsync(long id);
 
     Task CreateAsync(T item);
 
     Task<T> UpdateAsync(T item);
 
-    Task DeleteAsync(int id);
+    Task DeleteAsync(long id);
 }

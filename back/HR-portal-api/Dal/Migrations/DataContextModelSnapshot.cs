@@ -48,7 +48,13 @@ namespace Dal.Migrations
                     b.Property<int>("Salary")
                         .HasColumnType("integer");
 
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Summaries");
                 });
@@ -196,7 +202,12 @@ namespace Dal.Migrations
                     b.Property<int>("Salary")
                         .HasColumnType("integer");
 
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Vacancies");
                 });
@@ -333,6 +344,17 @@ namespace Dal.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Dal.Models.Summary", b =>
+                {
+                    b.HasOne("Dal.Models.User", "User")
+                        .WithOne("Summary")
+                        .HasForeignKey("Dal.Models.Summary", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Dal.Models.Tag", b =>
                 {
                     b.HasOne("Dal.Models.Summary", null)
@@ -342,6 +364,17 @@ namespace Dal.Migrations
                     b.HasOne("Dal.Models.Vacancy", null)
                         .WithMany("Tags")
                         .HasForeignKey("VacancyId");
+                });
+
+            modelBuilder.Entity("Dal.Models.Vacancy", b =>
+                {
+                    b.HasOne("Dal.Models.User", "User")
+                        .WithMany("Vacancies")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
@@ -398,6 +431,13 @@ namespace Dal.Migrations
             modelBuilder.Entity("Dal.Models.Summary", b =>
                 {
                     b.Navigation("Tags");
+                });
+
+            modelBuilder.Entity("Dal.Models.User", b =>
+                {
+                    b.Navigation("Summary");
+
+                    b.Navigation("Vacancies");
                 });
 
             modelBuilder.Entity("Dal.Models.Vacancy", b =>

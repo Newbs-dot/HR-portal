@@ -1,4 +1,5 @@
-﻿using Dal.Models.Interfaces;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Dal.Models.Interfaces;
 
 namespace Dal.Models;
 
@@ -16,5 +17,9 @@ public class Summary : IBaseModel
 
     public bool IsActive { get; set; }
 
-    public List<Tag> Tags { get; set; }
+    public List<Tag?>? Tags { get; set; }
+
+    [ForeignKey("User")] public long UserId { get; set; }
+
+    public User User { get; set; }
 }
