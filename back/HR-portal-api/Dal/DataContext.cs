@@ -27,5 +27,13 @@ public class DataContext : IdentityDbContext<User, IdentityRole<long>, long>
 
         modelBuilder.Entity<Vacancy>()
             .HasMany<Tag>(v => v.Tags);
+
+        modelBuilder.Entity<User>()
+            .HasOne<Summary>(u => u.Summary)
+            .WithOne(s => s.User);
+        
+        modelBuilder.Entity<User>()
+            .HasMany<Vacancy>(u => u.Vacancies)
+            .WithOne(v => v.User);
     }
 }

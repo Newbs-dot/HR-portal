@@ -26,7 +26,6 @@ public static class PolicyRegistrations
             policyName,
             new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
                 .RequireAuthenticatedUser()
-                .RequireAssertion(x => roles.Any(role => x.User.IsInRole(role)))
                 .Build()
         );
 }

@@ -18,7 +18,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class, IBaseModel
 
     public async Task<T?> FindWithPredicateAsync(Func<T, bool> predicate) => await DbSet.FirstOrDefaultAsync(x => predicate(x));
 
-    public async Task<T?> FindAsync(int id) => await DbSet.FindAsync(id);
+    public async Task<T?> FindAsync(long id) => await DbSet.FindAsync(id);
 
     public async Task CreateAsync(T item)
     {
@@ -34,7 +34,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class, IBaseModel
         return model;
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(long id)
     {
         var item = await FindAsync(id);
 
