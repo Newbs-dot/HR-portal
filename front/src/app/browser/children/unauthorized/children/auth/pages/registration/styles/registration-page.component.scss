@@ -16,18 +16,22 @@
   position: absolute;
   font-weight: 600;
   font-size: 18px;
-  top: 4%;
+  background-color: white;
+  height: 100vh;
+  border-radius: 50px 0px 0px 50px;
+  padding: 30px;
 }
 .slogan {
-  position: relative;
+  text-align: center;
+  justify-content: center;
   text-transform: uppercase;
   font-weight: 800;
-  font-size: 100px;
-  margin-top: 400px;
-  margin-left: 300px;
-  width: 800px;
-  line-height: 120px;
+  font-size: 60px;
+  line-height: 70px;
 
+}
+.reg-button{
+  background-color: black;
 }
 span.sl-1{
   color: black;

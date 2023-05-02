@@ -58,6 +58,7 @@ nav{
   line-height: 120px;
 
 }
+
 span.sl-1{
   color: white;
 }
@@ -91,7 +92,13 @@ span.sl-2{
   color: white;
   border-radius: 20px;
 }
-
+/*VACANCY*/
+.vacancy-descripton{
+  height:100px;
+}
+.vacancy-name{
+  margin-top: 10px;
+}
 .new-vacancies li{
   border-radius: 20px;
   margin: 10px;
@@ -99,44 +106,58 @@ span.sl-2{
   font-size: 16px;
   background-color: white;
   flex-grow: 1;
-  width: 33%;
+  width: 40%;
+  padding:20px 20px 60px 20px;
 }
+
 .new-vacancies ul{
   display: flex;
   flex-wrap: wrap;
 }
 .vacancy{
-  margin: 30px;
+  position: relative;
 }
-.department{
+.department-name{
   font-weight: 500;
   font-size: 24px;
   text-transform: uppercase;
-  display:flex;
-  justify-content: space-between;
-
 }
-
+.salary{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 10px;
+}
+.department{
+  display: flex;
+  line-height: 60px;
+  gap: 10px;
+}
 .department-logo{
-  background-color: blue; /* url to img*/
-  height: 50px;
-  width: 50px;
-
-}
-.department .like{
-  margin-left: 300px;
-  background: url("./../../../../../../../img/heart.png") center no-repeat;
+  background: url("./../../../../../../../img/department-logo.png") center no-repeat;
   height: 60px;
   width: 60px;
-
 }
-.department div{
-  margin: 10px;
-
+.like{
+  position: absolute;
+  right: 0;
+  background: url("./../../../../../../../img/heart.png") center no-repeat;
+  height: 30px;
+  width: 30px;
+  transition: background-color 0.5s;
+}
+.like:hover{
+  background-color:coral;
+}
+.vacancy-descripton{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 10px;
 }
 .respond{
   background:#6F08FF;
-  width: 200px;
+  width: 150px;
   height:40px;
   color: white;
   font-weight: 500;
@@ -145,9 +166,9 @@ span.sl-2{
   border-radius: 20px;
 }
 .details{
-  right: 0;
+
   background: black;
-  width: 200px;
+  width: 150px;
   height:40px;
   color: white;
   font-weight: 500;
@@ -155,16 +176,16 @@ span.sl-2{
   line-height: 20px;
   border-radius: 20px;
 }
-.vacancy-buttons{
-  margin-top: 20px;
-  display:flex;
+.vacancy-buttons {
+  display: flex;
   gap: 20px;
-  margin-left: 300px;
 
+  justify-content: flex-end;
+  align-items: flex-end;
 }
+/*VACANCY*/
 hr{
   background: black;
-
   height: 4px;
 }
 .company-departments ul{
