@@ -1,6 +1,5 @@
 ﻿using Dal.Models;
 using Dal.Repositories.BaseRepository;
-using Dal.Repositories.VacancyRepository.Interfaces;
 
 namespace Dal.Repositories.VacancyRepository;
 

@@ -3,7 +3,6 @@ using Dal.Models;
 using Dal.Repositories.SummaryRepository;
 using Dal.Repositories.TagRepository;
 using Dal.Repositories.VacancyRepository;
-using Dal.Repositories.VacancyRepository.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

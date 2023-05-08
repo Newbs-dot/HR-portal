@@ -14,8 +14,4 @@ public class User : IdentityUser<long>, IBaseModel
     public string? RefreshToken { get; set; }
 
     public DateTime RefreshTokenExpiryTime { get; set; }
-
-    public Summary? Summary { get; set; }
-
-    public ICollection<Vacancy>? Vacancies { get; set; }
 }
