@@ -51,6 +51,7 @@ builder.Services.AddAuthentication(opt =>
 builder.Services.AddAuthorization(options => options.AddPolicies());
 
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection(JwtSettings.Jwt));
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection(EmailSettings.EmailData));
 
 var app = builder.Build();
 

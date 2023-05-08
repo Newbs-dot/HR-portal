@@ -2,6 +2,8 @@
 using Dal.Repositories.TagRepository;
 using HR_portal_api.Controllers.SummaryController.Dto.Request;
 using HR_portal_api.Controllers.TagController.Dto;
+using HR_portal_api.Controllers.TagController.Dto.Response;
+using HR_portal_api.Mappers;
 using HR_portal_api.Policy;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -29,26 +31,27 @@ public class TagController : ControllerBase
         if (name == null || description == null)
             return BadRequest("Invalid request data");
 
-        await _tagRepository.CreateAsync(new Tag { Description = description, Name = name });
+        await _tagRepository.CreateAsync(new Tag
+            { Description = description, Name = name, VacancyIdList = null, SummaryIdList = null });
 
         return Ok();
     }
 
     [HttpGet]
-    public async Task<List<Tag>> GetTags()
+    public async Task<List<TagResponse>> GetTags()
     {
-        return (await _tagRepository.GetAllAsync()).ToList();
+        return (await _tagRepository.GetAllAsync()).Select(t => t.GetTagResponse()).ToList();
     }
 
     [HttpGet("id")]
-    public async Task<ActionResult<Tag?>> GetTag(int id)
+    public async Task<ActionResult<TagResponse?>> GetTag(int id)
     {
         var tag = await _tagRepository.FindAsync(id);
 
         if (tag == null)
             return BadRequest("invalid tag id");
 
-        return tag;
+        return tag.GetTagResponse();
     }
 
     [HttpPut("id")]
@@ -62,6 +65,8 @@ public class TagController : ControllerBase
 
         tag.Description = request.Description ?? tag.Description;
         tag.Name = request.Name ?? tag.Name;
+        tag.VacancyIdList = request.VacancyIdList ?? tag.VacancyIdList;
+        tag.SummaryIdList = request.SummaryIdList ?? tag.SummaryIdList;
 
         await _tagRepository.UpdateAsync(tag);
 

@@ -9,4 +9,6 @@ public class UpdateSummaryRequest
     public string? Description { get; set; } = null;
 
     public string? File { get; set; } = null;
+    
+    public bool? IsActive { get; set; } = null;
 }
