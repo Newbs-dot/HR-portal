@@ -1,9 +1,14 @@
-<app-not-auth-layout>
-</app-not-auth-layout>
+
 <head>
   <link rel="stylesheet" href="styles/registration-page.component.scss">
 </head>
-<div class = 'flex flex-col absolute justify-center items-center rounded-3xl border-1 w-2/5 right-0 h-screen bg-white'>
+
+<body>
+
+
+
+<div class = 'reg-form flex flex-col absolute justify-center items-center w-2/5 right-0 h-screen bg-white'>
+  <div class="slogan"><span class = 'sl-1'>первый шаг </span> <span class = 'sl-2'>к новому</span></div>
   <div class='w-2/3'>
     <form
       class="input-wrapper"
@@ -63,11 +68,13 @@
         </div>
       </div>
     </form>
+
   </div>
+
   <button
     tuiButton
     type="button"
-    class="tui-space_right-3 tui-space_bottom-3 bg-black"
+    class="tui-space_right-3 tui-space_bottom-3 reg-button"
     (click)="onClick($event)"
   >
     Создать аккаунт
@@ -75,6 +82,7 @@
 
 
 </div>
-
+<img class = "main-bg" src ='../reg-bg.png'/>
+</body>
 
 

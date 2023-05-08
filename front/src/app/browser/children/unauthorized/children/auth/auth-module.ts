@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent, MainPageComponent, RegistrationPageComponent } from './pages';
+import { LoginPageComponent, RegistrationPageComponent } from './pages';
 import { UnauthorizedLayoutComponent } from '../../components';
 import { TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule } from '@taiga-ui/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule,TuiField
 
 const components: any[] = [];
 
-const pages: any[] = [LoginPageComponent, RegistrationPageComponent, MainPageComponent];
+const pages: any[] = [LoginPageComponent, RegistrationPageComponent];
 
 const routes: Routes = [
     {
@@ -24,11 +24,7 @@ const routes: Routes = [
     {
         path: 'reg',
         component: RegistrationPageComponent,
-    },
-    {
-        path: 'main',
-        component: MainPageComponent,
-    },
+    }
 ];
 
 @NgModule({

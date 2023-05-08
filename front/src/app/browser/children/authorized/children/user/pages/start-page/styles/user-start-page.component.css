@@ -25,6 +25,223 @@ h2 {
 .but1 {
   height: 58px;
   background-color: #6F08FF;
+  border-radius: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+  display: flex;
+  margin: 20px 20px 20px 20px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.but5 {
+  height: 58px;
+  background-color: #6F08FF;
+  border-radius: 10px;
+  width: 138%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+  display: flex;
+  margin: 20px 20px 20px 20px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.text9 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #787885;
+}
+
+.text10 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.uwu {
+  color: black;
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px 20px 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: center;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.categories ul li {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  white-space: nowrap;
+}
+
+.categories ul {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.categories {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.but2 {
+  height: 58px;
+  background-color: #6F08FF;
+  border-radius: 10px;
+  width: 122%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+  font-family: "Montserrat";
+  display: flex;
+  margin: 20px 20px 20px 20px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.but3 {
+  height: 72px;
+  background-color: black;
+  border-radius: 10px;
+  width: 25%;
+  color: white;
+  float: right;
+  text-align: center;
+  padding-top: 14px;
+  font-size: 25px;
+}
+
+.im {
+  padding-left: 20px;
+}
+
+.im2 {
+  padding-left: 158px;
+}
+
+.im3 {
+  padding-left: 140px;
+}
+
+.im4 {
+  padding-left: 90px;
+}
+
+.im5 {
+  padding-left: 98px;
+}
+
+.boom {
+  background-color: white;
+  border-radius: 20px;
+  height: 549px;
+}
+
+.pad {
+  padding-left: 40%;
+}
+
+.text21 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  color: #000000;
+  padding-top: 40px;
+}
+
+.text22 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.text24 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 25px;
+  color: #444444;
+}
+
+.text25 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #787885;
+}
+
+.text26 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 30px;
+  color: #000000;
+}
+
+.main-bg {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background: url("../mm.png") no-repeat center center fixed;
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 2%;
+}
+
+.but99 {
+  position: absolute;
+  margin-left: 2%;
+  height: 56px;
+  background-color: #6F08FF;
+  border-radius: 10px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+  display: flex;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .cat {
@@ -35,21 +252,56 @@ h2 {
 .cat2 {
   background-color: white;
   border-radius: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 9px;
+}
+
+.cat7 {
+  background-color: white;
+  border-radius: 20px;
+  padding-bottom: 9px;
+}
+
+.cat7 ul li {
+  display: inline-block;
+  margin: 20px 10px 20px 20px;
+  float: left;
+  width: auto;
+}
+
+.cat7 ul {
+  display: flex;
+}
+
+.cat6 {
+  background-color: white;
+  border-radius: 20px;
+  padding-bottom: 9px;
+  display: flex;
 }
 
 .text1 {
   font-weight: bold;
   font-size: 25px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .text2 {
   height: 32px;
-  background: gray;
-  width: 11%;
+  background: #D9D9D9;
+  display: flex;
+  width: 12%;
   align-items: center;
   justify-content: center;
   justify-items: center;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #000000;
 }
 
 .vert1 {
@@ -57,21 +309,36 @@ h2 {
 }
 
 .text3 {
-  font-size: 22px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
 }
 
 .text4 {
-  font-size: 18px;
   padding-bottom: 10px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
 }
 
 .text5 {
+  padding-bottom: 1%;
   text-align: start;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
 }
 
 .cat3 {
   background-color: white;
   border-radius: 20px;
+  padding: 20px 20px 20px 20px;
 }
 
 .cat3 ul li {
@@ -85,7 +352,6 @@ h2 {
 }
 
 .cat2 ul li {
-  color: black;
   display: flex;
   margin: 20px 10px 20px 20px;
 }
@@ -103,29 +369,6 @@ h2 {
 
 .cat ul {
   display: flex;
-}
-
-.categories ul li {
-  color: black;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  font-size: 17px;
-  margin: 20px 20px 20px 20px;
-  width: 100%;
-  border-radius: 20px;
-  align-items: center;
-}
-
-.categories ul {
-  display: flex;
-  justify-content: center;
-  justify-items: center;
-}
-
-.categories {
-  background-color: white;
-  border-radius: 20px;
 }
 
 /*# sourceMappingURL=user-start-page.component.css.map */

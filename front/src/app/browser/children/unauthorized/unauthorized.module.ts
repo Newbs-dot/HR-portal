@@ -1,31 +1,31 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountStartPageComponent } from './pages';
 import { UnauthorizedLayoutComponent } from './components';
 import {TuiErrorModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
 import {ReactiveFormsModule} from "@angular/forms";
 import {TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule} from "@taiga-ui/kit";
+import {MainPageComponent} from "./pages/main/main-page.component";
 
 const components: any[] = [
 ];
 
 const pages: any[] = [
-    AccountStartPageComponent,
+    MainPageComponent,
 ];
 
 const routes: Routes = [
     {
         path: '',
-        component: AccountStartPageComponent,
+        component: MainPageComponent,
         children:[
             {
-                path: 'vacancies',
-                component: AccountStartPageComponent,
+                path: 'main',
+                component: MainPageComponent,
             },
             {
                 path: '',
-                redirectTo: 'vacancies',
+                redirectTo: 'main',
                 pathMatch: 'full'
             },
         ]

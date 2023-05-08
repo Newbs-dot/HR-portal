@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  /*overflow: hidden;  Hide scrollbars */
+}
+h1{
+  font-size: 54px;
+  font-weight: 600;
+}
+h2{
+  font-weight: 700;
+  font-size: 24px;
+}
+.categories ul{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.main-center{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.main-bg{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size:cover;
+  background: url("../yg1.png") no-repeat  center center fixed;
+  width: 100vw;
+
+}
+
+
+header{
+  position: relative;
+
+}
+nav{
+  z-index: 1000;
+  position: absolute;
+  font-weight: 600;
+  font-size: 18px;
+  top: 0px;
+}
+.slogan {
+  position: absolute;
+  font-weight: 800;
+  font-size: 100px;
+  margin-top: 400px;
+  margin-left: 300px;
+  width: 800px;
+  line-height: 120px;
+
+}
+
+span.sl-1{
+  color: white;
+}
+span.sl-2{
+  color: #6F08FF;
+}
+.categories ul li{
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 32px;
+  height: 150px;
+  margin: 20px 20px 20px 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.search{
+  background: black;
+  width: 350px;
+  height: 100px;
+  position: absolute;
+  margin-top: 800px;
+  margin-left: 300px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  color: white;
+  border-radius: 20px;
+}
+/*VACANCY*/
+.vacancy-descripton{
+  height:100px;
+}
+.vacancy-name{
+  margin-top: 10px;
+}
+.new-vacancies li{
+  border-radius: 20px;
+  margin: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: white;
+  flex-grow: 1;
+  width: 40%;
+  padding:20px 20px 60px 20px;
+}
+
+.new-vacancies ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+.vacancy{
+  position: relative;
+}
+.department-name{
+  font-weight: 500;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.salary{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 10px;
+}
+.department{
+  display: flex;
+  line-height: 60px;
+  gap: 10px;
+}
+.department-logo{
+  background: url("./../../../../../../../img/department-logo.png") center no-repeat;
+  height: 60px;
+  width: 60px;
+}
+.like{
+  position: absolute;
+  right: 0;
+  background: url("./../../../../../../../img/heart.png") center no-repeat;
+  height: 30px;
+  width: 30px;
+  transition: background-color 0.5s;
+}
+.like:hover{
+  background-color:coral;
+}
+.vacancy-descripton{
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin-top: 10px;
+}
+.respond{
+  background:#6F08FF;
+  width: 150px;
+  height:40px;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 20px;
+}
+.details{
+
+  background: black;
+  width: 150px;
+  height:40px;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 20px;
+}
+.vacancy-buttons {
+  display: flex;
+  gap: 20px;
+
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+/*VACANCY*/
+hr{
+  background: black;
+  height: 4px;
+}
+.company-departments ul{
+  display: flex;
+ justify-content: center;
+  gap: 100px;
+
+}
+.company-departments li{
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 32px;
+  width: 300px;
+  line-height: 40px;
+
+}
+.developer-img{
+  background: url("./../../../../../../../img/programmer.png") center no-repeat;
+  width: 450px;
+  height: 450px;
+
+}
+.manager-img{
+  background: url("./../../../../../../../img/manager.png") center no-repeat;
+  width: 450px;
+  height: 450px;
+}
+.tester-img{
+  background: url("./../../../../../../../img/programmer2.png") center no-repeat;
+  width: 450px;
+  height: 450px;
+}
+
+

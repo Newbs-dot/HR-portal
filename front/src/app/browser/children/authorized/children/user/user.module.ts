@@ -2,22 +2,36 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserLayoutComponent } from './components';
-import { UserStartPageComponent } from './pages';
-
+import { UserStartPageComponent,UserJobSearchComponent,UserReviewedComponent,UserFeaturedVacancy,UserJobDescComponent } from './pages';
 const components: any[] = [];
 
-const pages: any[] = [UserStartPageComponent];
+const pages: any[] = [UserStartPageComponent,UserJobSearchComponent,UserReviewedComponent,UserFeaturedVacancy,UserJobDescComponent];
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'vacancy'
+        redirectTo: 'profile'
     },
     {
-        path: 'vacancy',
+        path: 'profile',
         component: UserStartPageComponent
-    }
+    },
+    {
+        path: 'search',
+        component: UserJobSearchComponent
+    },
+    {
+        path: 'reviewed',
+        component: UserReviewedComponent
+    },
+    {   path: 'featured',
+        component: UserFeaturedVacancy
+    },
+    {
+        path: 'description',
+        component: UserJobDescComponent
+    },
 ];
 
 @NgModule({
