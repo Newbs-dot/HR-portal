@@ -18,5 +18,7 @@ public class Vacancy : IBaseModel
 
     public string Name { get; set; }
 
-    public List<Tag> Tags { get; set; }
+    public long CreatedBy { get; set; }
+
+    public List<long>? RespondedUsers { get; set; } = null;
 }

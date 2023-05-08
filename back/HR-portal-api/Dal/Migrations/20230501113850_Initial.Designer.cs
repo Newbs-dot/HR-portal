@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Dal.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230415230212_Initial")]
+    [Migration("20230501113850_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -32,6 +32,9 @@ namespace Dal.Migrations
                         .HasColumnType("bigint");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("CreatedBy")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -72,17 +75,17 @@ namespace Dal.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long?>("SummaryId")
-                        .HasColumnType("bigint");
+                    b.Property<long[]>("SummaryIdList")
+                        .IsRequired()
+                        .HasColumnType("bigint[]")
+                        .HasColumnName("SummaryIdList");
 
-                    b.Property<long?>("VacancyId")
-                        .HasColumnType("bigint");
+                    b.Property<long[]>("VacancyIdList")
+                        .IsRequired()
+                        .HasColumnType("bigint[]")
+                        .HasColumnName("VacancyIdList");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SummaryId");
-
-                    b.HasIndex("VacancyId");
 
                     b.ToTable("Tags");
                 });
@@ -110,11 +113,9 @@ namespace Dal.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("LockoutEnabled")
@@ -179,6 +180,9 @@ namespace Dal.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
 
+                    b.Property<long>("CreatedBy")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("DepartamentName")
                         .IsRequired()
                         .HasColumnType("text");
@@ -197,6 +201,11 @@ namespace Dal.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<long[]>("RespondedUsers")
+                        .IsRequired()
+                        .HasColumnType("bigint[]")
+                        .HasColumnName("RespondedUsers");
 
                     b.Property<int>("Salary")
                         .HasColumnType("integer");
@@ -338,17 +347,6 @@ namespace Dal.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Dal.Models.Tag", b =>
-                {
-                    b.HasOne("Dal.Models.Summary", null)
-                        .WithMany("Tags")
-                        .HasForeignKey("SummaryId");
-
-                    b.HasOne("Dal.Models.Vacancy", null)
-                        .WithMany("Tags")
-                        .HasForeignKey("VacancyId");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<long>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<long>", null)
@@ -398,16 +396,6 @@ namespace Dal.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Dal.Models.Summary", b =>
-                {
-                    b.Navigation("Tags");
-                });
-
-            modelBuilder.Entity("Dal.Models.Vacancy", b =>
-                {
-                    b.Navigation("Tags");
                 });
 #pragma warning restore 612, 618
         }

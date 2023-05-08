@@ -16,5 +16,5 @@ public class Summary : IBaseModel
 
     public bool IsActive { get; set; }
 
-    public List<Tag> Tags { get; set; }
+    public long CreatedBy { get; set; }
 }
