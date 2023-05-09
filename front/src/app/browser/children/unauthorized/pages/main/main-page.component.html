@@ -1,228 +1,32 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/icon?family=Montserrat:100,200,300,400,500,600,700,800"
-        rel="stylesheet">
-  <link rel="stylesheet" href="styles/main-page.component.scss">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-
-</head>
-
-<body>
-<header>
-  <!--сделать через сетку нормально-->
-
-  <nav class="flex p-[42px] w-screen text-white">
-    <a href="#"></a>
-    <ul class="flex gap-[62px] items-center">
-      <li class="pl"><a href="">Вакансии</a></li>
-      <li><a href="">Департаменты</a></li>
-    </ul>
-    <ul class="flex absolute gap-[42px] items-center right-20">
-      <li class = "flex"><a class="" href="#">Войти</a></li>
-      <li class="text-white flex"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" href="/auth/reg">Зарегистрироваться</a></li>
-    </ul>
-  </nav>
-  <div class="slogan"><span class = 'sl-1'>ЭТА РАБОТА</span> <span class = 'sl-2'> ЖДЕТ ТЕБЯ</span></div>
-  <button class = "search">Найти работу</button>
-  <img class = "main-bg" src ='../yg1.png' width="100vw"/>
-</header>
 <main>
-  <div class = 'main-center'>
-    <h1>Подборки вакансий</h1>
-    <div class="categories">
-      <ul>
-        <li>Аналитика</li>
-        <li>Дизайн</li>
-        <li>Разработка</li>
-        <li>Поддержка</li>
-      </ul>
+    <app-header></app-header>
+    <div class='main-center'>
+        <h1>Подборки вакансий</h1>
+        <h1>Новые вакансии</h1>
+        <div class="new-vacancies">
+            <ul>
+                <li *ngFor="let vacancy of vacancies">
+                    <app-vacancy
+                        id="{{vacancy.id}}"
+                        departamentName="{{vacancy.departamentName}}"
+                        name="{{vacancy.name}}"
+                        salaryFrom="{{vacancy.salaryFrom}}"
+                        salaryTo="{{vacancy.salaryTo}}"
+                        description="{{vacancy.description}}"
+                    ></app-vacancy>
+                </li>
+            </ul>
+        </div>
+        <h1>Департаменты компании</h1>
+        <div class='company-departments'>
+            <ul>
+                <li *ngFor="let departamentInfo of departamentInfoList" (click)="onDepartamentClick(departamentInfo)">
+                    <div class="{{departamentInfo.logoName}}"></div>
+                    {{departamentInfo.name}}
+                    <hr>
+                </li>
+            </ul>
+        </div>
     </div>
-    <h1>Новые вакансии</h1>
-    <div class = "new-vacancies">
-      <ul>
-        <li>
-          <div class = 'vacancy'>
-            <div class = 'department'>
-              <div class = 'department-logo'></div>
-              <div class = 'department-name'>department</div>
-              <div class = 'like'></div>
-            </div>
-            <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
-            <p class = 'vacancy-descripton'>
-              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-            </p>
-
-              <div class = 'vacancy-buttons'>
-                <button class = 'respond'>Откликнуться</button>
-                <button class = 'details'>Подробнее</button>
-
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class = 'vacancy'>
-            <div class = 'department'>
-              <div class = 'department-logo'></div>
-              <div class = 'department-name'>department</div>
-              <div class = 'like'></div>
-            </div>
-            <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
-            <p class = 'vacancy-descripton'>
-              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-            </p>
-
-            <div class = 'vacancy-buttons'>
-              <button class = 'respond'>Откликнуться</button>
-              <button class = 'details'>Подробнее</button>
-
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class = 'vacancy'>
-            <div class = 'department'>
-              <div class = 'department-logo'></div>
-              <div class = 'department-name'>department</div>
-              <div class = 'like'></div>
-            </div>
-            <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
-            <p class = 'vacancy-descripton'>
-              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-            </p>
-
-            <div class = 'vacancy-buttons'>
-              <button class = 'respond'>Откликнуться</button>
-              <button class = 'details'>Подробнее</button>
-
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class = 'vacancy'>
-            <div class = 'department'>
-              <div class = 'department-logo'></div>
-              <div class = 'department-name'>department</div>
-              <div class = 'like'></div>
-            </div>
-            <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
-            <p class = 'vacancy-descripton'>
-              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-            </p>
-
-            <div class = 'vacancy-buttons'>
-              <button class = 'respond'>Откликнуться</button>
-              <button class = 'details'>Подробнее</button>
-
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class = 'vacancy'>
-            <div class = 'department'>
-              <div class = 'department-logo'></div>
-              <div class = 'department-name'>department</div>
-              <div class = 'like'></div>
-            </div>
-            <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
-            <p class = 'vacancy-descripton'>
-              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-            </p>
-
-            <div class = 'vacancy-buttons'>
-              <button class = 'respond'>Откликнуться</button>
-              <button class = 'details'>Подробнее</button>
-
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class = 'vacancy'>
-            <div class = 'department'>
-              <div class = 'department-logo'></div>
-              <div class = 'department-name'>department</div>
-              <div class = 'like'></div>
-            </div>
-            <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
-            <div class = 'salary'>От 60 000 до 100 000 рублей</div>
-            <p class = 'vacancy-descripton'>
-              Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-            </p>
-
-            <div class = 'vacancy-buttons'>
-              <button class = 'respond'>Откликнуться</button>
-              <button class = 'details'>Подробнее</button>
-
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <h1>Департаменты компании</h1>
-    <div class = 'company-departments'>
-      <ul>
-        <li>
-          <div class="developer-img"></div>
-          Департамент разработки
-          <hr>
-        </li>
-
-        <li>
-          <div class="manager-img"></div>
-          Департамент развития
-          <hr>
-        </li>
-
-        <li>
-          <div class="tester-img"></div>
-          Департамент тестирования
-          <hr>
-        </li>
-
-      </ul>
-    </div>
-
-  </div>
+    <app-footer></app-footer>
 </main>
-
-<footer class="">
-  <div class="container "></div>
-    <div class="flex gap-[80px] justify-center h-[150px] w-screen bg-white p-[40px] ">
-      <div>
-        <div>Департаментам</div>
-        <ul>
-          <li><a class="font-bold" href="#">Размещение вакансий </a></li>
-          <li><a class="font-bold" href="#">Страница департамента</a></li>
-        </ul>
-      </div>
-      <div>
-        <div>Соискателям</div>
-        <ul>
-        <li><a class="font-bold" href="#">Поиск вакансии </a></li>
-        <li><a class="font-bold" href="#">Подборки вакансий </a></li>
-        </ul>
-      </div>
-      <div>
-        <div>О нас</div>
-        <ul>
-        <li><a class="font-bold" href="#">Наша страница</a></li>
-        </ul>
-      </div>
-    </div>
-</footer>
-
-</body>
-
-</html>
-
-
-

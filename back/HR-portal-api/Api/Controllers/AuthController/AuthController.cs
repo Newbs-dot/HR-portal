@@ -65,7 +65,7 @@ public class AuthController : ControllerBase
         return await Authenticate(new AuthRequest
         {
             Email = request.Email,
-            Password = request.Password
+            Password = request.Password,
         });
     }
 
@@ -113,8 +113,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("/refresh")]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
-    public async Task<IActionResult> Check(TokenModel? tokenModel)
+    public async Task<ActionResult<AuthResponse>> Check(TokenModel? tokenModel)
     {
         if (tokenModel is null)
             return BadRequest("Invalid client request");
@@ -138,10 +137,11 @@ public class AuthController : ControllerBase
         user.RefreshToken = newRefreshToken;
         await _userManager.UpdateAsync(user);
 
-        return new ObjectResult(new
+        return Ok(new AuthResponse
         {
-            accessToken = new JwtSecurityTokenHandler().WriteToken(newAccessToken),
-            refreshToken = newRefreshToken
+            Email = user.Email!,
+            Token = new JwtSecurityTokenHandler().WriteToken(newAccessToken),
+            RefreshToken = newRefreshToken
         });
     }
 }

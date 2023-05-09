@@ -1,7 +1,75 @@
-<app-not-auth-layout></app-not-auth-layout>
-<div>
-    login page !!!!!
-</div>
-<a href = 'auth/reg'>register</a>
-<div><a href = 'auth/main'>VVP</a></div>
+<head>
+    <link rel="stylesheet" href="styles/registration-page.component.scss">
+</head>
 
+<body>
+
+
+<div class='reg-form flex flex-col absolute justify-center items-center w-2/5 right-0 h-screen bg-white'>
+    <div class="slogan"><span class='sl-1'>первый шаг </span> <span class='sl-2'>к новому</span></div>
+    <div class='w-2/3'>
+        <form
+            class="input-wrapper"
+            [formGroup]="form"
+        >
+            <div
+                class=""
+            >
+                <tui-error
+                    tuiGroup="email"
+                    [error]="[] | tuiFieldError | async"
+                ></tui-error>
+                <div class="mb-8">
+                    <tui-input
+                        formControlName="email"
+                        class="tui-group__inherit-item"
+                    >
+                        Емайл
+                        <input
+                            tuiTextfield
+                        />
+                    </tui-input>
+                    <tui-error
+                        formControlName="email"
+                        [error]="[] | tuiFieldError | async"
+                    ></tui-error>
+                </div>
+                <div class="mb-8">
+                    <tui-input
+                        formControlName="password"
+                        class="tui-group__inherit-item"
+                    >
+                        Пароль
+                        <input
+                            type="password"
+                            tuiTextfield
+                        />
+                    </tui-input>
+                    <tui-error
+                        formControlName="password"
+                        [error]="[] | tuiFieldError | async"
+                    ></tui-error>
+                </div>
+            </div>
+            <tui-error
+                formGroupName="form"
+                [error]="formError"
+            ></tui-error>
+        </form>
+    
+    </div>
+    
+    <button
+        tuiButton
+        type="button"
+        class="tui-space_right-3 tui-space_bottom-3 reg-button"
+        (click)="onClick()"
+        [disabled]="form.invalid"
+    >
+        Войти
+    </button>
+
+
+</div>
+<img class="main-bg" src='../reg-bg.png'/>
+</body>
