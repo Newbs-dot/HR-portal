@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UnauthorizedLayoutComponent } from './components';
-import {TuiErrorModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
-import {ReactiveFormsModule} from "@angular/forms";
-import {TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule} from "@taiga-ui/kit";
-import {MainPageComponent} from "./pages/main/main-page.component";
+import { TuiErrorModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule } from '@taiga-ui/kit';
+import { MainPageComponent } from './pages/main/main-page.component';
+import { UnauthorizedLayoutComponent } from './components/layout/unauthorized-layout.component';
 
-const components: any[] = [
-];
+const components: any[] = [];
 
 const pages: any[] = [
     MainPageComponent,
@@ -18,7 +17,7 @@ const routes: Routes = [
     {
         path: '',
         component: MainPageComponent,
-        children:[
+        children: [
             {
                 path: 'main',
                 component: MainPageComponent,

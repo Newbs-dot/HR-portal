@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent, RegistrationPageComponent } from './pages';
-import { UnauthorizedLayoutComponent } from '../../components';
 import { TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule } from '@taiga-ui/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule,TuiFieldErrorPipeModule } from '@taiga-ui/kit';
+import { UnauthorizedLayoutComponent } from '../../components/layout/unauthorized-layout.component';
 
 const components: any[] = [];
 
