@@ -1,1 +1,3 @@
-export * from './layout/unauthorized-layout.component';
+export * from './footer/footer.component';
+export * from './vacancy/vacancy.component';
+export * from './header/header.component';

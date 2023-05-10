@@ -2,8 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent, RegistrationPageComponent } from './pages';
-import { UnauthorizedLayoutComponent } from '../../components';
-import { TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule } from '@taiga-ui/core';
+import { TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule, TuiHintModule, TuiGroupModule } from '@taiga-ui/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule,TuiFieldErrorPipeModule } from '@taiga-ui/kit';
 
@@ -31,7 +30,6 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        UnauthorizedLayoutComponent,
         TuiErrorModule,
         ReactiveFormsModule,
         TuiMultiSelectModule,
@@ -40,6 +38,8 @@ const routes: Routes = [
         TuiDataListWrapperModule,
         TuiFieldErrorPipeModule,
         TuiButtonModule,
+        TuiHintModule,
+        TuiGroupModule,
     ],
     declarations: [...components, ...pages],
 })

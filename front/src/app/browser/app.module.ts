@@ -1,20 +1,16 @@
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
-import {
-  TUI_SANITIZER,
-  TuiAlertModule,
-  TuiDialogModule,
-  TuiErrorModule,
-  TuiRootModule,
-  TuiTextfieldControllerModule
-} from '@taiga-ui/core';
+import { TUI_SANITIZER, TuiAlertModule, TuiDialogModule, TuiRootModule } from '@taiga-ui/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
 import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { NotFoundComponent } from '../common/not-found/not-found.component';
-import {ReactiveFormsModule} from "@angular/forms";
-import {TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule} from "@taiga-ui/kit";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { TUI_LANGUAGE, TUI_RUSSIAN_LANGUAGE } from '@taiga-ui/i18n';
+import { of, Subject } from 'rxjs';
+import { API_URL, AuthenticatorGuardService, AuthService, LOGOUT_EVENT } from '../common';
 
 const routes: Routes = [
     {
@@ -41,6 +37,8 @@ const routes: Routes = [
     ],
     imports: [
         BrowserModule,
+        CommonModule,
+        HttpClientModule,
         BrowserAnimationsModule,
         TuiRootModule,
         TuiDialogModule,
@@ -49,7 +47,21 @@ const routes: Routes = [
         RouterModule.forRoot(routes),
     ],
     providers: [
-        { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer }
+        { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
+        {
+            provide: TUI_LANGUAGE,
+            useValue: of(TUI_RUSSIAN_LANGUAGE),
+        },
+        {
+            provide: API_URL,
+            useValue: 'http://localhost:80'
+        },
+        {
+            provide: LOGOUT_EVENT,
+            useValue: new Subject<void>()
+        },
+        AuthenticatorGuardService,
+        AuthService
     ],
     bootstrap: [AppComponent]
 })
