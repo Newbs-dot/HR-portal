@@ -31,16 +31,12 @@ h2{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size:cover;
-  background: url("../yg1.png") no-repeat  center center fixed;
+  background: url("../yg1.png") no-repeat  center center ;
   width: 100vw;
 
 }
 
 
-header{
-  position: relative;
-
-}
 nav{
   z-index: 1000;
   position: absolute;
@@ -48,17 +44,31 @@ nav{
   font-size: 18px;
   top: 0px;
 }
-.slogan {
-  position: absolute;
-  font-weight: 800;
-  font-size: 100px;
-  margin-top: 400px;
-  margin-left: 300px;
-  width: 800px;
-  line-height: 120px;
-
+.wrapper{
+  display: inline-block;
+  width: 100vw;
+  height: 1080px;
+  background:url("../yg1.png") center/cover no-repeat;
 }
-
+.slogan{
+  margin-top: 400px;
+  container-type: inline-size;
+  font-weight: 800;
+  line-height: 110px;
+  margin-left: 170px;
+  font-size: 100px;
+}
+.search{
+  background: black;
+  width: 350px;
+  height: 100px;
+  font-weight: 600;
+  font-size: 32px;
+  margin-left: 170px;
+  margin-top: 110px;
+  color: white;
+  border-radius: 20px;
+}
 span.sl-1{
   color: white;
 }
@@ -79,19 +89,7 @@ span.sl-2{
   align-items: center;
 }
 
-.search{
-  background: black;
-  width: 350px;
-  height: 100px;
-  position: absolute;
-  margin-top: 800px;
-  margin-left: 300px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 39px;
-  color: white;
-  border-radius: 20px;
-}
+
 /*VACANCY*/
 .vacancy-descripton{
   height:100px;
@@ -187,6 +185,7 @@ span.sl-2{
 hr{
   background: black;
   height: 4px;
+
 }
 .company-departments ul{
   display: flex;
