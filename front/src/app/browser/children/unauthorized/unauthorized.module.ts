@@ -1,13 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { TuiErrorModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule } from '@taiga-ui/kit';
+import { SalaryDevidePipe } from 'src/app/common';
+import { FooterComponent, HeaderComponent, VacancyComponent } from './components';
 import { MainPageComponent } from './pages/main/main-page.component';
-import { UnauthorizedLayoutComponent } from './components/layout/unauthorized-layout.component';
 
-const components: any[] = [];
+
+const components: any[] = [
+    FooterComponent,
+    VacancyComponent,
+    HeaderComponent,
+];
 
 const pages: any[] = [
     MainPageComponent,
@@ -30,9 +36,29 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'vacancies/:id',
+        loadChildren: () => import('./children/vacancy-detail/vacancy-detail.module')
+            .then((m: any) => m.VacancyDetailModule),
+    },
+    {
         path: 'auth',
         loadChildren: () => import('./children/auth/auth-module')
             .then((m: any) => m.AuthModule),
+    },
+    {
+        path: 'departaments',
+        loadChildren: () => import('./children/departaments/departaments.module')
+            .then((m: any) => m.DepartamentsModule),
+    },
+    {
+        path: 'departaments/:id',
+        loadChildren: () => import('./children/departaments-detail/departaments-detail.module')
+            .then((m: any) => m.DepartamentsDetailModule),
+    },
+    {
+        path: 'vacancies',
+        loadChildren: () => import('./children/vacancies/vacancies.module')
+            .then((m: any) => m.VacanciesModule),
     }
 ];
 
@@ -40,13 +66,13 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
-        UnauthorizedLayoutComponent,
         TuiErrorModule,
         ReactiveFormsModule,
         TuiMultiSelectModule,
         TuiTextfieldControllerModule,
         TuiInputModule,
         TuiDataListWrapperModule,
+        SalaryDevidePipe
     ],
     declarations: [...components, ...pages],
     exports: [...components, ...pages],
