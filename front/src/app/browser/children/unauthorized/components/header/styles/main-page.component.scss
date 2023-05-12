@@ -25,17 +25,12 @@ h2{
   margin-top: 3em;
   margin-bottom: 3em;
 }
-
-.main-bg{
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size:cover;
-  background: url("./../../../../../../../img/yg1.png") no-repeat  center center fixed;
+.wrapper{
+  display: inline-block;
   width: 100vw;
-
+  height: 1080px;
+  background:url("./../../../../../../../img/yg1.png") center/cover no-repeat;
 }
-
 
 header{
   position: relative;
@@ -49,13 +44,14 @@ nav{
   top: 0px;
 }
 .slogan {
-  position: absolute;
+  container-type: inline-size;
+  margin-top: 400px;
   font-weight: 800;
   font-size: 100px;
-  margin-top: 400px;
-  margin-left: 300px;
-  width: 800px;
-  line-height: 120px;
+  line-height: 110px;
+  margin-left: 170px;
+  width: 500px;
+
 
 }
 
@@ -83,12 +79,10 @@ span.sl-2{
   background: black;
   width: 350px;
   height: 100px;
-  position: absolute;
-  margin-top: 800px;
-  margin-left: 300px;
   font-weight: 600;
   font-size: 32px;
-  line-height: 39px;
+  margin-left: 170px;
+  margin-top: 110px;
   color: white;
   border-radius: 20px;
 }

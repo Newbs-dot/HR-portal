@@ -9,6 +9,7 @@ import { FooterComponent, HeaderComponent, VacancyComponent } from './components
 import { MainPageComponent } from './pages/main/main-page.component';
 
 
+
 const components: any[] = [
     FooterComponent,
     VacancyComponent,
@@ -17,6 +18,7 @@ const components: any[] = [
 
 const pages: any[] = [
     MainPageComponent,
+
 ];
 
 const routes: Routes = [

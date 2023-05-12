@@ -31,8 +31,4 @@ export class HeaderComponent {
         this._router.navigate([`./auth/reg`], { relativeTo: this._activatedRoute });
     }
 
-    protected onFindJobClick(): void {
-        this._router.navigate([`./auth`], { relativeTo: this._activatedRoute });
-    }
-
 }

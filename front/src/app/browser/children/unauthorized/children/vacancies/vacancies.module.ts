@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VacanciesPageComponent } from './pages';
 
-const components: any[] = [];
+
+const components: any[] = [
+
+];
 
 const pages: any[] = [
     VacanciesPageComponent
