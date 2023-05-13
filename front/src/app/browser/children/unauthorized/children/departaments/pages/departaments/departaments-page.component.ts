@@ -15,4 +15,7 @@ export class DepartamentsPageComponent {
     protected onFindJobClick(): void {
         this._router.navigate([`./auth`], { relativeTo: this._activatedRoute });
     }
+    protected onFindAllJobs(): void {
+        this._router.navigate([`./vacancies`], { relativeTo: this._activatedRoute });
+    }
 }

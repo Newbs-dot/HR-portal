@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule, Routes } from '@angular/router';
 import { DepartamentsPageComponent } from './pages';
 
 const components: any[] = [];
@@ -28,4 +28,5 @@ const routes: Routes = [
     declarations: [...components, ...pages],
 })
 export class DepartamentsModule {
+
 }
