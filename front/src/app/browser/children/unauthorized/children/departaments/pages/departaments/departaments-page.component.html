@@ -1,23 +1,47 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
-  <link rel="stylesheet" href="/styles/departaments-page-component.scss">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
 <main>
   <div class="wrapper">
     <div class="slogan"><span class='sl-1'>ЭТА РАБОТА</span><br> <span class='sl-2'> ЖДЕТ ТЕБЯ</span></div>
     <button class="search" (click)="onFindJobClick()">Найти работу</button>
   </div>
   <div class='main-center'>
+    <h1>Глава департамента</h1>
+    <div class="department-head-wrapper">
+      <div class="department-head-bg">
+        <div class="head-img"></div>
+      </div>
+      <div class="break-block"></div>
+      <h2 class="head-name">Сергеев Сергей Сергеевич</h2>
+    </div>
+    <div class="vacancy-department-header">
+      <h1>Вакансии компании</h1>
+      <button class = 'find-all-jobs' (click)="onFindAllJobs()">Смотреть все</button>
+    </div>
+    <div class="department-vacancies">
+      <ul>
+        <!--
+        <li *ngFor="let vacancy of vacancies">
+          <app-vacancy
+            id="{{vacancy.id}}"
+            departamentName="{{vacancy.departamentName}}"
+            name="{{vacancy.name}}"
+            salaryFrom="{{vacancy.salaryFrom}}"
+            salaryTo="{{vacancy.salaryTo}}"
+            description="{{vacancy.description}}"
+          ></app-vacancy>
 
+        </li>
+        -->
+      </ul>
+    </div>
+    <h1>Отзывы сотрудников</h1>
+    <div class="employee-review">
+      <div class="employee-review-img"></div>
+      <div class="review-wrapper">
+        <div class="quote-upper"></div>
+        <p class="review">Сначала занималась обучающими задачами, а потом перешла на реальные задачи на Java. Я узнала довольно много о spring, о hibernate, поработала с git-ом и сделала четыре задачи во время стажировки, которые сейчас пойдут в релиз. Также мне удалось прочувствовать, как проходит процесс реальной разработки.</p>
+        <div class="quote-lower"></div>
+      </div>
+    </div>
   </div>
 
 </main>
-</html>
