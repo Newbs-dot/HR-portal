@@ -10,16 +10,6 @@ import { MainPageComponent } from './pages/main/main-page.component';
 
 
 
-const components: any[] = [
-    FooterComponent,
-    VacancyComponent,
-    HeaderComponent,
-];
-
-const pages: any[] = [
-    MainPageComponent,
-
-];
 
 const routes: Routes = [
     {
@@ -74,10 +64,14 @@ const routes: Routes = [
         TuiTextfieldControllerModule,
         TuiInputModule,
         TuiDataListWrapperModule,
-        SalaryDevidePipe
+        SalaryDevidePipe,
+        HeaderComponent,
+        FooterComponent,
+        VacancyComponent
     ],
-    declarations: [...components, ...pages],
-    exports: [...components, ...pages],
+    declarations: [
+        MainPageComponent
+    ],
 })
 export class UnauthorizedModule {
 }

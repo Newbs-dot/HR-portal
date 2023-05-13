@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SalaryDevidePipe } from '../../../../../common';
 
 @Component({
     selector: 'app-vacancy',
     templateUrl: './vacancy.component.html',
     styleUrls: ['./styles/main-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [SalaryDevidePipe],
+    standalone: true,
 })
 export class VacancyComponent {
 

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VacanciesPageComponent } from './pages';
+import { FooterComponent, HeaderComponent } from '../../components';
 
 
 const components: any[] = [
@@ -29,6 +30,8 @@ const routes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(routes),
+        FooterComponent,
+        HeaderComponent,
     ],
     declarations: [...components, ...pages],
 })

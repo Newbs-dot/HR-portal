@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IDepartamentsInfo, IVacancies } from '../../../../../common';
+import { IDepartamentsInfo, IVacancies, REQUESTED_VACANCIES } from '../../../../../common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -7,6 +7,13 @@ import { ActivatedRoute, Router } from '@angular/router';
     templateUrl: './main-page.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./styles/main-page.component.scss'],
+    providers: [
+//        {
+//            provide: REQUESTED_VACANCIES,
+//            deps:[useFactory: (): MainPageComponent => MainPageComponent]
+//            useFactory:()
+//        }
+    ]
 })
 export class MainPageComponent {
 
@@ -84,6 +91,7 @@ export class MainPageComponent {
     public onDepartamentClick(departament: IDepartamentsInfo): void {
         this._router.navigate([`./departaments/${ departament.id }`], { relativeTo: this._activatedRoute });
     }
+
     protected onFindJobClick(): void {
         this._router.navigate([`./auth`], { relativeTo: this._activatedRoute });
     }
