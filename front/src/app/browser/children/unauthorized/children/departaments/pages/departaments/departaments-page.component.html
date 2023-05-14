@@ -1,4 +1,5 @@
 <main>
+  <app-header></app-header>
   <div class="wrapper">
     <div class="slogan"><span class='sl-1'>ЭТА РАБОТА</span><br> <span class='sl-2'> ЖДЕТ ТЕБЯ</span></div>
     <button class="search" (click)="onFindJobClick()">Найти работу</button>
@@ -18,7 +19,7 @@
     </div>
     <div class="department-vacancies">
       <ul>
-        <!--
+
         <li *ngFor="let vacancy of vacancies">
           <app-vacancy
             id="{{vacancy.id}}"
@@ -30,7 +31,7 @@
           ></app-vacancy>
 
         </li>
-        -->
+
       </ul>
     </div>
     <h1>Отзывы сотрудников</h1>
@@ -43,5 +44,5 @@
       </div>
     </div>
   </div>
-
+  <app-footer></app-footer>
 </main>

@@ -11,6 +11,11 @@
   width: 100vw;
 
 }
+.reg-form-wrapper{
+  margin-left: 150px;
+  margin-right: 150px;
+
+}
 .reg-form{
   z-index: 1000;
   position: absolute;
@@ -19,16 +24,18 @@
   background-color: white;
   height: 100vh;
   border-radius: 50px 0px 0px 50px;
-  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .slogan {
-  text-align: center;
+  text-align: left;
   justify-content: center;
   text-transform: uppercase;
   font-weight: 800;
   font-size: 60px;
   line-height: 70px;
-
+  margin-bottom: 100px;
 }
 .reg-button{
   background-color: black;
