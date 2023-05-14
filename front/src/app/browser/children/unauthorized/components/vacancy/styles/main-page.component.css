@@ -1,12 +1,13 @@
-
 /*VACANCY*/
-.vacancy-descripton{
-  height:100px;
+.vacancy-descripton {
+  height: 100px;
 }
-.vacancy-name{
+
+.vacancy-name {
   margin-top: 10px;
 }
-.new-vacancies li{
+
+.new-vacancies li {
   border-radius: 20px;
   margin: 10px;
   font-weight: 500;
@@ -14,38 +15,44 @@
   background-color: white;
   flex-grow: 1;
   width: 40%;
-  padding:20px 20px 60px 20px;
+  padding: 20px 20px 60px 20px;
 }
 
-.new-vacancies ul{
+.new-vacancies ul {
   display: flex;
   flex-wrap: wrap;
 }
-.vacancy{
+
+.vacancy {
   position: relative;
 }
-.department-name{
+
+.department-name {
   font-weight: 500;
   font-size: 24px;
   text-transform: uppercase;
 }
-.salary{
+
+.salary {
   font-weight: 600;
   font-size: 18px;
   line-height: 22px;
   margin-top: 10px;
 }
-.department{
+
+.department {
   display: flex;
   line-height: 60px;
   gap: 10px;
 }
-.department-logo{
+
+.department-logo {
   background: url("./../../../../../../../img/department-logo.png") center no-repeat;
   height: 60px;
   width: 60px;
 }
-.like{
+
+.like {
   position: absolute;
   right: 0;
   background: url("./../../../../../../../img/heart.png") center no-repeat;
@@ -53,55 +60,60 @@
   width: 30px;
   transition: background-color 0.5s;
 }
-.like:hover{
+
+.like:hover {
   background: url("./../../../../../../../img/onlike.png") center no-repeat;
 }
-.vacancy-descripton{
+
+.vacancy-descripton {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   margin-top: 10px;
 }
-.respond{
-  background:#6F08FF;
+
+.respond {
+  background: #6F08FF;
   width: 150px;
-  height:40px;
+  height: 40px;
   color: white;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   border-radius: 20px;
 }
-.details{
 
+.details {
   background: black;
   width: 150px;
-  height:40px;
+  height: 40px;
   color: white;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   border-radius: 20px;
 }
+
 .vacancy-buttons {
   display: flex;
   gap: 20px;
-
   justify-content: flex-end;
   align-items: flex-end;
 }
+
 /*VACANCY*/
-hr{
+hr {
   background: black;
   height: 4px;
 }
-.company-departments ul{
-  display: flex;
- justify-content: center;
-  gap: 100px;
 
+.company-departments ul {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
 }
-.company-departments li{
+
+.company-departments li {
   margin-left: 50px;
   margin-right: 50px;
   text-align: center;
@@ -109,27 +121,27 @@ hr{
   font-size: 32px;
   width: 300px;
   line-height: 40px;
-
 }
-.developer-img{
+
+.developer-img {
   background: url("./../../../../../../../img/programmer.png") center no-repeat;
   width: 450px;
   height: 450px;
-
 }
-.manager-img{
+
+.manager-img {
   background: url("./../../../../../../../img/manager.png") center no-repeat;
   width: 450px;
   height: 450px;
 }
-.tester-img{
+
+.tester-img {
   background: url("./../../../../../../../img/programmer2.png") center no-repeat;
   width: 450px;
   height: 450px;
 }
 
-//
-.vacancy-hashtag{
+.vacancy-hashtag {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -137,14 +149,15 @@ hr{
   margin-top: -20px;
 }
 
-.hashtag{
+.hashtag {
   width: auto;
   height: auto;
   padding: 5px;
   background: #D9D9D9;
-  font-style: normal ;
+  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   border-radius: 5px;
 }
 
+/*# sourceMappingURL=main-page.component.css.map */
