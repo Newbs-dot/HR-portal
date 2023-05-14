@@ -5,3 +5,6 @@ export * from './pipes/index';
 export * from './vacacncies/index';
 export * from './auth/index';
 export * from './enums/index';
+export * from './departaments/index';
+export * from './tag/index';
+export * from './user/index';

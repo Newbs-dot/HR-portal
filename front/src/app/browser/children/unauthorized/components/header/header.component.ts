@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-header',
@@ -7,8 +8,23 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./styles/header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
+    imports: [
+        NgIf
+    ]
 })
 export class HeaderComponent {
+
+    @Input()
+    public showDepartament: boolean = false;
+
+    @Input()
+    public showVacancies: boolean = true;
+
+    @Input()
+    public departamentElement?: ElementRef;
+
+    @Input()
+    public isWhiteTeheme: boolean = true;
 
     constructor(
         private _router: Router,
@@ -19,11 +35,16 @@ export class HeaderComponent {
     protected onVacancyButtonClick(): void {
         this._router.navigate([`/vacancies`], { relativeTo: this._activatedRoute });
     }
+
     protected onHomeButtonClick(): void {
         this._router.navigate([`/main`], { relativeTo: this._activatedRoute });
     }
+
     protected onDepartamentsButtonClick(): void {
-        this._router.navigate([`/departaments`], { relativeTo: this._activatedRoute });
+        if (this.departamentElement) {
+            const { top }: DOMRect = this.departamentElement.nativeElement.getBoundingClientRect();
+            window.scrollTo({ top });
+        }
     }
 
     protected onLoginButtonClick(): void {

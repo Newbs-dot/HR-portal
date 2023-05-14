@@ -29,6 +29,7 @@ export class RegistrationPageComponent {
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
+        window.scrollTo({ top: 0 });
     }
 
     public onClick(): void {

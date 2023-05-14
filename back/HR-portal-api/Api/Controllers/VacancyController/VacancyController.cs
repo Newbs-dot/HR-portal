@@ -1,4 +1,5 @@
 ﻿using Dal.Models;
+using Dal.Repositories.DepartamentRepository;
 using Dal.Repositories.TagRepository;
 using Dal.Repositories.VacancyRepository;
 using HR_portal_api.Controllers.TagController.Dto;
@@ -29,15 +30,19 @@ public class VacancyController : ControllerBase
 
     private readonly ITagRepository _tagRepository;
 
+    private readonly IDepartamentRepository _departamentRepository;
+
     private readonly JwtSettings _jwtSettings;
 
     public VacancyController(IVacancyRepository vacancyRepository, IOptions<JwtSettings> options,
-        UserManager<User> userManager, ITagService tagService, ITagRepository tagRepository)
+        UserManager<User> userManager, ITagService tagService, ITagRepository tagRepository,
+        IDepartamentRepository departamentRepository)
     {
         _vacancyRepository = vacancyRepository;
         _userManager = userManager;
         _tagService = tagService;
         _tagRepository = tagRepository;
+        _departamentRepository = departamentRepository;
         _jwtSettings = options.Value;
     }
 
@@ -63,7 +68,9 @@ public class VacancyController : ControllerBase
         {
             Description = request.Description,
             Experience = request.Experience,
-            DepartamentName = request.DepartamentName,
+            DepartamentId = request.DepartamentId,
+            Vacancyconditions = request.Vacancyconditions,
+            VacancyRequrements = request.VacancyRequrements,
             IsActive = false,
             Name = request.Name,
             Salary = request.Salary,
@@ -196,7 +203,7 @@ public class VacancyController : ControllerBase
         return await GetResponse(vacancy, users);
     }
 
-    [HttpPost("id")]
+    [HttpPost("selected/id")]
     public async Task<IActionResult> UpdateVacancy(long id, [FromBody] UpdateVacancyRequest request)
     {
         var vacancy = await _vacancyRepository.FindAsync(id);
@@ -206,10 +213,12 @@ public class VacancyController : ControllerBase
 
         vacancy.Experience = request?.Experience ?? vacancy.Experience;
         vacancy.Description = request?.Description ?? vacancy.Description;
-        vacancy.DepartamentName = request?.DepartamentName ?? vacancy.DepartamentName;
+        vacancy.DepartamentId = request?.DepartamentId ?? vacancy.DepartamentId;
         vacancy.IsActive = request?.IsActive ?? vacancy.IsActive;
         vacancy.Salary = request?.Salary ?? vacancy.Salary;
         vacancy.Name = request?.Name ?? vacancy.Name;
+        vacancy.Vacancyconditions = request?.Vacancyconditions ?? vacancy.Vacancyconditions;
+        vacancy.VacancyRequrements = request?.VacancyRequrements ?? vacancy.VacancyRequrements;
 
         await _vacancyRepository.UpdateAsync(vacancy);
 
@@ -249,6 +258,7 @@ public class VacancyController : ControllerBase
             .Where(u => vacancy.RespondedUsers != null && vacancy.RespondedUsers.Any(vacancyId => vacancyId == u.Id))
             .Select(user => user.GetUserResponse(_userManager.GetRolesAsync(user).Result))
             .ToList();
+        var departament = await _departamentRepository.FindAsync(vacancy.DepartamentId);
 
         return new VacancyResponse
         {
@@ -257,7 +267,9 @@ public class VacancyController : ControllerBase
             Salary = vacancy.Salary,
             Description = vacancy.Description,
             IsActive = vacancy.IsActive,
-            DepartamentName = vacancy.DepartamentName,
+            Departament = departament!,
+            VacancyRequrements = vacancy.VacancyRequrements,
+            Vacancyconditions = vacancy.Vacancyconditions,
             Name = vacancy.Name,
             CreatedBy = createdByUser.GetUserResponse(createdByRole),
             RespondedUsers = respondedUsers,

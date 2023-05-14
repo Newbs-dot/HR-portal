@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { IDepartamentsInfo, IVacancies, REQUESTED_VACANCIES } from '../../../../../common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import { DepartamentService, IDepartament, IVacancy, VacancyService } from '../../../../../common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -8,87 +9,36 @@ import { ActivatedRoute, Router } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./styles/main-page.component.scss'],
     providers: [
-//        {
-//            provide: REQUESTED_VACANCIES,
-//            deps:[useFactory: (): MainPageComponent => MainPageComponent]
-//            useFactory:()
-//        }
+        DepartamentService,
+        VacancyService
     ]
 })
 export class MainPageComponent {
 
-    protected departamentInfoList: IDepartamentsInfo[] = [
-        {
-            name: 'Департамент разработки',
-            logoName: 'developer-img',
-            id: 0,
-        },
-        {
-            name: 'Департамент развития',
-            logoName: 'manager-img',
-            id: 1,
-        },
-        {
-            name: 'Департамент тестирования',
-            logoName: 'tester-img',
-            id: 2,
-        }
-    ];
+    @ViewChild('departaments')
+    private set departamentsTemplateSet(value: ElementRef) {
+        this.departamentsTemplate = value;
+        this.cdr.detectChanges();
+    }
 
-    protected vacancies: IVacancies[] = [
-        {
-            id: 0,
-            departamentName: 'department',
-            name: 'department',
-            salaryFrom: '60000',
-            salaryTo: '100000',
-            description: 'Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического'
-        },
-        {
-            id: 1,
-            departamentName: 'department',
-            name: 'department',
-            salaryFrom: '60000',
-            salaryTo: '100000',
-            description: 'Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического'
-        }, {
-            id: 2,
-            departamentName: 'department',
-            name: 'department',
-            salaryFrom: '60000',
-            salaryTo: '100000',
-            description: 'Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического'
-        }, {
-            id: 3,
-            departamentName: 'department',
-            name: 'department',
-            salaryFrom: '60000',
-            salaryTo: '100000',
-            description: 'Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического'
-        }, {
-            id: 4,
-            departamentName: 'department',
-            name: 'department',
-            salaryFrom: '60000',
-            salaryTo: '100000',
-            description: 'Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического'
-        }, {
-            id: 5,
-            departamentName: 'department',
-            name: 'department',
-            salaryFrom: '60000',
-            salaryTo: '100000',
-            description: 'Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического'
-        }
-    ];
+    protected readonly vacancies$: Observable<IVacancy[]>;
+
+    protected readonly departaments$: Observable<IDepartament[]>;
+
+    protected departamentsTemplate!: ElementRef;
 
     constructor(
+        protected departamentsService: DepartamentService,
+        protected vacancyService: VacancyService,
+        protected cdr: ChangeDetectorRef,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
+        this.vacancies$ = vacancyService.getAll();
+        this.departaments$ = departamentsService.getAll();
     }
 
-    public onDepartamentClick(departament: IDepartamentsInfo): void {
+    public onDepartamentClick(departament: IDepartament): void {
         this._router.navigate([`./departaments/${ departament.id }`], { relativeTo: this._activatedRoute });
     }
 

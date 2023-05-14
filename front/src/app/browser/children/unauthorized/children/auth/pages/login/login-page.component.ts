@@ -30,6 +30,7 @@ export class LoginPageComponent {
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
+        window.scrollTo({ top: 0 });
     }
 
     public onClick(): void {
@@ -47,7 +48,7 @@ export class LoginPageComponent {
                     if (response instanceof AuthModel) {
                         try {
                             const urlByUserRole: string = getUrlByUserRole(response.role);
-                            this._router.navigate([`../../cabinet/${ urlByUserRole }`], { relativeTo: this._activatedRoute });
+                            this._router.navigate([`/cabinet/${ urlByUserRole }`], { relativeTo: this._activatedRoute });
                         }
                         catch (e) {
                             this.setFormInvalid('Ошибка системы, скоро исправим!');

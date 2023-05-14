@@ -1,13 +1,29 @@
-export interface IVacancies {
+import { IDepartament } from '../../departaments';
+import { IUser } from '../../user';
+import { ITag } from '../../tag';
 
+export interface IVacancy {
     id: number;
-    departamentName: string;
+
+    experience: string;
+
+    salary: number;
+
+    description: string;
+
+    departament: IDepartament;
+
+    isActive: boolean;
 
     name: string;
 
-    salaryFrom: string;
+    createdBy: IUser;
 
-    salaryTo: string;
+    respondedUsers: IUser[];
 
-    description: string;
+    tags: ITag[];
+
+    vacancyRequrements: string;
+
+    vacancyconditions: string;
 }

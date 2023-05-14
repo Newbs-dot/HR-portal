@@ -1,1 +1,0 @@
-export * from './departaments/departaments-page.component';

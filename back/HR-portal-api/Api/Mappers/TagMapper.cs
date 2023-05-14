@@ -9,6 +9,7 @@ public static class TagMapper
         new()
         {
             Description = tag.Description,
+            Type = tag.Type,
             Name = tag.Name,
             Id = tag.Id
         };

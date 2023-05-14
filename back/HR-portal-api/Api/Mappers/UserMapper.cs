@@ -10,9 +10,7 @@ public static class UserMapper
         {
             Roles = roles,
             Id = user.Id,
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            MiddleName = user.MiddleName,
+            UserFullName = user.FullName,
             Email = user.Email,
             EmailConfirmed = user.EmailConfirmed,
             PhoneNumber = user.PhoneNumber,

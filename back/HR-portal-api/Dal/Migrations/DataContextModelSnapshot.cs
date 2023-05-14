@@ -23,6 +23,35 @@ namespace Dal.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Dal.Models.Departament", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("DepartamentName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("DepartamentReview")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("HeadFullName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departaments");
+                });
+
             modelBuilder.Entity("Dal.Models.Summary", b =>
                 {
                     b.Property<long>("Id")
@@ -76,6 +105,10 @@ namespace Dal.Migrations
                     b.Property<List<long>>("SummaryIdList")
                         .HasColumnType("bigint[]");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<List<long>>("VacancyIdList")
                         .HasColumnType("bigint[]");
 
@@ -106,10 +139,8 @@ namespace Dal.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("text");
-
-                    b.Property<string>("LastName")
+                    b.Property<string>("FullName")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("LockoutEnabled")
@@ -117,9 +148,6 @@ namespace Dal.Migrations
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("MiddleName")
-                        .HasColumnType("text");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -177,9 +205,8 @@ namespace Dal.Migrations
                     b.Property<long>("CreatedBy")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("DepartamentName")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<long>("DepartamentId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -201,6 +228,14 @@ namespace Dal.Migrations
 
                     b.Property<int>("Salary")
                         .HasColumnType("integer");
+
+                    b.Property<string>("VacancyRequrements")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Vacancyconditions")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 

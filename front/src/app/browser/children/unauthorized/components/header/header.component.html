@@ -1,14 +1,24 @@
 <header>
-    <nav class="flex p-[42px] w-screen text-white">
-
+    <nav class="flex p-[42px] w-screen text-white white-bg" *ngIf="isWhiteTeheme">
         <ul class="flex gap-[62px] items-center">
-            <li class="logo" (click)="onHomeButtonClick()"></li>
-            <li class="pl" (click)="onVacancyButtonClick()"><a>Вакансии</a></li>
-            <li (click)="onDepartamentsButtonClick()"><a>Департаменты</a></li>
+            <li class="logo-white pointer" (click)="onHomeButtonClick()"></li>
+            <li class="pl pointer" (click)="onVacancyButtonClick()" *ngIf="showVacancies"><a>Вакансии</a></li>
+            <li class="pointer" (click)="onDepartamentsButtonClick()" *ngIf="showDepartament"><a>Департаменты</a></li>
         </ul>
         <ul class="flex absolute gap-[42px] items-center right-20">
-            <li class="flex"><a class="" (click)="onLoginButtonClick()">Войти</a></li>
-            <li class="text-white flex"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" (click)="onRegisterButtonClick()">Зарегистрироваться</a></li>
+            <li class="flex pointer"><a class="" (click)="onLoginButtonClick()">Войти</a></li>
+            <li class="text-white flex pointer"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" (click)="onRegisterButtonClick()">Зарегистрироваться</a></li>
+        </ul>
+    </nav>
+    <nav class="flex p-[42px] w-screen black-bg" *ngIf="!isWhiteTeheme">
+        <ul class="flex gap-[62px] items-center">
+            <li class="logo-dark pointer" (click)="onHomeButtonClick()"></li>
+            <li class="pl pointer" (click)="onVacancyButtonClick()" *ngIf="showVacancies"><a>Вакансии</a></li>
+            <li class="pointer" (click)="onDepartamentsButtonClick()" *ngIf="showDepartament"><a>Департаменты</a></li>
+        </ul>
+        <ul class="flex absolute gap-[42px] items-center right-20">
+            <li class="flex pointer"><a class="" (click)="onLoginButtonClick()">Войти</a></li>
+            <li class="text-white flex pointer"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" (click)="onRegisterButtonClick()">Зарегистрироваться</a></li>
         </ul>
     </nav>
 </header>

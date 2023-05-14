@@ -14,11 +14,15 @@ public class VacancyResponse
 
     public string Description { get; set; }
 
-    public string DepartamentName { get; set; }
+    public Departament Departament { get; set; }
 
     public bool IsActive { get; set; }
 
     public string Name { get; set; }
+    
+    public string VacancyRequrements { get; set; }
+    
+    public string Vacancyconditions { get; set; }
 
     public UserResponse CreatedBy { get; set; }
 

@@ -25,4 +25,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Logic\Logic.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Controllers\DepartamentController\Dto\Request" />
+    </ItemGroup>
 </Project>

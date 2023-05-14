@@ -5,11 +5,7 @@ namespace Dal.Models;
 
 public class User : IdentityUser<long>, IBaseModel
 {
-    public string? FirstName { get; set; } = null!;
-
-    public string? LastName { get; set; } = null!;
-
-    public string? MiddleName { get; set; } = null!;
+    public string FullName { get; set; }
 
     public string? RefreshToken { get; set; }
 

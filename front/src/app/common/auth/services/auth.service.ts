@@ -5,13 +5,10 @@ import { IAuthResponse, ILoginRequest, IRegiseterRequest } from '../dto';
 import { API_URL, LOGOUT_EVENT } from '../tokens';
 import { IBadResponse } from '../dto/response/bad-response.interface';
 import { AuthModel } from '../models';
+import { Tokens } from '../../enums';
 
 @Injectable()
 export class AuthService {
-
-    private readonly _accessToken: string = 'access-token';
-
-    private readonly _refreshToken: string = 'refresh-token';
 
     constructor(
         protected http: HttpClient,
@@ -26,8 +23,8 @@ export class AuthService {
             .pipe(
                 map((response: IAuthResponse) => new AuthModel(response)),
                 tap((value: AuthModel) => {
-                    localStorage.setItem(this._accessToken, value.token);
-                    localStorage.setItem(this._refreshToken, value.refreshToken);
+                    localStorage.setItem(Tokens.AccessToken, value.token);
+                    localStorage.setItem(Tokens.RefreshToken, value.refreshToken);
                 }),
                 catchError(() =>
                     of({
@@ -42,8 +39,8 @@ export class AuthService {
             .pipe(
                 map((response: IAuthResponse) => new AuthModel(response)),
                 tap((value: AuthModel) => {
-                    localStorage.setItem(this._accessToken, value.token);
-                    localStorage.setItem(this._refreshToken, value.refreshToken);
+                    localStorage.setItem(Tokens.AccessToken, value.token);
+                    localStorage.setItem(Tokens.RefreshToken, value.refreshToken);
                 }),
                 catchError(() =>
                     of({
@@ -59,8 +56,8 @@ export class AuthService {
 
             return of(false);
         }
-        const refreshToken: string | null = localStorage.getItem(this._refreshToken);
-        const accessToken: string | null = localStorage.getItem(this._accessToken);
+        const refreshToken: string | null = localStorage.getItem(Tokens.RefreshToken);
+        const accessToken: string | null = localStorage.getItem(Tokens.AccessToken);
 
         return this.http.post<IAuthResponse>(`${ this.apiUrl }/refresh`, {
             accessToken,
@@ -68,8 +65,8 @@ export class AuthService {
         }).pipe(
             map((response: IAuthResponse) => new AuthModel(response)),
             tap((value: AuthModel) => {
-                localStorage.setItem(this._accessToken, value.token);
-                localStorage.setItem(this._refreshToken, value.refreshToken);
+                localStorage.setItem(Tokens.AccessToken, value.token);
+                localStorage.setItem(Tokens.RefreshToken, value.refreshToken);
             }),
             catchError(() => {
                 this.logout();
@@ -80,8 +77,8 @@ export class AuthService {
     }
 
     public isAuthorized(): boolean {
-        const refreshToken: string | null = localStorage.getItem(this._refreshToken);
-        const accessToken: string | null = localStorage.getItem(this._accessToken);
+        const refreshToken: string | null = localStorage.getItem(Tokens.AccessToken);
+        const accessToken: string | null = localStorage.getItem(Tokens.RefreshToken);
 
         return !!refreshToken && !!accessToken;
     }

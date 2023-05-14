@@ -8,7 +8,11 @@ public class UpdateVacancyRequest
 
     public string? Description { get; set; } = null;
 
-    public string? DepartamentName { get; set; } = null;
+    public long? DepartamentId { get; set; } = null;
+    
+    public string? VacancyRequrements { get; set; }
+    
+    public string? Vacancyconditions { get; set; }
 
     public bool? IsActive { get; set; } = null;
 

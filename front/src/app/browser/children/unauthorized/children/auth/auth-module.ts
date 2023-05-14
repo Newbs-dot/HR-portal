@@ -5,6 +5,7 @@ import { LoginPageComponent, RegistrationPageComponent } from './pages';
 import { TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule, TuiHintModule, TuiGroupModule } from '@taiga-ui/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule,TuiFieldErrorPipeModule } from '@taiga-ui/kit';
+import { HeaderComponent } from '../../components';
 
 const components: any[] = [];
 
@@ -40,6 +41,7 @@ const routes: Routes = [
         TuiButtonModule,
         TuiHintModule,
         TuiGroupModule,
+        HeaderComponent,
     ],
     declarations: [...components, ...pages],
 })

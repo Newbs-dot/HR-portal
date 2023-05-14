@@ -1,5 +1,5 @@
 <div>
-    <app-header></app-header>
+    <app-header [isWhiteTeheme]="false"></app-header>
     <div class='page-wrapper'>
         <h1 class='vacancy-header'>Вакансии</h1>
         <div class='row'>
@@ -77,100 +77,24 @@
                 </div>
             </div>
             <div class='right'>
-                <form>
+                <form [formGroup]="form">
                     <div class="lupa"></div>
-                    <input class='search' type="text" placeholder="Например, дизайнер">
+                    <input formControlName="search" class='search' type="text" placeholder="Например, дизайнер">
                 </form>
-                <div class='new-vacancies'>
+                <div class='new-vacancies' *ngIf="vacancies$ | async as vacancies">
                     <ul>
-                        <li>
-                            <div class='vacancy'>
-                                <div class='department'>
-                                    <div class='department-logo'></div>
-                                    <div class='department-name'>department</div>
-                                    <div class='like'></div>
-                                </div>
-                                <h2 class='vacancy-name'>Проектировщик интерфесов</h2>
-                                <div class='salary'>От 60 000 до 100 000 рублей</div>
-                                <p class='vacancy-descripton'>
-                                    Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-                                </p>
-                                <div class="vacancy-hashtag">
-                                      <div class="hashtag">Дизайн</div>
-                                      <div class="hashtag">Разработка</div>
-                                </div>
-                                <div class='vacancy-buttons'>
-                                    <button class='respond'>Откликнуться</button>
-                                    <button class='details'>Подробнее</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class='vacancy'>
-                                <div class='department'>
-                                    <div class='department-logo'></div>
-                                    <div class='department-name'>department</div>
-                                    <div class='like'></div>
-                                </div>
-                                <h2 class='vacancy-name'>Проектировщик интерфесов</h2>
-                                <div class='salary'>От 60 000 до 100 000 рублей</div>
-                                <p class='vacancy-descripton'>
-                                    Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-                                </p>
-                                <div class="vacancy-hashtag">
-                                  <div class="hashtag">Дизайн</div>
-                                  <div class="hashtag">Разработка</div>
-                                </div>
-                                <div class='vacancy-buttons'>
-                                    <button class='respond'>Откликнуться</button>
-                                    <button class='details'>Подробнее</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class='vacancy'>
-                                <div class='department'>
-                                    <div class='department-logo'></div>
-                                    <div class='department-name'>department</div>
-                                    <div class='like'></div>
-                                </div>
-                                <h2 class='vacancy-name'>Проектировщик интерфесов</h2>
-                                <div class='salary'>От 60 000 до 100 000 рублей</div>
-                                <p class='vacancy-descripton'>
-                                    Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-                                </p>
-                                <div class="vacancy-hashtag">
-                                  <div class="hashtag">Дизайн</div>
-                                  <div class="hashtag">Разработка</div>
-                                </div>
-                                <div class='vacancy-buttons'>
-                                    <button class='respond'>Откликнуться</button>
-                                    <button class='details'>Подробнее</button>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class='vacancy'>
-                                <div class='department'>
-                                    <div class='department-logo'></div>
-                                    <div class='department-name'>department</div>
-                                    <div class='like'></div>
-                                </div>
-                                <h2 class='vacancy-name'>Проектировщик интерфесов</h2>
-                                <div class='salary'>От 60 000 до 100 000 рублей</div>
-                                <p class='vacancy-descripton'>
-                                    Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
-                                </p>
-                                <div class="vacancy-hashtag">
-                                  <div class="hashtag">Дизайн</div>
-                                  <div class="hashtag">Разработка</div>
-                                </div>
-                                <div class='vacancy-buttons'>
-                                    <button class='respond'>Откликнуться</button>
-                                    <button class='details'>Подробнее</button>
-                                </div>
-                            </div>
-                        </li>
+                        <ng-container *ngIf="getFilteredVacancies(vacancies, form.controls.search.valueChanges | async) as filteredList">
+                            <li *ngFor="let filteredVacancy of filteredList">
+                                <app-vacancy
+                                    id="{{filteredVacancy.id}}"
+                                    departamentName="{{filteredVacancy.departament.departamentName}}"
+                                    name="{{filteredVacancy.name}}"
+                                    salary="{{filteredVacancy.salary}}"
+                                    description="{{filteredVacancy.description}}"
+                                    [tags]="filteredVacancy.tags"
+                                ></app-vacancy>
+                            </li>
+                        </ng-container>
                     </ul>
                 </div>
             </div>

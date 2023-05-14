@@ -38,11 +38,6 @@ const routes: Routes = [
             .then((m: any) => m.AuthModule),
     },
     {
-        path: 'departaments',
-        loadChildren: () => import('./children/departaments/departaments.module')
-            .then((m: any) => m.DepartamentsModule),
-    },
-    {
         path: 'departaments/:id',
         loadChildren: () => import('./children/departaments-detail/departaments-detail.module')
             .then((m: any) => m.DepartamentsDetailModule),

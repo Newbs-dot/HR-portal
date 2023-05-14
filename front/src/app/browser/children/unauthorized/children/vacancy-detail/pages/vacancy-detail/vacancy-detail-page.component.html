@@ -1,157 +1,80 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet">
-  <link rel="stylesheet" href="styles/vacancy-detail-component.scss">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+<app-header [showDepartament]="false" [isWhiteTeheme]="false"></app-header>
 
-</head>
-<body>
-<header class="text-black">
-  <div class="container">
-    <nav class="flex p-[42px] w-screen">
-      <a href="#"><img src = "" alt=""/></a>
-      <ul class="flex gap-[62px] items-center">
-        <li class="pl font-bold "><a href="">Вакансии</a></li>
-        <li class="font-bold"><a href="">Департаменты</a></li>
-      </ul>
-      <ul class="flex absolute gap-[42px] items-center right-20">
-        <li class = "flex"><a class="" href="/cabinet/profile">Иван</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <div class='page-wrapper'>
+<div class='page-wrapper' *ngIf="vacancy$ | async as vacancy">
     <div class="upper-row">
-      <div class = 'upper-block'>
-        <div class = 'arrow'></div>
-        <div class ='break'></div>
-        <div class ='vacancy-upper-name'>Вакансия</div>
-        <div class ='date'>22 марта 2023</div>
-      </div>
+        <div class='upper-block'>
+            <div class='arrow' (click)="onReturnButtonClick()"></div>
+            <div class='break'></div>
+            <div class='vacancy-upper-name'>Вакансия</div>
+            <div class='date'>22 марта 2023</div>
+        </div>
     </div>
     <div class='lower-row'>
-      <div class='left'>
-        <div class='sidebar-column'>
-          <div class ='sidebar-header'>
-            <div class="department-logo-big"></div>
-            <h1>Department</h1>
-          </div>
-          <div class = 'sidebar-content'>
-            <p>Мы департамент разработки и внедрения компании Naumen. Создаем иновационные продукты от лица нашей...</p>
-            <ul class="sidebar-content-list">
-              <li>
-                <span class="sidebar-header-small">Отрасль департамента</span>
-                <span>Разработка</span>
-              </li>
-              <li>
-                <span class="sidebar-header-small">Локация</span>
-                <span>Екатеринбург</span>
-              </li>
-              <li>
-                <span class="sidebar-header-small">Головной офис</span>
-                <span>Россия, Екатеринбург</span>
-              </li>
-            </ul>
-
-          </div>
-          <div class ='sidebar-buttons'>
-            <button class ='send-resume'>Отправить резюме</button>
-            <div class="like"></div>
-          </div>
+        <div class='left'>
+            <div class='sidebar-column'>
+                <div class='sidebar-header'>
+                    <div class="department-logo-big"></div>
+                    <h1>{{vacancy.departament.departamentName}}</h1>
+                </div>
+                <div class='sidebar-content'>
+                    <p>{{vacancy.departament.description}}</p>
+                </div>
+                <div class='sidebar-buttons'>
+                    <button class='send-resume' (click)="onButtonClick()">Отправить резюме</button>
+                    <div (click)="onButtonClick()" class="like"></div>
+                </div>
+            </div>
+            <div class='contacts'>
+                <button class="look-contacts" (click)="onButtonClick()">Посмотреть контакты</button>
+            </div>
         </div>
-        <div class='contacts'>
-          <button class="look-contacts">Посмотреть контакты</button>
+        <div class='right'>
+            <div class='sidebar-column'>
+                <div class="sidebar-tags">
+                    <ul>
+                        <li *ngFor="let tags of getCompetentsOfTags(vacancy.tags)">
+                            {{tags.name}}
+                        </li>
+                    </ul>
+                    <div (click)="onButtonClick()" class="like"></div>
+                </div>
+                <div>
+                    <h1>{{vacancy.name}}</h1>
+                </div>
+                <ul class='filters'>
+                    <h2>От {{(vacancy.salary + '') | salaryDevide}} рублей</h2>
+                    <p>{{vacancy.description}}</p>
+                    <li><h2>Желаемые компетенции</h2>
+                        <ul class='competence-tags'>
+                            <li *ngFor="let tag of getTagsOfTags(vacancy.tags)">
+                                #{{tag.name}}
+                            </li>
+                        </ul>
+                    </li>
+                    <h2>Требования</h2>
+                    <li>
+                        <div class="vacancy-conditions" *ngFor="let condition of splitConditions(vacancy.vacancyRequrements)">
+                            •{{condition}}
+                            <br>
+                        </div>
+                    </li>
+                    
+                    <h2>Условия</h2>
+                    <li>
+                        <div class="vacancy-conditions" *ngFor="let condition of splitConditions(vacancy.vacancyconditions)">
+                            •{{condition}}
+                            <br>
+                        </div>
+                    </li>
+                
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class='right'>
-        <div class='sidebar-column'>
-          <div class="sidebar-tags">
-            <ul>
-              <li>Дизайн</li>
-              <li>Разработка</li>
-            </ul>
-            <div class="like"></div>
-          </div>
-          <div >
-            <h1>Проектировщик интерфейсов (UX/UI)</h1>
-          </div>
-          <ul class = 'filters'>
-            <h2>От 60 000 до 100 000 рублей</h2>
-            <p>Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического продукта - от адаптации существующих интерфейсов сложных продуктов под специфику международной аудитории </p>
-            <li><h2>Желаемые компетенции</h2>
-              <ul class = 'competence-tags'>
-                <li>#figma</li>
-                <li>#интерфейсы</li>
-                <li>#html</li>
-
-              </ul>
-            </li>
-            <h2>Требования</h2>
-            <li>
-              <p class="vacancy-conditions">•У вас есть большой опыт в создании мобильных приложений;<br>
-                •Вы знаете правила и постулаты Apple Human Desing / Google Material Desing;<br>
-                •Вы понимаете принципы проектирования пользовательских сценариев и интерфейсов;<br>
-                •Проактивность, навыки коммуникации, умение аргументировать свои решения;<br>
-                •Уверенное владение Figma на уровне shortcuts;<br>
-                •Умение создавать интерактивные прототипы;<br>
-                •Владение АЕ будет отличным бонусом (не обязательно);<br>
-                •Наличие портфолио с реализованными проектами (мобильные приложания).</p>
-            </li>
-
-            <h2>Условия</h2>
-            <p class="vacancy-conditions">•Удалённая работа / полная или частичная занятость<br>
-              •Свободный график<br>
-              •Короткие звонки с проджект-менеджером несколько раз в неделю<br>
-              •Выплаты дважды в месяц<br>
-              •Крутая команда<br>
-              •Интересные задачи
-            </p>
-
-          </ul>
-        </div>
-      </div>
     </div>
 
 
-  </div>
-</main>
-<footer class="">
-  <div class="container "></div>
-  <div class="flex gap-[80px] justify-center h-[150px] w-screen bg-white p-[40px] ">
-    <div>
-      <div>Департаментам</div>
-      <ul>
-        <li><a class="font-bold" href="#">Размещение вакансий </a></li>
-        <li><a class="font-bold" href="#">Страница департамента</a></li>
-      </ul>
-    </div>
-    <div>
-      <div>Соискателям</div>
-      <ul>
-        <li><a class="font-bold" href="#">Поиск вакансии </a></li>
-        <li><a class="font-bold" href="#">Подборки вакансий </a></li>
-      </ul>
-    </div>
-    <div>
-      <div>О нас</div>
-      <ul>
-        <li><a class="font-bold" href="#">Наша страница</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
-
-</body>
-
-</html>
+</div>
+<app-footer></app-footer>
 
 
 

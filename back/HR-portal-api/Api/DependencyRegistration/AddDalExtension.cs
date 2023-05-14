@@ -1,5 +1,6 @@
 ﻿using Dal;
 using Dal.Models;
+using Dal.Repositories.DepartamentRepository;
 using Dal.Repositories.SummaryRepository;
 using Dal.Repositories.TagRepository;
 using Dal.Repositories.VacancyRepository;
@@ -23,5 +24,6 @@ public static class AddDalExtension
         services.AddTransient<ISummaryRepository, SummaryRepository>();
         services.AddTransient<ITagRepository, TagRepository>();
         services.AddTransient<IVacancyRepository, VacancyRepository>();
+        services.AddTransient<IDepartamentRepository, DepartamentRepository>();
     }
 }

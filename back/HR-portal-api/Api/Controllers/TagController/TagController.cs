@@ -1,4 +1,5 @@
-﻿using Dal.Models;
+﻿using Dal.Constants;
+using Dal.Models;
 using Dal.Repositories.TagRepository;
 using HR_portal_api.Controllers.SummaryController.Dto.Request;
 using HR_portal_api.Controllers.TagController.Dto;
@@ -28,11 +29,12 @@ public class TagController : ControllerBase
         var description = request.Description;
         var name = request.Name;
 
-        if (name == null || description == null)
+        if (name == null || description == null || request.Type != TagTypeContants.Tag ||
+            request.Type != TagTypeContants.Competents)
             return BadRequest("Invalid request data");
 
         await _tagRepository.CreateAsync(new Tag
-            { Description = description, Name = name, VacancyIdList = null, SummaryIdList = null });
+            { Description = description, Name = name, VacancyIdList = null, SummaryIdList = null, Type = request.Type});
 
         return Ok();
     }
