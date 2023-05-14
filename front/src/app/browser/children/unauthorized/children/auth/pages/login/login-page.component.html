@@ -5,9 +5,11 @@
 <body>
 
 
-<div class='reg-form flex flex-col absolute justify-center items-center w-2/5 right-0 h-screen bg-white'>
+<div class='reg-form w-2/5 right-0 h-screen bg-white'>
+  <div class="reg-form-wrapper">
+
     <div class="slogan"><span class='sl-1'>первый шаг </span> <span class='sl-2'>к новому</span></div>
-    <div class='w-2/3'>
+    <div>
         <form
             class="input-wrapper"
             [formGroup]="form"
@@ -56,9 +58,9 @@
                 [error]="formError"
             ></tui-error>
         </form>
-    
+
     </div>
-    
+
     <button
         tuiButton
         type="button"
@@ -69,7 +71,7 @@
         Войти
     </button>
 
-
+  </div>
 </div>
 <img class="main-bg" src='../reg-bg.png'/>
 </body>

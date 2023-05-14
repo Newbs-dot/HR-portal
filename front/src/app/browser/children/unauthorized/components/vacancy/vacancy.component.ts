@@ -37,14 +37,14 @@ export class VacancyComponent {
     }
 
     protected onRespondClick(): void {
-        this._router.navigate([`./auth`], { relativeTo: this._activatedRoute });
+        this._router.navigate([`/auth`], { relativeTo: this._activatedRoute });
     }
 
     protected onDetailClick(): void {
-        this._router.navigate([`./vacancies/${ this.id }`], { relativeTo: this._activatedRoute });
+        this._router.navigate([`/vacancies/${ this.id }`], { relativeTo: this._activatedRoute });
     }
 
     protected onLikeClick(): void {
-        this._router.navigate([`./auth`], { relativeTo: this._activatedRoute });
+        this._router.navigate([`/auth`], { relativeTo: this._activatedRoute });
     }
 }
