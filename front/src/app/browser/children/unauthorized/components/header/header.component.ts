@@ -26,6 +26,9 @@ export class HeaderComponent {
     @Input()
     public isWhiteTeheme: boolean = true;
 
+    @Input()
+    public showLogin: boolean = true;
+
     constructor(
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
@@ -54,5 +57,7 @@ export class HeaderComponent {
     protected onRegisterButtonClick(): void {
         this._router.navigate([`/auth/reg`], { relativeTo: this._activatedRoute });
     }
-
+    protected onProfileButtonClick(): void {
+        this._router.navigate([`/cabinet/profile`], { relativeTo: this._activatedRoute });
+    }
 }
