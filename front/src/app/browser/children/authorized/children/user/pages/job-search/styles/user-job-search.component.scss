@@ -1,7 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+* {
+  font-family: 'Montserrat', sans-serif;
+  /*overflow: hidden;  Hide scrollbars */
+}
 .page-wrapper {
   padding: 150px 250px 150px 250px;
 }
