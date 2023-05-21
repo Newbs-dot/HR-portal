@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserLayoutComponent } from './components';
 import { UserStartPageComponent,UserJobSearchComponent,UserReviewedComponent,UserFeaturedVacancy,UserJobDescComponent } from './pages';
+import { HeaderComponent, FooterComponent ,VacancyComponent} from '../../../unauthorized/components';
 const components: any[] = [];
 
 const pages: any[] = [UserStartPageComponent,UserJobSearchComponent,UserReviewedComponent,UserFeaturedVacancy,UserJobDescComponent];
@@ -39,6 +40,9 @@ const routes: Routes = [
         CommonModule,
         UserLayoutComponent,
         RouterModule.forChild(routes),
+        HeaderComponent,
+        FooterComponent,
+        VacancyComponent
     ],
     declarations: [...components, ...pages],
 })

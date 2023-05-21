@@ -1,24 +1,35 @@
 <header>
-    <nav class="flex p-[42px] w-screen text-white white-bg" *ngIf="isWhiteTeheme">
-        <ul class="flex gap-[62px] items-center">
-            <li class="logo-white pointer" (click)="onHomeButtonClick()"></li>
-            <li class="pl pointer" (click)="onVacancyButtonClick()" *ngIf="showVacancies"><a>Вакансии</a></li>
-            <li class="pointer" (click)="onDepartamentsButtonClick()" *ngIf="showDepartament"><a>Департаменты</a></li>
-        </ul>
-        <ul class="flex absolute gap-[42px] items-center right-20">
-            <li class="flex pointer"><a class="" (click)="onLoginButtonClick()">Войти</a></li>
-            <li class="text-white flex pointer"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" (click)="onRegisterButtonClick()">Зарегистрироваться</a></li>
-        </ul>
-    </nav>
+    <div class ='costil-for-main-page' *ngIf="isWhiteTeheme">
+      <nav class="flex p-[42px] w-screen text-white white-bg">
+
+          <ul class="flex gap-[62px] items-center">
+              <li class="logo-white pointer" (click)="onHomeButtonClick()"></li>
+              <li class="pl pointer" (click)="onVacancyButtonClick()" *ngIf="showVacancies"><a>Вакансии</a></li>
+              <li class="pointer" (click)="onDepartamentsButtonClick()" *ngIf="showDepartament"><a>Департаменты</a></li>
+          </ul>
+          <ul class="flex absolute gap-[42px] items-center right-20">
+              <li class="flex pointer"><a class="" (click)="onLoginButtonClick()">Войти</a></li>
+              <li class="text-white flex pointer"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" (click)="onRegisterButtonClick()">Зарегистрироваться</a></li>
+          </ul>
+
+      </nav>
+    </div>
     <nav class="flex p-[42px] w-screen black-bg" *ngIf="!isWhiteTeheme">
         <ul class="flex gap-[62px] items-center">
             <li class="logo-dark pointer" (click)="onHomeButtonClick()"></li>
             <li class="pl pointer" (click)="onVacancyButtonClick()" *ngIf="showVacancies"><a>Вакансии</a></li>
             <li class="pointer" (click)="onDepartamentsButtonClick()" *ngIf="showDepartament"><a>Департаменты</a></li>
         </ul>
-        <ul class="flex absolute gap-[42px] items-center right-20">
+        <ul class="flex absolute gap-[42px] items-center right-20" *ngIf="showLogin">
             <li class="flex pointer"><a class="" (click)="onLoginButtonClick()">Войти</a></li>
             <li class="text-white flex pointer"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" (click)="onRegisterButtonClick()">Зарегистрироваться</a></li>
+        </ul>
+        <ul class="flex absolute items-center right-20 flex-row gap-[20px]" *ngIf="!showLogin">
+          <div class="profile-image"></div>
+          <li class="pointer" (click)="onProfileButtonClick()">
+            Иван
+          </li>
+          <div class="profile-arrow"></div>
         </ul>
     </nav>
 </header>
