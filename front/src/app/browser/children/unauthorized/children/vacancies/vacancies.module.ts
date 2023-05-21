@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { VacanciesPageComponent } from './pages';
 import { FooterComponent, HeaderComponent, VacancyComponent } from '../../components';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TuiFilterModule } from '@taiga-ui/kit';
 
 
 const components: any[] = [];
@@ -33,6 +34,7 @@ const routes: Routes = [
         HeaderComponent,
         VacancyComponent,
         ReactiveFormsModule,
+        TuiFilterModule,
     ],
     declarations: [...components, ...pages],
 })

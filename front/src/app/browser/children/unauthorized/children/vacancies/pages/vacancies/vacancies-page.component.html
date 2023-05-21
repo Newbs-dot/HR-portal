@@ -4,77 +4,45 @@
         <h1 class='vacancy-header'>Вакансии</h1>
         <div class='row'>
             <div class='left'>
-                <div class='sidebar-column'>
+                <form class='sidebar-column' [formGroup]="filterForm">
                     <div class='sidebar-header'>
                         <h1>Фильтр</h1>
-                        <button class='reset-filters'>Сбросить фильтры</button>
+                        <button class='reset-filters' (click)="onClearButtonClick()">Сбросить фильтры</button>
                     </div>
                     <ul class='filters'>
                         <li><h2>Сфера деятельности</h2>
                             <ul class='tags'>
-                                <li>Маркетинг</li>
-                                <li>Продажи</li>
-                                <li>Разработка</li>
-                                <li>HR</li>
-                                <li>Дизайн</li>
-                                <li>Выбрать +</li>
+                                <tui-filter
+                                    formControlName="competents"
+                                    size="s"
+                                    [items]="(competents$ | async)!"
+                                    (ngModelChange)="onCompetentsChange($event)"
+                                ></tui-filter>
                             </ul>
                         </li>
                         <li><h2>Департамент</h2>
                             <ul class='tags'>
-                                <li>Департамент1</li>
-                                <li>Департамент1</li>
-                                <li>Выбрать +</li>
+                                <tui-filter
+                                    class="filter-item"
+                                    formControlName="departaments"
+                                    size="s"
+                                    [items]="(departaments$ | async)!"
+                                    (ngModelChange)="onDepartamentsChange($event)"
+                                ></tui-filter>
                             </ul>
                         </li>
                         <li><h2>Желаемые компетенции</h2>
                             <ul class='competence-tags'>
-                                <li>#figma</li>
-                                <li>#интерфейсы</li>
-                                <li>#html</li>
-                                <li>Добавить +</li>
+                                <tui-filter
+                                    formControlName="tags"
+                                    size="s"
+                                    [items]="(tags$ | async)!"
+                                    (ngModelChange)="onTagsChange($event)"
+                                ></tui-filter>
                             </ul>
-                        </li>
-                        <li><h2>Тип занятости</h2>
-                            <ul class='tags'>
-                                <li>Полная занятость</li>
-                                <li>Проектная работа</li>
-                                <li>Выбрать +</li>
-                            </ul>
-                        </li>
-                        <li><h2>Заработная плата</h2>
-                            <form action="" method="get" class="salary-form">
-                                <div>
-                                    <input type="text" name="name" id="name" required>
-                                </div>
-                            </form>
-                        </li>
-                        <li><h2>Опыт работы</h2>
-                            <div class="radio">
-                                <div class="form_radio">
-                                    <input id="radio-1" type="radio" name="radio" value="1" checked>
-                                    <label for="radio-1">Без опыта</label>
-                                </div>
-                                <div class="form_radio">
-                                    <input id="radio-2" type="radio" name="radio" value="2">
-                                    <label for="radio-2">От одного месяца до года</label>
-                                </div>
-                                <div class="form_radio">
-                                    <input id="radio-3" type="radio" name="radio" value="3">
-                                    <label for="radio-3">От одного года до 3 лет</label>
-                                </div>
-                                <div class="form_radio">
-                                    <input id="radio-4" type="radio" name="radio" value="4" disabled>
-                                    <label for="radio-4">От 3 до 6 лет</label>
-                                </div>
-                                <div class="form_radio">
-                                    <input id="radio-5" type="radio" name="radio" value="5" disabled>
-                                    <label for="radio-5">Более 6 лет</label>
-                                </div>
-                            </div>
                         </li>
                     </ul>
-                </div>
+                </form>
             </div>
             <div class='right'>
                 <form [formGroup]="form">
