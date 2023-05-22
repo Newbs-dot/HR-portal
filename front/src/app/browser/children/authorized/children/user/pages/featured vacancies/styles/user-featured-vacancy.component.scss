@@ -47,7 +47,12 @@ h2{
   font-size: 16px;
 
 }
-
+.main-center{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
 .uwu{
   color: black;
   display: flex;
@@ -131,12 +136,13 @@ h2{
 }
 .new-vacancies li{
   border-radius: 20px;
-  margin:10px 0px 10px 0px;
+  margin:10px;
   font-weight: 500;
   font-size: 16px;
   background-color: white;
   flex-grow: 1;
   width: 550px;
+
   padding:20px 20px 20px 20px;
 }
 .new-vacancies ul{

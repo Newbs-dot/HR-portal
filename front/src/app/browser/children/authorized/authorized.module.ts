@@ -12,10 +12,10 @@ const routes: Routes = [
         path: '',
         loadChildren: () => import('./children/user/user.module').then((m: any) => m.UserModule),
 
-        //canActivate: [AuthenticatorGuardService],
-        //data: {
-        //    role: Roles.User
-        //}
+        canActivate: [AuthenticatorGuardService],
+        data: {
+            role: Roles.User
+        }
     },
     {
         path: 'head',
