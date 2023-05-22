@@ -28,7 +28,8 @@ export class HeaderComponent {
 
     @Input()
     public showLogin: boolean = true;
-
+    @Input()
+    public isAuthorized: boolean = false;
     constructor(
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
@@ -36,11 +37,23 @@ export class HeaderComponent {
     }
 
     protected onVacancyButtonClick(): void {
-        this._router.navigate([`/vacancies`], { relativeTo: this._activatedRoute });
+        if(this.isAuthorized){
+            this._router.navigate([`cabinet/vacancies`]);
+        }
+        else{
+            this._router.navigate([`/vacancies`], { relativeTo: this._activatedRoute });
+        }
+
     }
 
     protected onHomeButtonClick(): void {
-        this._router.navigate([`/main`], { relativeTo: this._activatedRoute });
+        if(this.isAuthorized){
+            this._router.navigate([`cabinet/main`]);
+        }
+        else{
+            this._router.navigate([`/main`], { relativeTo: this._activatedRoute });
+        }
+
     }
 
     protected onDepartamentsButtonClick(): void {

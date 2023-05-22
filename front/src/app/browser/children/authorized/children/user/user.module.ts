@@ -2,11 +2,28 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserLayoutComponent } from './components';
-import { UserStartPageComponent,UserJobSearchComponent,UserReviewedComponent,UserFeaturedVacancy,UserJobDescComponent } from './pages';
+import {
+  UserStartPageComponent,
+  UserJobSearchComponent,
+  UserReviewedComponent,
+  UserFeaturedVacancy,
+  UserJobDescComponent,
+  MainAuthorizedComponent,
+  VacanciesAuthorizedComponent
+} from './pages';
 import { HeaderComponent, FooterComponent ,VacancyComponent} from '../../../unauthorized/components';
 const components: any[] = [];
-
-const pages: any[] = [UserStartPageComponent,UserJobSearchComponent,UserReviewedComponent,UserFeaturedVacancy,UserJobDescComponent];
+import { TuiFilterModule } from '@taiga-ui/kit';
+import {ReactiveFormsModule} from "@angular/forms";
+const pages: any[] = [
+  UserStartPageComponent,
+  UserJobSearchComponent,
+  UserReviewedComponent,
+  UserFeaturedVacancy,
+  UserJobDescComponent,
+  MainAuthorizedComponent,
+  VacanciesAuthorizedComponent
+];
 
 const routes: Routes = [
     {
@@ -33,6 +50,14 @@ const routes: Routes = [
         path: 'description',
         component: UserJobDescComponent
     },
+    {
+        path: 'main',
+        component: MainAuthorizedComponent
+    },
+    {
+        path: 'vacancies',
+        component: VacanciesAuthorizedComponent
+    },
 ];
 
 @NgModule({
@@ -42,7 +67,9 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         HeaderComponent,
         FooterComponent,
-        VacancyComponent
+        VacancyComponent,
+        ReactiveFormsModule,
+        TuiFilterModule,
     ],
     declarations: [...components, ...pages],
 })
