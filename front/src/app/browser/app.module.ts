@@ -1,5 +1,4 @@
-import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
-import { TUI_SANITIZER, TuiAlertModule, TuiDialogModule, TuiRootModule } from '@taiga-ui/core';
+import { TuiAlertModule, TuiDialogModule, TuiRootModule } from '@taiga-ui/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,14 +46,13 @@ const routes: Routes = [
         RouterModule.forRoot(routes),
     ],
     providers: [
-        { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
         {
             provide: TUI_LANGUAGE,
             useValue: of(TUI_RUSSIAN_LANGUAGE),
         },
         {
             provide: API_URL,
-            useValue: 'http://localhost:80'
+            useValue: '/api'
         },
         {
             provide: LOGOUT_EVENT,

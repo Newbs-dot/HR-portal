@@ -14,7 +14,7 @@ services:
     ports:
       - "${DB_PORT}:5432"
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_DATABASE}"]
+      test: [ "CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_DATABASE}" ]
       interval: 3s
       timeout: 5s
       retries: 5
@@ -34,15 +34,23 @@ services:
   api:
     restart: always
     build:
-      context: ./HR-portal-api
+      context: ./back/HR-portal-api
     ports:
-      - "80:80"
+      - "20421:80"
     depends_on:
       db:
         condition: service_healthy
     environment:
       "ConnectionStrings:DB": "Server=${DB_HOST}; Port=${DB_PORT}; Database=${DB_DATABASE}; User ID=${DB_USERNAME}; Password=${DB_PASSWORD}; Pooling=true"
       "JwtAuth:SecretKey": "${JWT_SECRET}"
+  front:
+    restart: always
+    build:
+      context: ./front
+    ports:
+      - "80:4200"
+    depends_on:
+      - api
 
 
 volumes:
