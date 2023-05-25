@@ -1,1 +1,2 @@
-export * from './interfaces/user.interface';
+export * from './interfaces/index';
+export * from './services/index';
