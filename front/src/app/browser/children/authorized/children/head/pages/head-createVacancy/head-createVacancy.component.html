@@ -9,8 +9,7 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script
-    src="../../../../../../../../../../../../../OneDrive/Рабочий стол/HR-portal-dd1bfb04c87612f10d5e9c42aa76f686fc9aa562/front/src/app/browser/children/authorized/children/user/user.module.ts"></script>
+
 
 </head>
 <body>
@@ -38,7 +37,7 @@
           <li class="but1"> <a>Мои вакансии</a></li>
           <li class="uwu"><a href="/cabinet/head/searchhead">Поиск резюме</a></li>
           <li class="uwu"><a href="/cabinet/head/featuredvacancy">Избранные резюме</a></li>
-          <li class="uwu"><a href="/cabinet/head/profiles">Профиль</a></li>
+          <li class="uwu"><a href="/cabinet/head/profile">Профиль</a></li>
         </ul>
       </div>
           <h1>Создание вакансии</h1>
@@ -48,32 +47,8 @@
               <div class="form-wrapper">
                 <h2>Должность</h2>
                 <tui-input
-                  formControlName="fullNameValue">Введите должность<input tuiTextfield/>
+                  formControlName="vacancyNameValue">Название вакансии<input tuiTextfield/>
                 </tui-input>
-
-                <h2>Опыт работы</h2>
-                <div tuiGroup class="group" [collapsed]="true">
-                  <tui-radio-block *ngFor="let exp of experience"
-                                   formControlName="experienceValue"
-                                   contentAlign="right"
-                                   size="l"
-                                   [item]="exp"
-                                   [hideRadio]="false">
-                    {{ exp }}
-                  </tui-radio-block>
-                </div>
-
-                <h2>Специализация</h2>
-                <div tuiGroup class="group" [collapsed]="true">
-                  <tui-radio-block *ngFor="let exp of experienced"
-                                   formControlName="experienceValue"
-                                   contentAlign="right"
-                                   size="l"
-                                   [item]="exp"
-                                   [hideRadio]="false">
-                    {{ exp }}
-                  </tui-radio-block>
-                </div>
 
                 <h2>Заработная плата</h2>
                 <tui-input-slider
@@ -92,12 +67,12 @@
 
                 <h2>Требования</h2>
                 <tui-text-area [expandable]="true"
-                               formControlName="aboutValue">
+                               formControlName="requirementsValue">
                 </tui-text-area>
 
                 <h2>Условия</h2>
                 <tui-text-area [expandable]="true"
-                               formControlName="aboutValue">
+                               formControlName="conditionsValue">
                 </tui-text-area>
 
 

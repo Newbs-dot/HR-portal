@@ -20,7 +20,7 @@ const routes: Routes = [
         component: HeadStartPageComponent
     },
     {
-        path: 'profiles',
+        path: 'profile',
         component: HeadProfileComponent
     },
     {
@@ -31,12 +31,12 @@ const routes: Routes = [
         component: HeadFeaturedVacancy
     },
     {
-        path: 'myvacancy',
+        path: 'my-vacancies',
         component: HeadVacanciesComponent
     },
     {
-      path: 'createvacancy',
-      component: HeadCreateVacancy
+        path: 'create-vacancy',
+        component: HeadCreateVacancy
     },
 
 ];
