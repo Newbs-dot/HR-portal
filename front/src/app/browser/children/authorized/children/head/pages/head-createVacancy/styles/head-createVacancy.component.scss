@@ -102,8 +102,31 @@ h2{
   display: flex;
 
 }
+//
 
-/*//////////////////////////////////*/
-/*             VACANCY              */
-/*//////////////////////////////////*/
+.publish-resume{
+  height: 56px;
+  margin-top: 20px;
+  background-color: black;
+  border-radius: 10px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+  display: flex;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
 
+.resume-creation-block{
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 20px;
+}
+.form-wrapper > *{
+  margin: 20px;
+}

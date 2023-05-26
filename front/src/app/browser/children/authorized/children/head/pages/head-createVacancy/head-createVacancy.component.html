@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/icon?family=Montserrat:100,200,300,400,500,600,700,800"
+        rel="stylesheet">
+  <link rel="stylesheet" href="styles/head-createVacancy.component.scss">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script
+    src="../../../../../../../../../../../../../OneDrive/Рабочий стол/HR-portal-dd1bfb04c87612f10d5e9c42aa76f686fc9aa562/front/src/app/browser/children/authorized/children/user/user.module.ts"></script>
+
+</head>
+<body>
+
+<div class="flex flex-col h-screen justify-between">
+  <header class="text-black">
+    <div class="container">
+      <nav class="flex p-[42px] w-screen">
+        <a href="#"><img src = "" alt=""/></a>
+        <ul class="flex gap-[62px] items-center">
+          <li class="pl font-bold "><a href="/cabinet/search">Вакансии</a></li>
+          <li class="font-bold"><a href="">Департаменты</a></li>
+        </ul>
+        <ul class="flex absolute gap-[42px] items-center right-20">
+          <li class = "flex"><a class="" href="#">Иван</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class = 'main-center'>
+      <div class="categories">
+        <ul class="im">
+          <li class="but1"> <a>Мои вакансии</a></li>
+          <li class="uwu"><a href="/cabinet/head/searchhead">Поиск резюме</a></li>
+          <li class="uwu"><a href="/cabinet/head/featuredvacancy">Избранные резюме</a></li>
+          <li class="uwu"><a href="/cabinet/head/profiles">Профиль</a></li>
+        </ul>
+      </div>
+          <h1>Создание вакансии</h1>
+        <div class="resume-creation-block">
+          <form [formGroup]="resumeForms">
+            <div class="tui-form__row">
+              <div class="form-wrapper">
+                <h2>Должность</h2>
+                <tui-input
+                  formControlName="fullNameValue">Введите должность<input tuiTextfield/>
+                </tui-input>
+
+                <h2>Опыт работы</h2>
+                <div tuiGroup class="group" [collapsed]="true">
+                  <tui-radio-block *ngFor="let exp of experience"
+                                   formControlName="experienceValue"
+                                   contentAlign="right"
+                                   size="l"
+                                   [item]="exp"
+                                   [hideRadio]="false">
+                    {{ exp }}
+                  </tui-radio-block>
+                </div>
+
+                <h2>Специализация</h2>
+                <div tuiGroup class="group" [collapsed]="true">
+                  <tui-radio-block *ngFor="let exp of experienced"
+                                   formControlName="experienceValue"
+                                   contentAlign="right"
+                                   size="l"
+                                   [item]="exp"
+                                   [hideRadio]="false">
+                    {{ exp }}
+                  </tui-radio-block>
+                </div>
+
+                <h2>Заработная плата</h2>
+                <tui-input-slider
+                  [min]="min"
+                  [max]="max"
+                  [steps]="totalSteps"
+                  [keySteps]="keySteps"
+                  formControlName="salaryValue">
+                  Введите заработную зарплату
+                </tui-input-slider>
+
+                <h2>Описание вакансии</h2>
+                <tui-text-area [expandable]="true"
+                               formControlName="aboutValue">
+                </tui-text-area>
+
+                <h2>Требования</h2>
+                <tui-text-area [expandable]="true"
+                               formControlName="aboutValue">
+                </tui-text-area>
+
+                <h2>Условия</h2>
+                <tui-text-area [expandable]="true"
+                               formControlName="aboutValue">
+                </tui-text-area>
+
+
+              </div>
+            </div>
+          </form>
+        </div>
+        <button class="publish-resume">Опубликовать</button>
+
+    </div>
+  </main>
+
+  <footer class="">
+    <div class="container "></div>
+    <div class="flex gap-[80px] justify-center h-[150px] w-screen bg-white p-[40px] ">
+      <div>
+        <div>Департаментам</div>
+        <ul>
+          <li><a class="font-bold" href="#">Размещение вакансий </a></li>
+          <li><a class="font-bold" href="#">Страница департамента</a></li>
+        </ul>
+      </div>
+      <div>
+        <div>Соискателям</div>
+        <ul>
+          <li><a class="font-bold" href="#">Поиск вакансии </a></li>
+          <li><a class="font-bold" href="#">Подборки вакансий </a></li>
+        </ul>
+      </div>
+      <div>
+        <div>О нас</div>
+        <ul>
+          <li><a class="font-bold" href="#">Наша страница</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+
+</html>
+
+

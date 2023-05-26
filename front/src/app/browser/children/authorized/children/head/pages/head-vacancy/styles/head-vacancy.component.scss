@@ -2,15 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.page-wrapper {
-  padding: 150px 250px 150px 250px;
-}
-.row{
-  display: grid;
-  grid-template-columns: 450px 2fr;
-}
-.row > *{
- margin: 10px;
+header{
+  background-color: white;
 }
 .vacancy-header{
   font-weight: 600;
@@ -18,203 +11,223 @@
   margin-left: 10px;
   margin-bottom: 40px;
 }
-.radio{
-  font-weight: 500;
-  font-size: 16px;
-  margin-top:20px;
+
+.main-center{
+  position: relative;
+  top:  50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
+  min-width: 1200px;
+  max-width: 1200px;
+  margin-bottom: 20em;
 
 }
-.sidebar-header{
+
+h1{
+  font-size: 2em;
+  font-weight: bold;
+}
+h2{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.but1{
+  height: 58px;
+  background-color: #6F08FF;
+  border-radius: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
   display: flex;
-  gap: 90px;
-  margin-bottom: 10px;
+  margin: 20px 20px 20px 20px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+
 }
 
-.reset-filters{
-  color: #B9B8B8;
+.uwu{
+  color: black;
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px 20px 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: center;
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 600;
   font-size: 18px;
+
 }
-.form_radio{
-  margin-bottom: 10px;
+.categories ul li{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  white-space: nowrap;
+
 }
-.salary-form{
-  border: 2px solid #eee;
-  margin: 20px 0px 20px 0px;
+.categories ul{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }
-.sidebar-column {
+
+.categories{
+  display: inline-block;
   background-color: white;
   border-radius: 20px;
-  padding:30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x:hidden;
 }
-.competence-tags{
+
+.im{
+  padding-left: 20px;
+}
+
+.pad{
+  padding-left: 40%;
+}
+
+.cat ul li{
+  color: black;
   display: flex;
-  flex-flow: row wrap;
-}
-.competence-tags li{
-  text-align: center;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  margin: 10px 5px 10px 5px;
-  padding:5px 10px 5px 10px;
-  background-color: lightgray;
+  margin: 20px 10px 20px 20px;
   border-radius: 20px;
-}
-.tags{
-  display: flex;
-  flex-flow: row wrap;
-}
-.competence-tags li:last-child{
-  background-color: white;
-  border: 2px #D9D9D9 solid;
-}
-.tags li{
 
-  text-align: center;
+}
+.cat ul{
+  display: flex;
+
+}
+
+
+//menu
+
+.menu{
+  margin-top: 20px;
+}
+.select{
+  border: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  padding: 13px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.butcreate{
+  float: right;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #FFFFFF;
+  background: #6F08FF;
+  border-radius: 10px;
+  padding: 11px;
+  margin-top: -48px
+}
+
+.textgray{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #959494;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  white-space: nowrap;
+  margin-top: -34px
+ }
+
+.textgray li {
+  display: table;
+  width: 15%;
+}
+
+
+//block
+
+.block{
+  background-color: white;
+  width: 100%;
+  border-radius: 10px;
+  padding: 45px;
+  display: block;
+  white-space: nowrap;
+  margin-top: 30px;
+
+}
+
+
+.textfit{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #4787F3;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+
+}
+
+.textfit li{
+
+}
+
+.textname{
+  float: left;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.textname2{
+  font-family: 'Montserrat';
+  font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 20px;
-  margin: 10px 5px 10px 5px;
-  padding: 5px;
-
-  background-color: lightgray;
+  color: #0569FF;
+  background: #C1DAFF;
+  padding: 6px;
   border-radius: 5px;
 }
-.tags li:last-child{
-  background-color: white;
-  border: 2px #D9D9D9 solid;
-}
-.sidebar-column h1{
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 39px;
-  margin-bottom: 20px;
-}
-.filters h2{
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-}
-.filters ul{
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.search {
 
-  background-color: white;
-  border-radius: 20px;
-  height: 80px;
-  width: 100%;
-
-  padding-left: 70px;
+.textname3{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #368A02;
+  background: #C3FF9E;
+  padding: 6px;
+  border-radius: 5px;
 }
-.search::placeholder{
-
-}
-.lupa{
+.redact{
+  float: right;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
   position: absolute;
-  width: 50px;
-  height: 50px;
-  margin:20px 0px 0px 20px;
-  background:url("./../../../../../../../../../img/search.png") no-repeat;
-}
-header{
-  background-color: white;
+  padding-left: 80%;
+  margin-top: -30px;
 }
 
-/*//////////////////////////////////*/
-/*             VACANCY              */
-/*//////////////////////////////////*/
-.vacancy-descripton{
-  height:100px;
-}
-.vacancy-name{
-  margin-top: 10px;
-}
-.new-vacancies li{
-  border-radius: 20px;
-  margin:10px 0px 10px 0px;
-  font-weight: 500;
-  font-size: 16px;
-  background-color: white;
-  flex-grow: 1;
-  width: 100%;
-  padding:20px 20px 20px 20px;
-}
-.new-vacancies ul{
-  display: flex;
-  flex-wrap: wrap;
-}
-.vacancy{
-  position: relative;
-}
-.department-name{
-  font-weight: 500;
-  font-size: 24px;
-  text-transform: uppercase;
-}
-.salary{
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 22px;
-  margin-top: 10px;
-}
-.department{
-  display: flex;
-  line-height: 60px;
-  gap: 10px;
-}
-.department-logo{
-  background: url("./../../../../../../../../../img/department-logo.png") center no-repeat;
-  height: 60px;
-  width: 60px;
-}
-.like{
-  position: absolute;
-  right: 0;
-  background: url("./../../../../../../../../../img/heart.png") center no-repeat;
-  height: 30px;
-  width: 30px;
-  transition: background-color 0.5s;
-}
-.like:hover{
-  background-color:coral;
-}
-.vacancy-descripton{
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  margin-top: 10px;
-}
-.respond{
-  background:#6F08FF;
-  width: 150px;
-  height:40px;
-  color: white;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  border-radius: 20px;
-}
-.details{
-  right: 0;
-  background: black;
-  width: 150px;
-  height:40px;
-  color: white;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  border-radius: 20px;
-}
-.vacancy-buttons {
-  display: flex;
-  gap: 20px;
 
-  justify-content: flex-end;
-  align-items: flex-end;
-}
-/*//////////////////////////////////*/
-/*             VACANCY              */
-/*//////////////////////////////////*/

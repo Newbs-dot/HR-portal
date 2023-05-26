@@ -1,17 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.page-wrapper {
-  padding: 150px 250px 150px 250px;
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 450px 2fr;
-}
-
-.row > * {
-  margin: 10px;
+header {
+  background-color: white;
 }
 
 .vacancy-header {
@@ -21,227 +12,99 @@
   margin-bottom: 40px;
 }
 
-.radio {
-  font-weight: 500;
-  font-size: 16px;
-  margin-top: 20px;
+.main-center {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 3em;
+  margin-top: 3em;
 }
 
-.sidebar-header {
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.but1 {
+  height: 58px;
+  background-color: #6F08FF;
+  border-radius: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
   display: flex;
-  gap: 90px;
-  margin-bottom: 10px;
+  margin: 20px 20px 20px 20px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
 }
 
-.reset-filters {
-  color: #B9B8B8;
+.uwu {
+  color: black;
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px 20px 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: center;
+  font-family: "Montserrat";
+  font-style: normal;
   font-weight: 600;
   font-size: 18px;
 }
 
-.form_radio {
-  margin-bottom: 10px;
-}
-
-.salary-form {
-  border: 2px solid #eee;
-  margin: 20px 0px 20px 0px;
-}
-
-.sidebar-column {
-  background-color: white;
-  border-radius: 20px;
-  padding: 30px;
-}
-
-.competence-tags {
+.categories ul li {
   display: flex;
-  flex-flow: row wrap;
+  justify-content: center;
+  justify-items: center;
+  white-space: nowrap;
 }
 
-.competence-tags li {
-  text-align: center;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  margin: 10px 5px 10px 5px;
-  padding: 5px 10px 5px 10px;
-  background-color: lightgray;
-  border-radius: 20px;
-}
-
-.tags {
+.categories ul {
   display: flex;
-  flex-flow: row wrap;
+  justify-content: center;
+  justify-items: center;
 }
 
-.competence-tags li:last-child {
-  background-color: white;
-  border: 2px #D9D9D9 solid;
-}
-
-.tags li {
-  text-align: center;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
-  margin: 10px 5px 10px 5px;
-  padding: 5px;
-  background-color: lightgray;
-  border-radius: 5px;
-}
-
-.tags li:last-child {
-  background-color: white;
-  border: 2px #D9D9D9 solid;
-}
-
-.sidebar-column h1 {
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 39px;
-  margin-bottom: 20px;
-}
-
-.filters h2 {
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 29px;
-}
-
-.filters ul {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.search {
+.categories {
+  display: inline-block;
   background-color: white;
   border-radius: 20px;
-  height: 80px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   width: 100%;
-  padding-left: 70px;
+  overflow-x: hidden;
 }
 
-.lupa {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin: 20px 0px 0px 20px;
-  background: url("./../../../../../../../../../img/search.png") no-repeat;
+.im {
+  padding-left: 20px;
 }
 
-header {
-  background-color: white;
+.pad {
+  padding-left: 40%;
 }
 
-/*//////////////////////////////////*/
-/*             VACANCY              */
-/*//////////////////////////////////*/
-.vacancy-descripton {
-  height: 100px;
-}
-
-.vacancy-name {
-  margin-top: 10px;
-}
-
-.new-vacancies li {
-  border-radius: 20px;
-  margin: 10px 0px 10px 0px;
-  font-weight: 500;
-  font-size: 16px;
-  background-color: white;
-  flex-grow: 1;
-  width: 100%;
-  padding: 20px 20px 20px 20px;
-}
-
-.new-vacancies ul {
+.cat ul li {
+  color: black;
   display: flex;
-  flex-wrap: wrap;
-}
-
-.vacancy {
-  position: relative;
-}
-
-.department-name {
-  font-weight: 500;
-  font-size: 24px;
-  text-transform: uppercase;
-}
-
-.salary {
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 22px;
-  margin-top: 10px;
-}
-
-.department {
-  display: flex;
-  line-height: 60px;
-  gap: 10px;
-}
-
-.department-logo {
-  background: url("./../../../../../../../../../img/department-logo.png") center no-repeat;
-  height: 60px;
-  width: 60px;
-}
-
-.like {
-  position: absolute;
-  right: 0;
-  background: url("./../../../../../../../../../img/heart.png") center no-repeat;
-  height: 30px;
-  width: 30px;
-  transition: background-color 0.5s;
-}
-
-.like:hover {
-  background-color: coral;
-}
-
-.vacancy-descripton {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  margin-top: 10px;
-}
-
-.respond {
-  background: #6F08FF;
-  width: 150px;
-  height: 40px;
-  color: white;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
+  margin: 20px 10px 20px 20px;
   border-radius: 20px;
 }
 
-.details {
-  right: 0;
-  background: black;
-  width: 150px;
-  height: 40px;
-  color: white;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  border-radius: 20px;
-}
-
-.vacancy-buttons {
+.cat ul {
   display: flex;
-  gap: 20px;
-  justify-content: flex-end;
-  align-items: flex-end;
 }
 
 /*//////////////////////////////////*/
 /*             VACANCY              */
 /*//////////////////////////////////*/
 
-/*# sourceMappingURL=user-job-desc.component.css.map */
+/*# sourceMappingURL=head-search.component.css.map */
