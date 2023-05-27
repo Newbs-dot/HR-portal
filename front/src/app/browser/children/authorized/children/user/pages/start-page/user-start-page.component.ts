@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef } from '@angular/core';
 import {
-  DepartamentService,
-  IUser,
-  UserService, VacancyService
+    DepartamentService,
+    IUser,
+    UserService, VacancyService
 } from '../../../../../../../common';
-import {Observable} from "rxjs";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Observable } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -16,19 +16,24 @@ import {ActivatedRoute, Router} from "@angular/router";
         UserService
     ]
 })
-export class UserStartPageComponent{
+export class UserStartPageComponent {
+
+    protected selectedIndex: number = 2;
+
+    protected tabs: string[] = ['Рассмотренные вакансии', 'Редактировать профиль', 'Профиль']
+
     protected readonly profile$: Observable<IUser>;
+
     constructor(
-    protected userService: UserService,
-    protected cdr: ChangeDetectorRef,
-    private _router: Router,
-    private _activatedRoute: ActivatedRoute,
-    )
-    {
+        protected userService: UserService,
+        private _router: Router,
+        private _activatedRoute: ActivatedRoute,
+    ) {
         this.profile$ = userService.getById(1);
     }
-    protected onEditProfileClick(): void {
-        this._router.navigate([`/cabinet/resume-creation`], { relativeTo: this._activatedRoute });
+
+    public onTabClick(index: number): void {
+        this.selectedIndex = index;
     }
 
 }

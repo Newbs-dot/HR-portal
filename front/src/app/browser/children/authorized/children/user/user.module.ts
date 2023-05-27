@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainAuthorizedComponent, UserFeaturedVacancy, UserJobDescComponent, UserJobSearchComponent, UserResumeCreationComponent, UserReviewedComponent, UserStartPageComponent, VacanciesAuthorizedComponent } from './pages';
-import { VacancyComponent } from '../../../unauthorized/components';
 import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputSliderModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { FooterComponent, HeaderComponent } from '../../../../components';
 import { CURRENT_ROLE_URL } from '../../../../../common';
+import { UserHeaderComponent } from './components/user-header/user-header.component';
+import { UserVacancyComponent } from './components/vacancy/user-vacancy.component';
+import { DepartamentsDetailPageComponent } from './pages/departamentы-detail/departaments-detail-page.component';
 
 const components: any[] = [];
 const pages: any[] = [
@@ -19,7 +21,7 @@ const pages: any[] = [
     UserJobDescComponent,
     MainAuthorizedComponent,
     VacanciesAuthorizedComponent,
-
+    DepartamentsDetailPageComponent
 ];
 
 const routes: Routes = [
@@ -60,6 +62,15 @@ const routes: Routes = [
         path: 'resume-creation',
         component: UserResumeCreationComponent
     },
+    {
+        path: 'departaments',
+        children: [
+            {
+                path: ':id',
+                component: DepartamentsDetailPageComponent
+            }
+        ]
+    }
 ];
 
 @NgModule({
@@ -68,7 +79,7 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         HeaderComponent,
         FooterComponent,
-        VacancyComponent,
+        UserVacancyComponent,
         ReactiveFormsModule,
         TuiFilterModule,
         TuiErrorModule,
@@ -84,7 +95,8 @@ const routes: Routes = [
         TuiTextAreaModule,
         TuiInputSliderModule,
         TuiSelectModule,
-        TuiRadioBlockModule
+        TuiRadioBlockModule,
+        UserHeaderComponent
     ],
     declarations: [...components, ...pages],
     providers: [

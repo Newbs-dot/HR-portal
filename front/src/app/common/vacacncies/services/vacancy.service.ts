@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../../auth';
 import { Observable } from 'rxjs';
 import { IVacancy } from '../interfaces';
+import { Tokens } from '../../enums';
 
 @Injectable()
 export class VacancyService {
@@ -18,6 +19,13 @@ export class VacancyService {
     }
 
     public getById(id: number): Observable<IVacancy> {
-        return this.http.get<IVacancy>(`${ this.apiUrl }/vacancy/id?id=${id}`);
+        return this.http.get<IVacancy>(`${ this.apiUrl }/vacancy/id?id=${ id }`);
+    }
+
+    public respondToVacancy(id: number): Observable<any> {
+        const refreshToken: string | null = localStorage.getItem(Tokens.RefreshToken);
+        const accessToken: string | null = localStorage.getItem(Tokens.AccessToken);
+
+        return this.http.post<any>(`${ this.apiUrl }/vacancy/respond/id?id=${ id }`, { accessToken, refreshToken });
     }
 }

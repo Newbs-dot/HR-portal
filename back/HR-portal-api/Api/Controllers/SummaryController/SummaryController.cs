@@ -45,7 +45,6 @@ public class SummaryController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     public async Task<IActionResult> CreateSummary([FromBody] CreateSummaryRequest request)
     {
         if (request.AccessToken == null)
@@ -134,7 +133,6 @@ public class SummaryController : ControllerBase
 
 
     [HttpDelete("id")]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     public async Task<IActionResult> DeleteSummary(long id)
     {
         try

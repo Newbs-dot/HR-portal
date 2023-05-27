@@ -1,58 +1,56 @@
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <div class="flex flex-col h-screen justify-between">
-  <app-header [showDepartament]="true" [isWhiteLogo]="false"></app-header>
-
-  <main>
-    <div class = 'main-center'>
-      <h1>Создание резюме</h1>
-      <div class="resume-creation-block">
-        <form [formGroup]="resumeForm">
-          <div class="tui-form__row">
-            <div class="form-wrapper">
-
-              <h2>ФИО</h2>
-              <tui-input
-                formControlName="fullNameValue">Введите полное ФИО<input tuiTextfield/>
-              </tui-input>
-
-              <h2>Опыт</h2>
-              <div tuiGroup class="group" [collapsed]="true">
-                <tui-radio-block *ngFor="let exp of experience"
-                  formControlName="experienceValue"
-                  contentAlign="right"
-                  size="l"
-                  [item]="exp"
-                  [hideRadio]="false">
-                  {{ exp }}
-                </tui-radio-block>
-              </div>
-
-              <h2>Желаемая зарплата</h2>
-              <tui-input-slider
-                [min]="min"
-                [max]="max"
-                [steps]="totalSteps"
-                [keySteps]="keySteps"
-                formControlName="salaryValue">
-                Введите желаемую зарплату
-              </tui-input-slider>
-
-              <h2>Обо мне</h2>
-              <tui-text-area [expandable]="true"
-                formControlName="aboutValue">Расскажите о себе
-              </tui-text-area>
-
+    <app-user-header [isWhiteLogo]="false"></app-user-header>
+    <main>
+        <div class='main-center'>
+            <h1>Создание резюме</h1>
+            <div class="resume-creation-block">
+                <form [formGroup]="resumeForm">
+                    <div class="tui-form__row">
+                        <div class="form-wrapper">
+                            
+                            <h2>ФИО</h2>
+                            <tui-input
+                                formControlName="fullNameValue">Введите полное ФИО<input tuiTextfield/>
+                            </tui-input>
+                            
+                            <h2>Опыт</h2>
+                            <div tuiGroup class="group" [collapsed]="true">
+                                <tui-radio-block *ngFor="let exp of experience"
+                                                 formControlName="experienceValue"
+                                                 contentAlign="right"
+                                                 size="l"
+                                                 [item]="exp"
+                                                 [hideRadio]="false">
+                                    {{ exp }}
+                                </tui-radio-block>
+                            </div>
+                            
+                            <h2>Желаемая зарплата</h2>
+                            <tui-input-slider
+                                [min]="min"
+                                [max]="max"
+                                [steps]="totalSteps"
+                                [keySteps]="keySteps"
+                                formControlName="salaryValue">
+                                Введите желаемую зарплату
+                            </tui-input-slider>
+                            
+                            <h2>Обо мне</h2>
+                            <tui-text-area [expandable]="true"
+                                           formControlName="aboutValue">Расскажите о себе
+                            </tui-text-area>
+                        
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
-        </form>
-      </div>
-      <button (click)="onSaveResumeClick()" class="publish-resume">Опубликовать</button>
-    </div>
-
-
-  </main>
-
-  <app-footer></app-footer>
+            <button (click)="onSaveResumeClick()" class="publish-resume">Опубликовать</button>
+        </div>
+    
+    
+    </main>
+    
+    <app-footer></app-footer>
 </div>
 
 

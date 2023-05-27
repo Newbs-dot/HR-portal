@@ -39,11 +39,7 @@ export class MainAuthorizedComponent {
   }
 
   public onDepartamentClick(departament: IDepartament): void {
-      this._router.navigate([`./departaments/${ departament.id }`], { relativeTo: this._activatedRoute });
-  }
-
-  protected onFindJobClick(): void {
-      this._router.navigate([`./auth`], { relativeTo: this._activatedRoute });
+      this._router.navigate([`../departaments/${ departament.id }`], { relativeTo: this._activatedRoute });
   }
 }
 

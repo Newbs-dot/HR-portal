@@ -32,7 +32,6 @@ public class UserController : ControllerBase
     }
 
     [HttpPost("current")]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     public async Task<ActionResult<UserResponse>> GetCurrentUser([FromBody] GetCurrentUserRequest request)
     {
         if (request.AccessToken == null)

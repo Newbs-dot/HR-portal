@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    /*overflow: hidden;  Hide scrollbars */
+}
+
+h1 {
+    font-size: 54px;
+    font-weight: 600;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.categories ul {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.main-center {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.wrapper {
+    display: inline-block;
+    width: 100vw;
+    height: 1080px;
+}
+.costil-for-main-page{
+  top: 0px;
+  position: absolute;
+}
+header {
+    position: relative;
+}
+
+nav {
+    z-index: 1000;
+
+    font-weight: 600;
+    font-size: 18px;
+
+}
+
+.logo-white {
+    background: url("../../../../../../../../../img/logowhite.png") center/cover no-repeat;
+    width: 120px;
+    height: 60px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.black-bg {
+    background-color: #FFFFFF;
+    padding-bottom: 12px;
+    padding-top: 22px;
+}
+
+.white-bg {
+    padding-bottom: 12px;
+    padding-top: 22px;
+}
+
+
+.logo-dark {
+    background: url("../../../../../../../../../img/logodark.png") center/cover no-repeat;
+    width: 120px;
+    height: 60px;
+}
+.profile-image{
+  background: url("../../../../../../../../../img/ellipse.png") center/cover no-repeat;
+  width: 70px;
+  height: 70px;
+
+}
+.profile-arrow{
+  background: url("../../../../../../../../../img/arrow-profile.png") center/cover no-repeat;
+  width: 13px;
+  height:7px;
+
+}
