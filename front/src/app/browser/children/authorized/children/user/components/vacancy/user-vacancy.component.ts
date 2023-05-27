@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForOf, NgStyle } from '@angular/common';
-import { DestroyService, getCompetentsOfTags, ITag, IUser, IVacancy, SalaryDevidePipe, UserService, VacancyService } from '../../../../../../../common';
+import { DestroyService, getCompetentsOfTags, ITag, IUser, SalaryDevidePipe, UserService, VacancyService } from '../../../../../../../common';
 import { takeUntil, tap } from 'rxjs';
 
 @Component({
@@ -42,17 +42,23 @@ export class UserVacancyComponent {
 
     protected isDisable: boolean = false;
 
-    public isVacancyRespondDisabled(user: IUser): boolean {
-        return this.respondedUsers.some((u: IUser) => u.id === user.id);
-    }
-
     constructor(
         protected vacancyService: VacancyService,
         protected destroy$: DestroyService,
+        protected userService: UserService,
+        protected сhangeDetector: ChangeDetectorRef,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
-
+        this.userService.getCurrentUser()
+            .pipe(
+                tap((user: IUser) => {
+                    this.isDisable = this.respondedUsers.some((u: IUser) => u.id === user.id);
+                    this.сhangeDetector.detectChanges();
+                }),
+                takeUntil(this.destroy$)
+            )
+            .subscribe();
     }
 
     public getCompetents(tags: ITag[]): ITag[] {
@@ -64,6 +70,7 @@ export class UserVacancyComponent {
             .pipe(
                 tap(() => {
                     alert('Вы откликнулись на вакансию');
+                    location.reload();
                 }),
                 takeUntil(this.destroy$)
             )

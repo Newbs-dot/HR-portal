@@ -1,44 +1,45 @@
 <main>
-  <app-user-header [showDepartament]="true" [departamentElement]="departamentsTemplate" [isWhiteLogo]="true"></app-user-header>
-  <div class="wrapper">
-    <div class="slogan"><span class='sl-1'>ЭТА РАБОТА</span><br> <span class='sl-2'> ЖДЕТ ТЕБЯ</span></div>
-  </div>
-  <div class='main-center'>
-    <h1>Новые вакансии</h1>
-    <div class="new-vacancies">
-      <ul>
-        <li *ngFor="let vacancy of vacancies$ | async">
-          <app-vacancy
-            id="{{vacancy.id}}"
-            departamentName="{{vacancy.departament.departamentName}}"
-            name="{{vacancy.name}}"
-            salary="{{vacancy.salary}}"
-            description="{{vacancy.description}}"
-            [tags]="vacancy.tags"
-          ></app-vacancy>
-        </li>
-      </ul>
+    <app-user-header [showDepartament]="true" [departamentElement]="departamentsTemplate" [isWhiteLogo]="true"></app-user-header>
+    <div class="wrapper">
+        <div class="slogan"><span class='sl-1'>ЭТА РАБОТА</span><br> <span class='sl-2'> ЖДЕТ ТЕБЯ</span></div>
     </div>
-    <h1 #departaments>Департаменты компании</h1>
-    <div class='company-departments'>
-      <ul *ngIf="departaments$ | async as departaments">
-        <li (click)="onDepartamentClick(departaments[0])">
-          <div class="developer-img"></div>
-          {{departaments[0].departamentName}}
-          <hr>
-        </li>
-        <li (click)="onDepartamentClick(departaments[1])">
-          <div class="manager-img"></div>
-          {{departaments[1].departamentName}}
-          <hr>
-        </li>
-        <li (click)="onDepartamentClick(departaments[2])">
-          <div class="tester-img"></div>
-          {{departaments[2].departamentName}}
-          <hr>
-        </li>
-      </ul>
+    <div class='main-center'>
+        <h1>Новые вакансии</h1>
+        <div class="new-vacancies">
+            <ul>
+                <li *ngFor="let vacancy of vacancies$ | async">
+                    <app-vacancy
+                        [respondedUsers]="vacancy.respondedUsers"
+                        id="{{vacancy.id}}"
+                        departamentName="{{vacancy.departament.departamentName}}"
+                        name="{{vacancy.name}}"
+                        salary="{{vacancy.salary}}"
+                        description="{{vacancy.description}}"
+                        [tags]="vacancy.tags"
+                    ></app-vacancy>
+                </li>
+            </ul>
+        </div>
+        <h1 #departaments>Департаменты компании</h1>
+        <div class='company-departments'>
+            <ul *ngIf="departaments$ | async as departaments">
+                <li (click)="onDepartamentClick(departaments[0])">
+                    <div class="developer-img"></div>
+                    {{departaments[0].departamentName}}
+                    <hr>
+                </li>
+                <li (click)="onDepartamentClick(departaments[1])">
+                    <div class="manager-img"></div>
+                    {{departaments[1].departamentName}}
+                    <hr>
+                </li>
+                <li (click)="onDepartamentClick(departaments[2])">
+                    <div class="tester-img"></div>
+                    {{departaments[2].departamentName}}
+                    <hr>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
-  <app-footer></app-footer>
+    <app-footer></app-footer>
 </main>

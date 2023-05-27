@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class='vacancy-buttons'>
-        <button class='respond' [ngStyle]="true ? {'opacity': '.3'} : {}" (click)="onRespondClick()">Откликнуться</button>
+        <button class='respond' [ngStyle]="isDisable ? {'opacity': '.3'} : null" [disabled]="isDisable" (click)="onRespondClick()">Откликнуться</button>
         <button class='details' (click)="onDetailClick()">Подробнее</button>
     </div>
 </div>

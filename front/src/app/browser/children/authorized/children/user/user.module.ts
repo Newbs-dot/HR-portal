@@ -1,27 +1,34 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainAuthorizedComponent, UserFeaturedVacancy, UserJobDescComponent, UserJobSearchComponent, UserResumeCreationComponent, UserReviewedComponent, UserStartPageComponent, VacanciesAuthorizedComponent } from './pages';
+import { MainAuthorizedComponent, UserFeaturedVacancy, UserJobDescComponent, UserJobSearchComponent, UserProfileEditComponent, UserProfileInfoComponent, UserProfilerRespondedComponent, UserResumeCreationComponent, UserReviewedComponent, VacanciesAuthorizedComponent } from './pages';
 import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputSliderModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { FooterComponent, HeaderComponent } from '../../../../components';
-import { CURRENT_ROLE_URL } from '../../../../../common';
+import { CURRENT_ROLE_URL, SalaryDevidePipe } from '../../../../../common';
 import { UserHeaderComponent } from './components/user-header/user-header.component';
 import { UserVacancyComponent } from './components/vacancy/user-vacancy.component';
 import { DepartamentsDetailPageComponent } from './pages/departamentы-detail/departaments-detail-page.component';
+import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detail-page.component';
+import { UserProfilePageComponent } from './pages/start-page/user-profile-page/user-profile-page.component';
 
-const components: any[] = [];
+const components: any[] = [
+    UserProfileEditComponent,
+    UserProfileInfoComponent,
+    UserProfilerRespondedComponent
+];
 const pages: any[] = [
     UserResumeCreationComponent,
-    UserStartPageComponent,
+    UserProfilePageComponent,
     UserJobSearchComponent,
     UserReviewedComponent,
     UserFeaturedVacancy,
     UserJobDescComponent,
     MainAuthorizedComponent,
     VacanciesAuthorizedComponent,
-    DepartamentsDetailPageComponent
+    DepartamentsDetailPageComponent,
+    VacancyDetailPageComponent
 ];
 
 const routes: Routes = [
@@ -32,7 +39,26 @@ const routes: Routes = [
     },
     {
         path: 'profile',
-        component: UserStartPageComponent
+        component: UserProfilePageComponent,
+        children: [
+            {
+                path: 'info',
+                component: UserProfileInfoComponent
+            },
+            {
+                path: 'edit',
+                component: UserProfileEditComponent
+            },
+            {
+                path: 'responded',
+                component: UserProfilerRespondedComponent
+            },
+            {
+                path: '',
+                pathMatch: 'full',
+                redirectTo: 'info'
+            }
+        ]
     },
     {
         path: 'search',
@@ -70,6 +96,15 @@ const routes: Routes = [
                 component: DepartamentsDetailPageComponent
             }
         ]
+    },
+    {
+        path: 'vacancies',
+        children: [
+            {
+                path: ':id',
+                component: VacancyDetailPageComponent
+            }
+        ]
     }
 ];
 
@@ -96,7 +131,8 @@ const routes: Routes = [
         TuiInputSliderModule,
         TuiSelectModule,
         TuiRadioBlockModule,
-        UserHeaderComponent
+        UserHeaderComponent,
+        SalaryDevidePipe
     ],
     declarations: [...components, ...pages],
     providers: [

@@ -1,4 +1,4 @@
-<app-header [showDepartament]="false" [isWhiteLogo]="false"></app-header>
+<app-user-header [isWhiteLogo]="false"></app-user-header>
 
 <div class='page-wrapper' *ngIf="vacancy$ | async as vacancy">
     <div class="upper-row">
@@ -20,8 +20,10 @@
                     <p>{{vacancy.departament.description}}</p>
                 </div>
                 <div class='sidebar-buttons'>
-                    <button class='send-resume' (click)="onButtonClick()">Отправить резюме</button>
-                    <div (click)="onButtonClick()" class="like"></div>
+                    <button class='send-resume' (click)="onButtonClick()" [disabled]="isDisable" [ngStyle]="isDisable ? {'opacity': '.3'} : null">
+                        {{isDisable ? 'Вы уже отправили свое резюме' : 'Отправить резюме'}}
+                    </button>
+                    <div (click)="onLikeClick()" class="like"></div>
                 </div>
             </div>
             <div class='contacts'>
@@ -36,7 +38,7 @@
                             {{tags.name}}
                         </li>
                     </ul>
-                    <div (click)="onButtonClick()" class="like"></div>
+                    <div (click)="onLikeClick()" class="like"></div>
                 </div>
                 <div>
                     <h1>{{vacancy.name}}</h1>
@@ -71,8 +73,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 <app-footer></app-footer>
 
