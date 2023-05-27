@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainAuthorizedComponent, UserFeaturedVacancy, UserJobDescComponent, UserJobSearchComponent, UserResumeCreationComponent, UserReviewedComponent, UserStartPageComponent, VacanciesAuthorizedComponent } from './pages';
-import { FooterComponent, HeaderComponent, VacancyComponent } from '../../../unauthorized/components';
+import { VacancyComponent } from '../../../unauthorized/components';
 import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputSliderModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserResumeComponent } from '../../components/user-resume/user-resume.component';
 import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import { FooterComponent, HeaderComponent } from '../../../../components';
 
 const components: any[] = [];
 const pages: any[] = [
@@ -70,7 +70,6 @@ const routes: Routes = [
         VacancyComponent,
         ReactiveFormsModule,
         TuiFilterModule,
-        UserResumeComponent,
         TuiErrorModule,
         ReactiveFormsModule,
         TuiMultiSelectModule,

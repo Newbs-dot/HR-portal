@@ -5,10 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { TuiErrorModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule } from '@taiga-ui/kit';
 import { SalaryDevidePipe } from 'src/app/common';
-import { FooterComponent, HeaderComponent, VacancyComponent } from './components';
+import { FooterComponent, HeaderComponent } from '../../components';
+import { VacancyComponent } from './components';
 import { MainPageComponent } from './pages/main/main-page.component';
-
-
 
 
 const routes: Routes = [

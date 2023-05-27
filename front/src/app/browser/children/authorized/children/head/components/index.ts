@@ -1,1 +1,1 @@
-export * from './layout/head-layout.component';
+export * from './user-resume/user-resume.component';

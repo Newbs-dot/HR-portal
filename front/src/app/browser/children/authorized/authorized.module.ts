@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AuthenticatorGuardService, Roles, SalaryDevidePipe} from '../../../common';
-import { UserResumeComponent } from './components/user-resume/user-resume.component';
+import { Roles, SalaryDevidePipe } from '../../../common';
 
 const components: any[] = [];
 

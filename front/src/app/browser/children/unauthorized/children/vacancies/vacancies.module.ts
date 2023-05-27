@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VacanciesPageComponent } from './pages';
-import { FooterComponent, HeaderComponent, VacancyComponent } from '../../components';
+import {  VacancyComponent } from '../../components';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiFilterModule } from '@taiga-ui/kit';
+import { FooterComponent, HeaderComponent } from '../../../../components';
 
 
 const components: any[] = [];
