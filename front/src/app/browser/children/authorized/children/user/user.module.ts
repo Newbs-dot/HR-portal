@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainAuthorizedComponent, UserFeaturedVacancy, UserJobDescComponent, UserJobSearchComponent, UserProfileEditComponent, UserProfileInfoComponent, UserProfilerRespondedComponent, UserResumeCreationComponent, UserReviewedComponent, VacanciesAuthorizedComponent } from './pages';
-import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputSliderModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
+import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputPhoneModule, TuiInputSliderModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { FooterComponent, HeaderComponent } from '../../../../components';
@@ -12,6 +12,7 @@ import { UserVacancyComponent } from './components/vacancy/user-vacancy.componen
 import { DepartamentsDetailPageComponent } from './pages/departamentы-detail/departaments-detail-page.component';
 import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detail-page.component';
 import { UserProfilePageComponent } from './pages/start-page/user-profile-page/user-profile-page.component';
+import { EditUserComponent } from './components/ edit-user/edit-user.component';
 
 const components: any[] = [
     UserProfileEditComponent,
@@ -132,7 +133,9 @@ const routes: Routes = [
         TuiSelectModule,
         TuiRadioBlockModule,
         UserHeaderComponent,
-        SalaryDevidePipe
+        SalaryDevidePipe,
+        TuiInputPhoneModule,
+        EditUserComponent
     ],
     declarations: [...components, ...pages],
     providers: [

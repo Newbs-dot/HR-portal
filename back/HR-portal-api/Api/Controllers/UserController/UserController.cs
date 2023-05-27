@@ -48,6 +48,26 @@ public class UserController : ControllerBase
         return await GetResponse(user);
     }
 
+    [HttpPost("update/current")]
+    public async Task<ActionResult> UpdateCurrentUser([FromBody] UpdateUserRequest request)
+    {
+        if (request.AccessToken == null)
+            return BadRequest("Invalid client request");
+
+        var principal = _jwtSettings.GetPrincipalFromExpiredToken(request.AccessToken);
+
+        if (principal == null)
+            return BadRequest("Invalid access token or refresh token");
+
+        var username = principal.Identity!.Name;
+        var user = await _userManager.FindByNameAsync(username!);
+        user!.FullName = request?.FullName ?? user?.FullName;
+        user!.PhoneNumber = request?.Phone ?? user?.PhoneNumber;
+        await _context.SaveChangesAsync();
+
+        return Ok();
+    }
+
     [HttpGet]
     public async Task<IEnumerable<UserResponse>> GetUsers()
     {
