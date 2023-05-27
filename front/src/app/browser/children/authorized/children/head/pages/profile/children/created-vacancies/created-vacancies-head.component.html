@@ -3,8 +3,8 @@
     <ul>
         <li *ngFor="let vacancy of vacancies$ | async">
             <app-vacancy
+                [buttonName]="'Редактировать'"
                 [showRespondButton]="false"
-                [createdBy]="vacancy.createdBy"
                 id="{{vacancy.id}}"
                 departamentName="{{vacancy.departament.departamentName}}"
                 name="{{vacancy.name}}"

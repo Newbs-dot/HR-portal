@@ -14,6 +14,7 @@ public static class UserMapper
             Email = user.Email,
             EmailConfirmed = user.EmailConfirmed,
             PhoneNumber = user.PhoneNumber,
-            PhoneNumberConfirmed = user.PhoneNumberConfirmed
+            PhoneNumberConfirmed = user.PhoneNumberConfirmed,
+            DepartamentId = user.DepartamentId
         };
 }

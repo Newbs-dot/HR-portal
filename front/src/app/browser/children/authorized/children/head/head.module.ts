@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputSliderModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
+import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputSliderModule, TuiInputTagModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
 import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreatedVacanciesHeadComponent, EditProfileComponent, HeadProfileInfoComponent, HeadProfilePageComponent } from './pages/profile';
@@ -60,7 +60,7 @@ const routes: Routes = [
         component: HeadCreateVacancy,
     },
     {
-        path: 'vacancy-edit',
+        path: 'vacancies-edit',
         children: [
             {
                 path: ':id',
@@ -111,6 +111,7 @@ const routes: Routes = [
         HeadVacancyComponent,
         UserResumeComponent,
         SalaryDevidePipe,
+        TuiInputTagModule,
     ],
     declarations: [...pages],
     providers: [

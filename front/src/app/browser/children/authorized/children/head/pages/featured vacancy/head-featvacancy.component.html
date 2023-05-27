@@ -54,7 +54,6 @@
                         <ng-container *ngIf="getFilteredVacancies(vacancies, form.controls.search.valueChanges | async) as filteredList">
                             <li *ngFor="let filteredVacancy of filteredList">
                                 <app-vacancy
-                                    [createdBy]="filteredVacancy.createdBy"
                                     id="{{filteredVacancy.id}}"
                                     departamentName="{{filteredVacancy.departament.departamentName}}"
                                     name="{{filteredVacancy.name}}"

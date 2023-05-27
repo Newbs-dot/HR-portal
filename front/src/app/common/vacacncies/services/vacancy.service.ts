@@ -1,9 +1,11 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../../auth';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { IVacancy } from '../interfaces';
 import { Tokens } from '../../enums';
+import { IUser, UserService } from '../../user';
+import { IVacancyCreate } from '../interfaces/vacancy-create.interface';
 
 @Injectable()
 export class VacancyService {
@@ -34,5 +36,30 @@ export class VacancyService {
         const accessToken: string | null = localStorage.getItem(Tokens.AccessToken);
 
         return this.http.post<IVacancy[]>(`${ this.apiUrl }/vacancy/current/responded`, { accessToken, refreshToken });
+    }
+
+    public getCurrentCreatedVacancies(): Observable<IVacancy[]> {
+        const refreshToken: string | null = localStorage.getItem(Tokens.RefreshToken);
+        const accessToken: string | null = localStorage.getItem(Tokens.AccessToken);
+
+        return this.http.post<IVacancy[]>(`${ this.apiUrl }/vacancy/current/created`, { accessToken, refreshToken });
+    }
+
+    public createVacancy(model: IVacancyCreate, userService: UserService): Observable<any> {
+        const refreshToken: string | null = localStorage.getItem(Tokens.RefreshToken);
+        const accessToken: string | null = localStorage.getItem(Tokens.AccessToken);
+
+        return userService.getCurrentUser()
+            .pipe(
+                switchMap((user: IUser) =>
+                    this.http
+                        .post<any>(`${ this.apiUrl }/vacancy`, {
+                            accessToken,
+                            refreshToken,
+                            departamentId: user.departamentId,
+                            ...model
+                        })
+                )
+            )
     }
 }

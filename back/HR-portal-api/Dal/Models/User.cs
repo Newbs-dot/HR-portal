@@ -6,6 +6,8 @@ namespace Dal.Models;
 public class User : IdentityUser<long>, IBaseModel
 {
     public string? FullName { get; set; }
+    
+    public long? DepartamentId { get; set; }
 
     public string? RefreshToken { get; set; }
 

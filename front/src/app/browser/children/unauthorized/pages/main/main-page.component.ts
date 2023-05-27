@@ -34,6 +34,7 @@ export class MainPageComponent {
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
+        window.scrollTo({ top: 0 });
         this.vacancies$ = vacancyService.getAll();
         this.departaments$ = departamentsService.getAll();
     }

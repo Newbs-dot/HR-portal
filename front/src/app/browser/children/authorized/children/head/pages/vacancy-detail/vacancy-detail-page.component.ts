@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject } from '@angular/core';
-import { CURRENT_ROLE_URL, getCompetentsOfTags, getTagsOfTags, ITag, IUser, IVacancy, UserService, VacancyService } from '../../../../../../../common';
+import { CURRENT_ROLE_URL, DestroyService, getCompetentsOfTags, getTagsOfTags, ITag, IUser, IVacancy, UserService, VacancyService } from '../../../../../../../common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, Observable, switchMap } from 'rxjs';
+import { EMPTY, map, Observable, switchMap, takeUntil, tap } from 'rxjs';
 import { PreviousRouteService } from '../../../../../../../common/previous-route-service/previous-route.service';
 
 @Component({
@@ -12,6 +12,7 @@ import { PreviousRouteService } from '../../../../../../../common/previous-route
     providers: [
         VacancyService,
         UserService,
+        DestroyService,
     ]
 })
 export class VacancyDetailPageComponent {
@@ -24,6 +25,7 @@ export class VacancyDetailPageComponent {
         protected readonly vacancyService: VacancyService,
         protected readonly previousRouteService: PreviousRouteService,
         protected readonly userService: UserService,
+        protected readonly destroy$: DestroyService,
         protected сhangeDetector: ChangeDetectorRef,
         @Inject(CURRENT_ROLE_URL) protected currentRoleUrl: string,
         private _router: Router,
@@ -40,6 +42,11 @@ export class VacancyDetailPageComponent {
                 switchMap((vacancy: IVacancy) => this.userService.getCurrentUser()
                     .pipe(
                         map((user: IUser) => {
+                            if (user.id === vacancy.createdBy.id) {
+                                this._router.navigate([`cabinet/head/vacancies-edit/${ vacancy.id }`]);
+
+                                return vacancy;
+                            }
                             this.isDisable = vacancy.respondedUsers.some((u: IUser) => u.id === user.id);
                             this.сhangeDetector.detectChanges();
 
@@ -57,13 +64,6 @@ export class VacancyDetailPageComponent {
 
     public onContactsClick(vacancy: IVacancy): void {
         this._router.navigate([`cabinet/departaments/${ vacancy.departament.id }`])
-    }
-
-    public onButtonClick(): void {
-
-    }
-
-    public onLikeClick(): void {
     }
 
     protected splitConditions(conditions: string): string[] {

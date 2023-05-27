@@ -1,13 +1,14 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IVacancy, VacancyService } from '../../../../../../../../../common';
+import { IVacancy, UserService, VacancyService } from '../../../../../../../../../common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     templateUrl: './created-vacancies-head.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
-        VacancyService
+        VacancyService,
+        UserService
     ],
     styleUrls: ['./styles/user-profile-responded.component.scss'],
 })
@@ -16,10 +17,9 @@ export class CreatedVacanciesHeadComponent {
 
     constructor(
         protected vacancyService: VacancyService,
-        protected cdr: ChangeDetectorRef,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
-        this.vacancies$ = vacancyService.getCurrentRespondedVacancies()
+        this.vacancies$ = vacancyService.getCurrentCreatedVacancies()
     }
 }

@@ -25,21 +25,33 @@
                         <tui-text-area [expandable]="true"
                                        formControlName="aboutValue">
                         </tui-text-area>
-                        
+                        <h2>Опыт</h2>
+                        <div tuiGroup class="group" [collapsed]="true">
+                            <tui-radio-block *ngFor="let exp of experience"
+                                             formControlName="experienceValue"
+                                             contentAlign="right"
+                                             size="l"
+                                             [item]="exp"
+                                             [hideRadio]="false">
+                                {{ exp }}
+                            </tui-radio-block>
+                        </div>
                         <h2>Требования</h2>
-                        <tui-text-area [expandable]="true"
+                        <tui-input-tag [expandable]="true"
+                                       [tuiTextfieldLabelOutside]="true"
                                        formControlName="requirementsValue">
-                        </tui-text-area>
+                        </tui-input-tag>
                         
                         <h2>Условия</h2>
-                        <tui-text-area [expandable]="true"
+                        <tui-input-tag [expandable]="true"
+                                       [tuiTextfieldLabelOutside]="true"
                                        formControlName="conditionsValue">
-                        </tui-text-area>
+                        </tui-input-tag>
                     </div>
                 </div>
             </form>
         </div>
-        <button class="publish-resume">Создать вакансию</button>
+        <button class="publish-resume" (click)="onSaveVacancyClick()">Создать вакансию</button>
     </div>
     <app-footer></app-footer>
 </div>
