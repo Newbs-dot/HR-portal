@@ -33,7 +33,7 @@ h2 {
   display: inline-block;
   width: 100vw;
   height: 1080px;
-  background: url("./../../../../../../../img/yg1.png") center/cover no-repeat;
+  background: url("./../../../../../img/yg1.png") center/cover no-repeat;
 }
 
 header {
@@ -49,7 +49,7 @@ nav {
 }
 
 .logo-white {
-  background: url("./../../../../../../../img/logowhite.png") center/cover no-repeat;
+  background: url("./../../../../../img/logowhite.png") center/cover no-repeat;
   width: 120px;
   height: 60px;
 }
