@@ -13,7 +13,7 @@ import { DepartamentsDetailPageComponent } from './pages/departamentы-detail/de
 import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detail-page.component';
 import { UserProfilePageComponent } from './pages/start-page/user-profile-page/user-profile-page.component';
 import { EditUserComponent } from './components/ edit-user/edit-user.component';
-
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 const components: any[] = [
     UserProfileEditComponent,
     UserProfileInfoComponent,
@@ -135,7 +135,8 @@ const routes: Routes = [
         UserHeaderComponent,
         SalaryDevidePipe,
         TuiInputPhoneModule,
-        EditUserComponent
+        EditUserComponent,
+        UserProfileComponent
     ],
     declarations: [...components, ...pages],
     providers: [

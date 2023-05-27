@@ -8,7 +8,7 @@ export interface IUser {
     experience : string;
     salary:string;
     description:string;
-    //phoneNumber: string;
+    phoneNumber: string;
     //tags: ITag[];
     isActive: boolean;
 }
