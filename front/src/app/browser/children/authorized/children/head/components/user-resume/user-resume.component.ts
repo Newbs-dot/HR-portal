@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { getCompetentsOfTags, ITag, SalaryDevidePipe } from '../../../../../common';
 import { NgForOf } from '@angular/common';
+import { SalaryDevidePipe } from '../../../../../../../common';
 
 @Component({
     selector: 'app-resume',
@@ -13,16 +12,19 @@ import { NgForOf } from '@angular/common';
 })
 export class UserResumeComponent {
 
-  @Input()
+    @Input()
     public id!: string;
 
-  @Input()
-  public salary!: string;
+    @Input()
+    public fullName!: string;
 
-  @Input()
-  public description!: string;
+    @Input()
+    public salary!: string;
 
-  @Input()
-  public experience!: string;
+    @Input()
+    public description!: string;
+
+    @Input()
+    public experience!: string;
 
 }

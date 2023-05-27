@@ -1,0 +1,24 @@
+<header>
+    <div class="costil-for-main-page">
+        <nav class="flex p-[42px] w-screen text-white" *ngIf="isWhiteLogo">
+            <ul class="flex gap-[62px] items-center">
+                <li class="logo-white pointer" (click)="onHomeButtonClick()"></li>
+                <li class="pl pointer" (click)="onVacancyButtonClick()"><a>Все вакансии</a></li>
+                <li class="pointer" (click)="onVacancyCreateClick()">Создать вакансию</li>
+                <li class="pl pointer" (click)="onResumeButtonClick()"><a>Резюме на рассмотрении</a></li>
+                <li class="profile pointer" (click)="onProfileButtonClick()">Профиль</li>
+            </ul>
+        </nav>
+    </div>
+    
+    <nav class="flex p-[42px] w-screen  bg-white" *ngIf="!isWhiteLogo">
+        <ul class="flex gap-[62px] items-center">
+            <li class="logo-dark pointer" (click)="onHomeButtonClick()"></li>
+            <li class="pl pointer" (click)="onVacancyButtonClick()">Все вакансии</li>
+            <li class="pointer" (click)="onVacancyCreateClick()">Создать вакансию</li>
+            <li class="pl pointer" (click)="onResumeButtonClick()"><a>Резюме на рассмотрении</a></li>
+            <li class="profile pointer text-white" (click)="onProfileButtonClick()">Профиль</li>
+        </ul>
+    </nav>
+
+</header>

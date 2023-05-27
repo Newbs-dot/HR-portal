@@ -35,6 +35,9 @@ export class EditUserComponent {
     @Input()
     public title!: string;
 
+    @Input()
+    public buttonName!: string;
+
     protected readonly max: any = 800_000;
 
     protected readonly min: any = 30_000;
@@ -74,6 +77,7 @@ export class EditUserComponent {
 
     protected onSaveResumeClick(): void {
         if (!this.resumeForm.valid) {
+            alert('Не заполнили форму полностью');
             return;
         }
         const fullName: string | null = this.resumeForm.controls.fullNameValue.value;

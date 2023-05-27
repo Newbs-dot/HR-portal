@@ -2,6 +2,7 @@
 using Dal.Models;
 using Dal.Repositories.SummaryRepository;
 using Dal.Repositories.TagRepository;
+using Dal.Repositories.VacancyRepository;
 using HR_portal_api.Controllers.SummaryController.Dto.Request;
 using HR_portal_api.Controllers.SummaryController.Dto.Response;
 using HR_portal_api.Controllers.TagController.Dto;
@@ -32,16 +33,20 @@ public class SummaryController : ControllerBase
 
     private readonly ITagRepository _tagRepository;
 
+    private readonly IVacancyRepository _vacancyRepository;
+
     private readonly JwtSettings _jwtSettings;
 
     public SummaryController(ISummaryRepository summaryRepository, IOptions<JwtSettings> options,
-        UserManager<User> userManager, DataContext context, ITagService tagService, ITagRepository tagRepository)
+        UserManager<User> userManager, DataContext context, ITagService tagService, ITagRepository tagRepository,
+        IVacancyRepository vacancyRepository)
     {
         _summaryRepository = summaryRepository;
         _userManager = userManager;
         _context = context;
         _tagService = tagService;
         _tagRepository = tagRepository;
+        _vacancyRepository = vacancyRepository;
         _jwtSettings = options.Value;
     }
 
@@ -98,6 +103,36 @@ public class SummaryController : ControllerBase
             return Empty;
 
         return await GetResponse(currentSummary);
+    }
+
+    [HttpPost("current/respondedTo")]
+    public async Task<ActionResult<List<SummaryResponse>>> GetAllCurrentSummeries(
+        [FromBody] GetSummaryCurrentRequest request)
+    {
+        if (request.AccessToken == null)
+            return BadRequest("Invalid client request");
+
+        var principal = _jwtSettings.GetPrincipalFromExpiredToken(request.AccessToken);
+
+        if (principal == null)
+            return BadRequest("Invalid access token or refresh token");
+
+        var username = principal.Identity!.Name;
+        var user = await _userManager.FindByNameAsync(username!);
+        var vacancies = await _vacancyRepository.GetAllAsync();
+        var summeries = await _summaryRepository.GetAllAsync();
+
+        var respondedUsers = vacancies
+            .Where(v => v.CreatedBy == user.Id)
+            .Select(v => v.RespondedUsers);
+
+        return summeries
+            .Where(s => respondedUsers
+                .Any(users => users.Any(userId => userId == s.CreatedBy))
+            )
+            .Distinct()
+            .Select(s => GetResponse(s).Result)
+            .ToList();
     }
 
     [HttpGet]

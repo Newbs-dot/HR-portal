@@ -5,15 +5,16 @@ import { CURRENT_ROLE_URL } from '../../../../../../../common';
 
 @Component({
     selector: ' app-user-header',
-    templateUrl: './user-header.component.html',
+    templateUrl: './head-header.component.html',
     styleUrls: ['./styles/header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [
         NgIf
     ],
+
 })
-export class UserHeaderComponent {
+export class HeadHeaderComponent {
 
     @Input()
     public showDepartament: boolean = false;
@@ -32,25 +33,22 @@ export class UserHeaderComponent {
     }
 
     protected onVacancyButtonClick(): void {
-        this._router.navigate([`${ this.currentRoleUrl }/vacancies`]);
+        this._router.navigate([`cabinet/head/vacancies`]);
     }
 
     protected onHomeButtonClick(): void {
-        this._router.navigate([`${ this.currentRoleUrl }/main`]);
-    }
-
-    protected onDepartamentsButtonClick(): void {
-        if (this.departamentElement) {
-            const { top }: DOMRect = this.departamentElement.nativeElement.getBoundingClientRect();
-            window.scrollTo({ top });
-        }
+        this._router.navigate([`cabinet/head/profile/`]);
     }
 
     protected onProfileButtonClick(): void {
-        this._router.navigate([`/cabinet/profile`], { relativeTo: this._activatedRoute });
+        this._router.navigate([`/cabinet/head/profile`]);
+    }
+
+    protected onVacancyCreateClick(): void {
+        this._router.navigate([`/cabinet/head/vacancy-creation`]);
     }
 
     protected onResumeButtonClick(): void {
-        this._router.navigate([`/cabinet/resume-creation`], { relativeTo: this._activatedRoute });
+        this._router.navigate([`/cabinet/head/summeries`]);
     }
 }
