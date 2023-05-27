@@ -153,9 +153,6 @@ public class VacancyController : ControllerBase
         if (vacancy == null)
             return BadRequest("invalid vacancy id");
 
-        if (!vacancy.IsActive)
-            return BadRequest("vacancy should be active");
-
         if (vacancy.RespondedUsers == null)
             vacancy.RespondedUsers = new List<long>();
 
