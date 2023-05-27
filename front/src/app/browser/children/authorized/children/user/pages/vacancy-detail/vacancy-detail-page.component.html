@@ -23,7 +23,6 @@
                     <button class='send-resume' (click)="onButtonClick()" [disabled]="isDisable" [ngStyle]="isDisable ? {'opacity': '.3'} : null">
                         {{isDisable ? 'Вы уже отправили свое резюме' : 'Отправить резюме'}}
                     </button>
-                    <div (click)="onLikeClick()" class="like"></div>
                 </div>
             </div>
             <div class='contacts'>
@@ -38,7 +37,6 @@
                             {{tags.name}}
                         </li>
                     </ul>
-                    <div (click)="onLikeClick()" class="like"></div>
                 </div>
                 <div>
                     <h1>{{vacancy.name}}</h1>

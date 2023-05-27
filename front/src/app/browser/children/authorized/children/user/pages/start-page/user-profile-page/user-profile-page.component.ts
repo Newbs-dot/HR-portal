@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { IUser, UserService } from '../../../../../../../../common';
+import { Observable, takeUntil } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { DestroyService, IUser, UserService } from '../../../../../../../../common';
 
 
 @Component({
@@ -9,7 +9,8 @@ import { IUser, UserService } from '../../../../../../../../common';
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./styles/user-start-page.component.scss'],
     providers: [
-        UserService
+        UserService,
+        DestroyService
     ]
 })
 export class UserProfilePageComponent {
@@ -28,17 +29,26 @@ export class UserProfilePageComponent {
 
     constructor(
         protected userService: UserService,
+        protected destroy$: DestroyService,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
         this.profile$ = userService.getById(1);
-        const splitUrl: string[] = this._router.url.split('/');
-        this.selectedIndex = 2;
-        this.tabsKeys.forEach((tab: string, index: number) => {
-            if (this.tabs[tab].includes(splitUrl[splitUrl.length - 1])) {
-                this.selectedIndex = index;
-            }
-        });
+        this._router.events
+            .pipe(
+                takeUntil(this.destroy$)
+            )
+            .subscribe((event: any) => {
+                if (event instanceof NavigationEnd) {
+                    const splitUrl: string[] = this._router.url.split('/');
+                    this.selectedIndex = 2;
+                    this.tabsKeys.forEach((tab: string, index: number) => {
+                        if (this.tabs[tab].includes(splitUrl[splitUrl.length - 1])) {
+                            this.selectedIndex = index;
+                        }
+                    });
+                }
+            })
     }
 
     public onTabClick(index: number): void {
