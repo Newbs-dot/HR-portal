@@ -18,12 +18,9 @@ import {ActivatedRoute, Router} from '@angular/router';
     ],
 })
 export class HeadProfileInfoComponent {
-
   protected readonly user$: Observable<IUser>;
   constructor(
     protected userService: UserService,
-    protected cdr: ChangeDetectorRef,
-    private _router: Router,
     private _activatedRoute: ActivatedRoute,
     ) {
         this.user$ = userService.getCurrentUser()

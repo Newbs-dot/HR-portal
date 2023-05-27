@@ -5,10 +5,7 @@ import {
   AuthService,
   CURRENT_ROLE_URL,
   DestroyService,
-  ISummary,
-  IUser,
   SummaryService,
-  TagService,
   UserService
 } from '../../../../../../../common';
 import { ActivatedRoute, Router } from '@angular/router';
