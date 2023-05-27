@@ -35,8 +35,8 @@ export class VacancyDetailPageComponent {
     }
 
     public onReturnButtonClick(): void {
-        const previousUrl: string = this.previousRouteService.getPreviousUrl() ?? '/main';
-        console.log(previousUrl);
+        let previousUrl: string = this.previousRouteService.getPreviousUrl() ?? '/main';
+        previousUrl = previousUrl.includes('/vacancies/') ? '/' : previousUrl;
         this._router.navigate([`/${ previousUrl }`], { relativeTo: this._activatedRoute });
     }
 
