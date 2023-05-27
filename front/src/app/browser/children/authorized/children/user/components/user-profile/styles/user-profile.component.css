@@ -220,16 +220,6 @@ h2 {
   color: #000000;
 }
 
-.main-bg {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background: url("../mm.png") no-repeat center center fixed;
-  position: absolute;
-  margin-top: 40px;
-  margin-left: 2%;
-}
 
 .but99 {
   position: absolute;

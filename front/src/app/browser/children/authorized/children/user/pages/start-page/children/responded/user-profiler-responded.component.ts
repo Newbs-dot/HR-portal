@@ -7,18 +7,19 @@ import {ActivatedRoute, Router} from "@angular/router";
     templateUrl: './user-profiler-responded.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
-        VacancyService
+        VacancyService,
     ],
     styleUrls: ['./styles/user-profile-responded.component.scss'],
 })
 export class UserProfilerRespondedComponent {
     protected readonly vacancies$: Observable<IVacancy[]>;
-  constructor(
+    constructor(
     protected vacancyService: VacancyService,
     protected cdr: ChangeDetectorRef,
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
     ) {
         this.vacancies$ = vacancyService.getCurrentRespondedVacancies()
+
     }
 }
