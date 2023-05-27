@@ -4,7 +4,7 @@ export interface IUser {
     id: number;
     userFullName: string;
     roles: string[];
-    //email: string;
+    email: string;
     experience : string;
     salary:string;
     description:string;

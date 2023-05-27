@@ -1,12 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputSliderModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
+import {
+  TuiDataListWrapperModule,
+  TuiFieldErrorPipeModule,
+  TuiFilterModule,
+  TuiInputModule,
+  TuiInputPhoneModule,
+  TuiInputSliderModule,
+  TuiMultiSelectModule,
+  TuiRadioBlockModule,
+  TuiSelectModule,
+  TuiTextAreaModule
+} from '@taiga-ui/kit';
 import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreatedVacanciesHeadComponent, EditProfileComponent, HeadProfileInfoComponent, HeadProfilePageComponent } from './pages/profile';
 import { FooterComponent } from '../../../../components';
-import { HeadHeaderComponent, HeadVacancyComponent, UserResumeComponent } from './components';
+import { HeadHeaderComponent, HeadVacancyComponent, UserResumeComponent ,HeadProfileComponent} from './components';
 import { CURRENT_ROLE_URL, SalaryDevidePipe } from '../../../../../common';
 import { HeadCreateVacancy, HeadFeaturedVacancy } from './pages';
 import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detail-page.component';
@@ -88,30 +99,32 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule.forChild(routes),
-        TuiFilterModule,
-        TuiErrorModule,
-        TuiMultiSelectModule,
-        TuiTextfieldControllerModule,
-        TuiInputModule,
-        TuiDataListWrapperModule,
-        TuiFieldErrorPipeModule,
-        TuiButtonModule,
-        TuiHintModule,
-        TuiGroupModule,
-        TuiTextAreaModule,
-        TuiInputSliderModule,
-        TuiSelectModule,
-        TuiRadioBlockModule,
-        ReactiveFormsModule,
-        FooterComponent,
-        HeadHeaderComponent,
-        HeadVacancyComponent,
-        UserResumeComponent,
-        SalaryDevidePipe,
-    ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    TuiFilterModule,
+    TuiErrorModule,
+    TuiMultiSelectModule,
+    TuiTextfieldControllerModule,
+    TuiInputModule,
+    TuiDataListWrapperModule,
+    TuiFieldErrorPipeModule,
+    TuiButtonModule,
+    TuiHintModule,
+    TuiGroupModule,
+    TuiTextAreaModule,
+    TuiInputSliderModule,
+    TuiSelectModule,
+    TuiRadioBlockModule,
+    ReactiveFormsModule,
+    FooterComponent,
+    HeadHeaderComponent,
+    HeadVacancyComponent,
+    UserResumeComponent,
+    SalaryDevidePipe,
+    HeadProfileComponent,
+    TuiInputPhoneModule
+  ],
     declarations: [...pages],
     providers: [
         {

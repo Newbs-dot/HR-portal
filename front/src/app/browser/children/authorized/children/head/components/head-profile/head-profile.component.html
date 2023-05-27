@@ -1,0 +1,17 @@
+<div class="main-center">
+  <h1>Ваш профиль</h1>
+  <div class="resume-wopper bg-white" >
+    <h2>ФИО</h2>
+    <div class="info">{{fullName ?? 'Поле не заполнено'}}</div>
+
+    <h2>Телефон</h2>
+    <div class="info">{{phone ?? 'Поле не заполнено'}}</div>
+
+    <h2>Email</h2>
+    <div class="info">{{email ?? 'Поле не заполнено'}}</div>
+
+    <h2>Обо мне</h2>
+    <div class="info">{{about ?? 'Поле не заполнено'}}</div>
+  </div>
+  <button class="logout" (click)="onLogoutButtonClick()">Выйти из аккаунта</button>
+</div>
