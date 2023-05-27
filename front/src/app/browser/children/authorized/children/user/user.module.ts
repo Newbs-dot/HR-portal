@@ -1,34 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UserLayoutComponent } from './components';
-import {
-  UserStartPageComponent,
-  UserJobSearchComponent,
-  UserReviewedComponent,
-  UserFeaturedVacancy,
-  UserJobDescComponent,
-  MainAuthorizedComponent,
-  VacanciesAuthorizedComponent,
-  UserResumeCreationComponent
-} from './pages';
-import { HeaderComponent, FooterComponent ,VacancyComponent} from '../../../unauthorized/components';
+import { MainAuthorizedComponent, UserFeaturedVacancy, UserJobDescComponent, UserJobSearchComponent, UserResumeCreationComponent, UserReviewedComponent, UserStartPageComponent, VacanciesAuthorizedComponent } from './pages';
+import { FooterComponent, HeaderComponent, VacancyComponent } from '../../../unauthorized/components';
+import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, TuiInputModule, TuiInputSliderModule, TuiMultiSelectModule, TuiRadioBlockModule, TuiSelectModule, TuiTextAreaModule } from '@taiga-ui/kit';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserResumeComponent } from '../../components/user-resume/user-resume.component';
+import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+
 const components: any[] = [];
-import {TuiFilterModule, TuiInputSliderModule, TuiTextAreaModule} from '@taiga-ui/kit';
-import {ReactiveFormsModule} from "@angular/forms";
-import {UserResumeComponent} from '../../components/user-resume/user-resume.component';
-import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule,TuiFieldErrorPipeModule,TuiSelectModule,TuiRadioBlockModule} from '@taiga-ui/kit';
-import { TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule, TuiHintModule, TuiGroupModule} from '@taiga-ui/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 const pages: any[] = [
-  UserResumeCreationComponent,
-  UserStartPageComponent,
-  UserJobSearchComponent,
-  UserReviewedComponent,
-  UserFeaturedVacancy,
-  UserJobDescComponent,
-  MainAuthorizedComponent,
-  VacanciesAuthorizedComponent,
+    UserResumeCreationComponent,
+    UserStartPageComponent,
+    UserJobSearchComponent,
+    UserReviewedComponent,
+    UserFeaturedVacancy,
+    UserJobDescComponent,
+    MainAuthorizedComponent,
+    VacanciesAuthorizedComponent,
 
 ];
 
@@ -50,7 +39,8 @@ const routes: Routes = [
         path: 'reviewed',
         component: UserReviewedComponent
     },
-    {   path: 'featured',
+    {
+        path: 'featured',
         component: UserFeaturedVacancy
     },
     {
@@ -72,31 +62,30 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    UserLayoutComponent,
-    RouterModule.forChild(routes),
-    HeaderComponent,
-    FooterComponent,
-    VacancyComponent,
-    ReactiveFormsModule,
-    TuiFilterModule,
-    UserResumeComponent,
-    TuiErrorModule,
-    ReactiveFormsModule,
-    TuiMultiSelectModule,
-    TuiTextfieldControllerModule,
-    TuiInputModule,
-    TuiDataListWrapperModule,
-    TuiFieldErrorPipeModule,
-    TuiButtonModule,
-    TuiHintModule,
-    TuiGroupModule,
-    TuiTextAreaModule,
-    TuiInputSliderModule,
-    TuiSelectModule,
-    TuiRadioBlockModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        HeaderComponent,
+        FooterComponent,
+        VacancyComponent,
+        ReactiveFormsModule,
+        TuiFilterModule,
+        UserResumeComponent,
+        TuiErrorModule,
+        ReactiveFormsModule,
+        TuiMultiSelectModule,
+        TuiTextfieldControllerModule,
+        TuiInputModule,
+        TuiDataListWrapperModule,
+        TuiFieldErrorPipeModule,
+        TuiButtonModule,
+        TuiHintModule,
+        TuiGroupModule,
+        TuiTextAreaModule,
+        TuiInputSliderModule,
+        TuiSelectModule,
+        TuiRadioBlockModule
+    ],
     declarations: [...components, ...pages],
 })
 export class UserModule {
