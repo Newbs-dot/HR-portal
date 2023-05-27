@@ -1,33 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-* {
-  font-family: 'Montserrat', sans-serif;
-  /*overflow: hidden;  Hide scrollbars */
-}
+
 header{
   background-color: white;
 }
-.profile-block{
-  padding: 25px;
+.vacancy-header{
+  font-weight: 600;
+  font-size: 54px;
+  margin-left: 10px;
+  margin-bottom: 40px;
 }
-.profile-block > div{
-  font-family: Montserrat;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0em;
-  text-align: left;
-}
+
 .main-center{
   margin-left: 20%;
   margin-right: 20%;
-  margin-top: 3em;
   margin-bottom: 3em;
-  font-family: 'Montserrat', sans-serif;
+  margin-top: 3em;
 }
-.main-center > *{
-  font-family: 'Montserrat', sans-serif;
-}
+
 h1{
   font-size: 2em;
   font-weight: bold;
@@ -51,42 +42,9 @@ h2{
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-  line-height: 22px;
-}
-.but5{
-  height: 58px;
-  background-color: #6F08FF;
-  border-radius: 10px;
-  width: 138%;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  color: white;
-  display: flex;
-  margin: 20px 20px 20px 20px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 22px;
-}
-.text9{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #787885;
-}
-.text10{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  color: #000000;
 
 }
+
 .uwu{
   color: black;
   display: flex;
@@ -100,13 +58,13 @@ h2{
   font-weight: 600;
   font-size: 18px;
 
-
 }
 .categories ul li{
   display: flex;
   justify-content: center;
   justify-items: center;
-  white-space: nowrap
+  white-space: nowrap;
+
 }
 .categories ul{
   display: flex;
@@ -125,20 +83,31 @@ h2{
   overflow-x:hidden;
 }
 
+.im{
+  padding-left: 20px;
+}
 
-.profile-block{
-  background-color: white;
+.pad{
+  padding-left: 40%;
+}
+
+.cat ul li{
+  color: black;
+  display: flex;
+  margin: 20px 10px 20px 20px;
   border-radius: 20px;
-  margin-top: 10px;
+
 }
-.profile-block > *{
-  margin: 10px;
+.cat ul{
+  display: flex;
+
 }
-.edit-profile{
-  position: absolute;
+//
+
+.publish-resume{
   height: 56px;
-  margin-top: 10px;
-  background-color: #6F08FF;
+  margin-top: 20px;
+  background-color: black;
   border-radius: 10px;
   width: 300px;
   align-items: center;
@@ -152,4 +121,12 @@ h2{
   font-size: 16px;
 }
 
-
+.resume-creation-block{
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 20px;
+}
+.form-wrapper > *{
+  margin: 20px;
+}

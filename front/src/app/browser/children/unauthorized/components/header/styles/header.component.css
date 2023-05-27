@@ -48,8 +48,29 @@ nav {
   top: 0px;
 }
 
-.logo {
+.logo-white {
   background: url("./../../../../../../../img/logowhite.png") center/cover no-repeat;
+  width: 120px;
+  height: 60px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.black-bg {
+  background-color: #FFFFFF;
+  padding-bottom: 12px;
+  padding-top: 22px;
+}
+
+.white-bg {
+  padding-bottom: 12px;
+  padding-top: 22px;
+}
+
+.logo-dark {
+  background: url("../../../../../../../img/logodark.png") center/cover no-repeat;
   width: 120px;
   height: 60px;
 }
