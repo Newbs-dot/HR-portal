@@ -7,6 +7,7 @@ import { TuiDataListWrapperModule, TuiFieldErrorPipeModule, TuiFilterModule, Tui
 import { ReactiveFormsModule } from '@angular/forms';
 import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
 import { FooterComponent, HeaderComponent } from '../../../../components';
+import { CURRENT_ROLE_URL } from '../../../../../common';
 
 const components: any[] = [];
 const pages: any[] = [
@@ -86,6 +87,12 @@ const routes: Routes = [
         TuiRadioBlockModule
     ],
     declarations: [...components, ...pages],
+    providers: [
+        {
+            provide: CURRENT_ROLE_URL,
+            useValue: 'cabinet'
+        }
+    ]
 })
 export class UserModule {
 }

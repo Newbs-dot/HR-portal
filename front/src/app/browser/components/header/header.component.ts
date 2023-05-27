@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Inject, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { CURRENT_ROLE_URL } from '../../../common';
 
 @Component({
     selector: 'app-header',
@@ -24,35 +25,29 @@ export class HeaderComponent {
     public departamentElement?: ElementRef;
 
     @Input()
-    public isWhiteTeheme: boolean = true;
+    public isWhiteLogo: boolean = true;
 
-    @Input()
-    public showLogin: boolean = true;
-    @Input()
-    public isAuthorized: boolean = false;
+    /**
+     * Авторизован ли пользователь
+     * @returns {boolean}
+     */
+    public get isAuth(): boolean {
+        return !!this.currentRoleUrl;
+    }
 
     constructor(
+        @Inject(CURRENT_ROLE_URL) protected currentRoleUrl: string,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
     }
 
     protected onVacancyButtonClick(): void {
-        if (this.isAuthorized) {
-            this._router.navigate([`cabinet/vacancies`]);
-        } else {
-            this._router.navigate([`/vacancies`], { relativeTo: this._activatedRoute });
-        }
-
+        this._router.navigate([`${ this.currentRoleUrl }/vacancies`]);
     }
 
     protected onHomeButtonClick(): void {
-        if (this.isAuthorized) {
-            this._router.navigate([`cabinet/main`]);
-        } else {
-            this._router.navigate([`/main`], { relativeTo: this._activatedRoute });
-        }
-
+        this._router.navigate([`${ this.currentRoleUrl }/main`]);
     }
 
     protected onDepartamentsButtonClick(): void {
