@@ -16,11 +16,11 @@ export class UserProfilePageComponent {
 
     protected selectedIndex: number = 2;
 
-    protected tabsKeys: string[] = ['Рассмотренные вакансии', 'Редактировать профиль', 'Профиль']
+    protected tabsKeys: string[] = ['Рассмотренные вакансии', 'Редактировать резюме', 'Профиль']
 
     protected tabs: Record<string, string> = {
         'Рассмотренные вакансии': 'responded',
-        'Редактировать профиль': 'edit',
+        'Редактировать резюме': 'edit',
         'Профиль': 'info'
     };
 

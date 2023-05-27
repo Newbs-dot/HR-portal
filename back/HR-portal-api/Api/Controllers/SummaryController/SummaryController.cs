@@ -5,6 +5,7 @@ using Dal.Repositories.TagRepository;
 using HR_portal_api.Controllers.SummaryController.Dto.Request;
 using HR_portal_api.Controllers.SummaryController.Dto.Response;
 using HR_portal_api.Controllers.TagController.Dto;
+using HR_portal_api.Controllers.VacancyController.Dto.Request;
 using HR_portal_api.Mappers;
 using HR_portal_api.Policy;
 using Logic.Extensions;
@@ -74,6 +75,29 @@ public class SummaryController : ControllerBase
         await _context.SaveChangesAsync();
 
         return Ok();
+    }
+
+    [HttpPost("current/responded")]
+    public async Task<ActionResult<SummaryResponse>> GetCurrentSummaryResponded(
+        [FromBody] GetSummaryCurrentRequest request)
+    {
+        if (request.AccessToken == null)
+            return BadRequest("Invalid client request");
+
+        var principal = _jwtSettings.GetPrincipalFromExpiredToken(request.AccessToken);
+
+        if (principal == null)
+            return BadRequest("Invalid access token or refresh token");
+
+        var username = principal.Identity!.Name;
+        var user = await _userManager.FindByNameAsync(username!);
+        var suumaries = await _summaryRepository.GetAllAsync();
+        var currentSummary = suumaries.FirstOrDefault(s => s.CreatedBy == user.Id);
+
+        if (currentSummary == null)
+            return Empty;
+
+        return await GetResponse(currentSummary);
     }
 
     [HttpGet]

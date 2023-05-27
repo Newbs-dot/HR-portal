@@ -22,10 +22,17 @@ export class VacancyService {
         return this.http.get<IVacancy>(`${ this.apiUrl }/vacancy/id?id=${ id }`);
     }
 
-    public respondToVacancy(id: number): Observable<any> {
+    public respondToVacancy(id: number): Observable<void> {
         const refreshToken: string | null = localStorage.getItem(Tokens.RefreshToken);
         const accessToken: string | null = localStorage.getItem(Tokens.AccessToken);
 
         return this.http.post<any>(`${ this.apiUrl }/vacancy/respond/id?id=${ id }`, { accessToken, refreshToken });
+    }
+
+    public getCurrentRespondedVacancies(): Observable<IVacancy[]> {
+        const refreshToken: string | null = localStorage.getItem(Tokens.RefreshToken);
+        const accessToken: string | null = localStorage.getItem(Tokens.AccessToken);
+
+        return this.http.post<IVacancy[]>(`${ this.apiUrl }/vacancy/current/responded`, { accessToken, refreshToken });
     }
 }

@@ -1,16 +1,21 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Inject, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { CURRENT_ROLE_URL } from '../../../../../../../common';
+import { CURRENT_ROLE_URL, DestroyService, IUser, UserService } from '../../../../../../../common';
+import { takeUntil, tap } from 'rxjs';
 
 @Component({
-    selector: 'app-user-header',
+    selector: ' app-user-header',
     templateUrl: './user-header.component.html',
     styleUrls: ['./styles/header.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     imports: [
         NgIf
+    ],
+    providers: [
+        UserService,
+        DestroyService
     ]
 })
 export class UserHeaderComponent {
@@ -26,9 +31,19 @@ export class UserHeaderComponent {
 
     constructor(
         @Inject(CURRENT_ROLE_URL) protected currentRoleUrl: string,
+        protected userService: UserService,
+        protected destroy$: DestroyService,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
+        this.userService.getCurrentUser()
+            .pipe(
+                tap((user: IUser) => {
+
+                }),
+                takeUntil(this.destroy$)
+            )
+            .subscribe()
     }
 
     protected onVacancyButtonClick(): void {
