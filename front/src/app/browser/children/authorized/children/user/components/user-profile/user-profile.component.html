@@ -2,19 +2,19 @@
   <h1>Ваше резюме</h1>
   <div class="resume-wopper bg-white" >
     <h2>ФИО</h2>
-    <div class="info">{{fullName}}</div>
+    <div class="info">{{fullName ?? 'Поле не заполнено'}}</div>
 
     <h2>Телефон</h2>
-    <div class="info">{{phone}}</div>
+    <div class="info">{{phone ?? 'Поле не заполнено'}}</div>
 
     <h2>Опыт</h2>
-    <div class="info">{{experience}}</div>
+    <div class="info">{{experience ?? 'Поле не заполнено'}}</div>
 
     <h2>Желаемая зарплата</h2>
-    <div class="info">{{salary}}</div>
+    <div class="info">{{salary ?? 'Поле не заполнено'}}</div>
 
     <h2>Обо мне</h2>
-    <div class="info">{{about}}</div>
+    <div class="info">{{about ?? 'Поле не заполнено'}}</div>
   </div>
   <button class="logout" (click)="onLogoutButtonClick()">Выйти из аккаунта</button>
 </div>

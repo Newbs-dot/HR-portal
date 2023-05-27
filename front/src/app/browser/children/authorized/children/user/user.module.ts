@@ -14,6 +14,7 @@ import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detai
 import { UserProfilePageComponent } from './pages/start-page/user-profile-page/user-profile-page.component';
 import { EditUserComponent } from './components/ edit-user/edit-user.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { TuiLetModule } from '@taiga-ui/cdk';
 const components: any[] = [
     UserProfileEditComponent,
     UserProfileInfoComponent,
@@ -136,7 +137,8 @@ const routes: Routes = [
         SalaryDevidePipe,
         TuiInputPhoneModule,
         EditUserComponent,
-        UserProfileComponent
+        UserProfileComponent,
+        TuiLetModule
     ],
     declarations: [...components, ...pages],
     providers: [

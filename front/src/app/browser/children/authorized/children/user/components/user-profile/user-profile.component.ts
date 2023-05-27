@@ -34,15 +34,15 @@ import { CommonModule } from '@angular/common';
 })
 export class UserProfileComponent {
   @Input()
-    public fullName!: string;
+    public fullName?: string;
   @Input()
-  public phone!: string;
+  public phone?: string;
   @Input()
-  public experience!: string;
+  public experience?: string;
   @Input()
-  public salary!: number;
+  public salary?: number;
   @Input()
-  public about!: string;
+  public about?: string;
   constructor(
     @Inject(CURRENT_ROLE_URL) protected currentRoleUrl: string,
     private _router: Router,
