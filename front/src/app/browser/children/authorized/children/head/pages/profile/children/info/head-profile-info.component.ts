@@ -14,21 +14,18 @@ import {ActivatedRoute, Router} from '@angular/router';
     styleUrls: ['./styles/user-profile-info.component.scss'],
     providers: [
         UserService,
-        SummaryService,
         AuthService
     ],
 })
 export class HeadProfileInfoComponent {
-  protected readonly summary$: Observable<ISummary | undefined>;
+
   protected readonly user$: Observable<IUser>;
   constructor(
-    protected summaryService: SummaryService,
     protected userService: UserService,
     protected cdr: ChangeDetectorRef,
     private _router: Router,
     private _activatedRoute: ActivatedRoute,
     ) {
-        this.summary$ = summaryService.getCurrentRespondedSummary()
         this.user$ = userService.getCurrentUser()
     }
 
