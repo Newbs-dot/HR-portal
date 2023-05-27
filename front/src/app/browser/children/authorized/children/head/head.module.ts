@@ -6,19 +6,19 @@ import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiText
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreatedVacanciesHeadComponent, EditProfileComponent, HeadProfileInfoComponent, HeadProfilePageComponent } from './pages/profile';
 import { FooterComponent } from '../../../../components';
-import { HeadHeaderComponent, HeadVacancyComponent, UserResumeComponent } from './components';
+import { HeadHeaderComponent, HeadProfileComponent, HeadVacancyComponent, UserResumeComponent } from './components';
 import { CURRENT_ROLE_URL, SalaryDevidePipe } from '../../../../../common';
 import { HeadCreateVacancy, HeadFeaturedVacancy } from './pages';
 import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detail-page.component';
 import { HeadSummeriesComponent } from './pages/summaries/head-summeries.component';
 import { EditSummaryComponent } from './pages/edit-summary/edit-summary.component';
+import { TuiLetModule } from '@taiga-ui/cdk';
 
 
 const pages: any[] = [
     HeadProfilePageComponent,
     HeadProfileInfoComponent,
     CreatedVacanciesHeadComponent,
-    EditProfileComponent,
     HeadCreateVacancy,
     HeadFeaturedVacancy,
     VacancyDetailPageComponent,
@@ -112,6 +112,10 @@ const routes: Routes = [
         UserResumeComponent,
         SalaryDevidePipe,
         TuiInputTagModule,
+        HeadProfileComponent,
+        TuiTextfieldControllerModule,
+        TuiLetModule,
+        EditProfileComponent,
     ],
     declarations: [...pages],
     providers: [

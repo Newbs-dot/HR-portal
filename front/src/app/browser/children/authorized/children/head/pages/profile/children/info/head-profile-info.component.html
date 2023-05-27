@@ -1,20 +1,5 @@
-<div class="main-center">
-  <h1>Ваше резюме</h1>
-  <div class="resume-wopper bg-white">
-    <h2>ФИО</h2>
-    <div class="info">Иванов</div>
+<body>
+<app-head-profile *tuiLet="user$ | async as user" [fullName]="user?.userFullName" [phone]="user?.phoneNumber" [email]="user?.email">
+</app-head-profile>
 
-    <h2>Телефон</h2>
-    <div class="info">+789123123</div>
-
-    <h2>Опыт</h2>
-    <div class="info">3 года</div>
-
-    <h2>Желаемая зарплата</h2>
-    <div class="info">600 000</div>
-
-    <h2>Обо мне</h2>
-    <div class="info">Я русский</div>
-  </div>
-  <button class="logout">Выйти из аккаунта</button>
-</div>
+</body>
