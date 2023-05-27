@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForOf, NgStyle } from '@angular/common';
+import { NgForOf, NgIf, NgStyle } from '@angular/common';
 import { DestroyService, getCompetentsOfTags, ITag, IUser, SalaryDevidePipe, UserService, VacancyService } from '../../../../../../../common';
 import { takeUntil, tap } from 'rxjs';
 
@@ -9,7 +9,7 @@ import { takeUntil, tap } from 'rxjs';
     templateUrl: './user-vacancy.component.html',
     styleUrls: ['./styles/main-page.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [SalaryDevidePipe, NgForOf, NgStyle],
+    imports: [SalaryDevidePipe, NgForOf, NgStyle, NgIf],
     providers: [
         VacancyService,
         DestroyService,
@@ -18,6 +18,9 @@ import { takeUntil, tap } from 'rxjs';
     standalone: true,
 })
 export class UserVacancyComponent {
+
+    @Input()
+    public showRespondButton: boolean = true;
 
     @Input()
     public id!: string;

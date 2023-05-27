@@ -1,17 +1,18 @@
 <body class="main-center">
-  <div class="new-vacancies">
+<div class="new-vacancies">
     <ul>
-      <li *ngFor="let vacancy of vacancies$ | async">
-        <app-vacancy
-          [respondedUsers]="vacancy.respondedUsers"
-          id="{{vacancy.id}}"
-          departamentName="{{vacancy.departament.departamentName}}"
-          name="{{vacancy.name}}"
-          salary="{{vacancy.salary}}"
-          description="{{vacancy.description}}"
-          [tags]="vacancy.tags"
-        ></app-vacancy>
-      </li>
+        <li *ngFor="let vacancy of vacancies$ | async">
+            <app-vacancy
+                [showRespondButton]="false"
+                [respondedUsers]="vacancy.respondedUsers"
+                id="{{vacancy.id}}"
+                departamentName="{{vacancy.departament.departamentName}}"
+                name="{{vacancy.name}}"
+                salary="{{vacancy.salary}}"
+                description="{{vacancy.description}}"
+                [tags]="vacancy.tags"
+            ></app-vacancy>
+        </li>
     </ul>
-  </div>
+</div>
 </body>

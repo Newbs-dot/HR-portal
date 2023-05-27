@@ -32,6 +32,13 @@ export class UserProfilePageComponent {
         private _activatedRoute: ActivatedRoute,
     ) {
         this.profile$ = userService.getById(1);
+        const splitUrl: string[] = this._router.url.split('/');
+        this.selectedIndex = 2;
+        this.tabsKeys.forEach((tab: string, index: number) => {
+            if (this.tabs[tab].includes(splitUrl[splitUrl.length - 1])) {
+                this.selectedIndex = index;
+            }
+        });
     }
 
     public onTabClick(index: number): void {

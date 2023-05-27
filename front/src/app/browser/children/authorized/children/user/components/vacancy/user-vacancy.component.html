@@ -2,7 +2,7 @@
     <div class='department'>
         <div class='department-logo'></div>
         <div class='department-name'>{{departamentName}}</div>
-        <div class='like' (click)="onLikeClick()"></div>
+        <div class='like' *ngIf="showRespondButton" (click)="onLikeClick()"></div>
     </div>
     <h2 class='vacancy-name'>{{name}}</h2>
     <div class='salary'>От {{salary | salaryDevide}} рублей</div>
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class='vacancy-buttons'>
-        <button class='respond' [ngStyle]="isDisable ? {'opacity': '.3'} : null" [disabled]="isDisable" (click)="onRespondClick()">Откликнуться</button>
+        <button class='respond' *ngIf="showRespondButton" [ngStyle]="isDisable ? {'opacity': '.3'} : null" [disabled]="isDisable" (click)="onRespondClick()">Откликнуться</button>
         <button class='details' (click)="onDetailClick()">Подробнее</button>
     </div>
 </div>
