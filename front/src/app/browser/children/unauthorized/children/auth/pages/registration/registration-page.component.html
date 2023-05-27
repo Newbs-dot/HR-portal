@@ -5,41 +5,48 @@
 <body>
 <app-header [showVacancies]="false"></app-header>
 
-<div class='reg-form flex flex-col absolute justify-center items-center w-2/5 right-0 h-screen bg-white'>
-    <div class="slogan"><span class='sl-1'>первый шаг </span> <span class='sl-2'>к новому</span></div>
-    <div class='w-2/3'>
-        <form class="input-wrapper" [formGroup]="form"><div class="">
-                <tui-error tuiGroup="email" [error]="[] | tuiFieldError | async"></tui-error>
-                <div class="mb-8">
-                  <tui-input formControlName="email" class="tui-group__inherit-item">Емайл<input tuiTextfield/></tui-input>
-                  <tui-error formControlName="email" [error]="[] | tuiFieldError | async"></tui-error>
+<div class='reg-form w-2/5 right-0 h-screen bg-white'>
+    <div class="reg-form-wrapper">
+        
+        <div class="slogan"><span class='sl-1'>первый шаг </span> <span class='sl-2'>к новому</span></div>
+        <div>
+            <form
+                class="input-wrapper"
+                [formGroup]="form">
+                <div class="">
+                    <tui-error tuiGroup="email" [error]="[] | tuiFieldError | async"></tui-error>
+                    <div class="mb-8">
+                        <tui-input formControlName="email" class="tui-group__inherit-item">Емайл<input tuiTextfield/></tui-input>
+                        <tui-error formControlName="email" [error]="[] | tuiFieldError | async"></tui-error>
+                    </div>
+                    <div class="mb-8">
+                        <tui-input-password formControlName="password" class="tui-group__inherit-item">Пароль<input type="password" tuiTextfield/></tui-input-password>
+                        <tui-error formControlName="password" [error]="[] | tuiFieldError | async"></tui-error>
+                    </div>
+                    <div class="mb-8">
+                        <tui-input-password formControlName="confirmPassword" class="tui-group__inherit-item">Повторите пароль<input type="password" tuiTextfield/></tui-input-password>
+                        <tui-error formControlName="confirmPassword" [error]="[] | tuiFieldError | async"></tui-error>
+                    </div>
                 </div>
-                <div class="mb-8">
-                    <tui-input-password formControlName="password" class="tui-group__inherit-item">Пароль<input type="password" tuiTextfield/></tui-input-password>
-                    <tui-error formControlName="password" [error]="[] | tuiFieldError | async"></tui-error>
-                </div>
-                <div class="mb-8">
-                    <tui-input-password formControlName="confirmPassword" class="tui-group__inherit-item">Повторите пароль<input type="password" tuiTextfield/>
-                    </tui-input-password>
-                    <tui-error formControlName="password" [error]="[] | tuiFieldError | async"></tui-error>
-                </div>
-            </div>
-            <tui-error formGroupName="form" [error]="formError"></tui-error>
-        </form>
-
+                <tui-error
+                    formGroupName="form"
+                    [error]="formError"
+                ></tui-error>
+            </form>
+        
+        </div>
+        
+        <button
+            tuiButton
+            type="button"
+            class="tui-space_right-3 tui-space_bottom-3"
+            (click)="onClick()"
+            [disabled]="form.invalid"
+        >
+            Войти
+        </button>
+    
     </div>
-
-    <button
-        tuiButton
-        type="button"
-        class="tui-space_right-3 tui-space_bottom-3 reg-button"
-        (click)="onClick()"
-        [disabled]="form.invalid"
-    >
-        Войти
-    </button>
-
-
 </div>
-<img class="main-bg" src='../reg-bg.png'/>
+<img class="main-bg"/>
 </body>

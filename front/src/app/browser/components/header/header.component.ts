@@ -30,6 +30,7 @@ export class HeaderComponent {
     public showLogin: boolean = true;
     @Input()
     public isAuthorized: boolean = false;
+
     constructor(
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
@@ -37,20 +38,18 @@ export class HeaderComponent {
     }
 
     protected onVacancyButtonClick(): void {
-        if(this.isAuthorized){
+        if (this.isAuthorized) {
             this._router.navigate([`cabinet/vacancies`]);
-        }
-        else{
+        } else {
             this._router.navigate([`/vacancies`], { relativeTo: this._activatedRoute });
         }
 
     }
 
     protected onHomeButtonClick(): void {
-        if(this.isAuthorized){
+        if (this.isAuthorized) {
             this._router.navigate([`cabinet/main`]);
-        }
-        else{
+        } else {
             this._router.navigate([`/main`], { relativeTo: this._activatedRoute });
         }
 
@@ -70,6 +69,7 @@ export class HeaderComponent {
     protected onRegisterButtonClick(): void {
         this._router.navigate([`/auth/reg`], { relativeTo: this._activatedRoute });
     }
+
     protected onProfileButtonClick(): void {
         this._router.navigate([`/cabinet/profile`], { relativeTo: this._activatedRoute });
     }

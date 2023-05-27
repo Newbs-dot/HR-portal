@@ -8,3 +8,4 @@ export * from './enums/index';
 export * from './departaments/index';
 export * from './tag/index';
 export * from './user/index';
+export * from './header/index';
