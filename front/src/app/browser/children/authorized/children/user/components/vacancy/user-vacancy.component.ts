@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForOf, NgStyle } from '@angular/common';
-import { DestroyService, getCompetentsOfTags, ITag, IUser, SalaryDevidePipe, UserService, VacancyService } from '../../../../../../../common';
+import { DestroyService, getCompetentsOfTags, ITag, IUser, IVacancy, SalaryDevidePipe, UserService, VacancyService } from '../../../../../../../common';
 import { takeUntil, tap } from 'rxjs';
 
 @Component({
@@ -40,12 +40,19 @@ export class UserVacancyComponent {
     @Input()
     public tags!: ITag[];
 
+    protected isDisable: boolean = false;
+
+    public isVacancyRespondDisabled(user: IUser): boolean {
+        return this.respondedUsers.some((u: IUser) => u.id === user.id);
+    }
+
     constructor(
         protected vacancyService: VacancyService,
         protected destroy$: DestroyService,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
+
     }
 
     public getCompetents(tags: ITag[]): ITag[] {
