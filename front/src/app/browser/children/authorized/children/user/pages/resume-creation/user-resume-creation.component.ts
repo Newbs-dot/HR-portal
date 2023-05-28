@@ -19,6 +19,7 @@ export class UserResumeCreationComponent {
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
+        window.scrollTo({ top: 0 });
         this.summaryService.getCurrentRespondedSummary()
             .pipe(
                 tap((value: ISummary | undefined) => {

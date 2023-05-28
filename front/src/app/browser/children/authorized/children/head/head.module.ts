@@ -11,7 +11,7 @@ import { CURRENT_ROLE_URL, SalaryDevidePipe } from '../../../../../common';
 import { HeadCreateVacancy, HeadFeaturedVacancy } from './pages';
 import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detail-page.component';
 import { HeadSummeriesComponent } from './pages/summaries/head-summeries.component';
-import { EditSummaryComponent } from './pages/edit-summary/edit-summary.component';
+import { EditVacancyComponent } from './pages/edit-summary/edit-vacancy.component';
 import { TuiLetModule } from '@taiga-ui/cdk';
 
 
@@ -23,7 +23,7 @@ const pages: any[] = [
     HeadFeaturedVacancy,
     VacancyDetailPageComponent,
     HeadSummeriesComponent,
-    EditSummaryComponent
+    EditVacancyComponent
 ];
 
 const routes: Routes = [
@@ -64,7 +64,7 @@ const routes: Routes = [
         children: [
             {
                 path: ':id',
-                component: EditSummaryComponent
+                component: EditVacancyComponent
             }
         ]
     },

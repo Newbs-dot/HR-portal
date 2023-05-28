@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForOf, NgIf, NgStyle } from '@angular/common';
-import { DestroyService, getCompetentsOfTags, ITag, IUser, SalaryDevidePipe, UserService, VacancyService } from '../../../../../../../common';
-import { takeUntil, tap } from 'rxjs';
+import { DestroyService, getCompetentsOfTags, ISummary, ITag, IUser, SalaryDevidePipe, SummaryService, UserService, VacancyService } from '../../../../../../../common';
+import { EMPTY, switchMap, takeUntil, tap } from 'rxjs';
 
 @Component({
     selector: 'app-vacancy',
@@ -12,6 +12,7 @@ import { takeUntil, tap } from 'rxjs';
     imports: [SalaryDevidePipe, NgForOf, NgStyle, NgIf],
     providers: [
         VacancyService,
+        SummaryService,
         DestroyService,
         UserService
     ],
@@ -47,6 +48,7 @@ export class UserVacancyComponent {
 
     constructor(
         protected vacancyService: VacancyService,
+        protected summaryService: SummaryService,
         protected destroy$: DestroyService,
         protected userService: UserService,
         protected сhangeDetector: ChangeDetectorRef,
@@ -69,15 +71,26 @@ export class UserVacancyComponent {
     }
 
     protected onRespondClick(): void {
-        this.vacancyService.respondToVacancy(+this.id)
+        this.summaryService.getCurrentRespondedSummary()
             .pipe(
-                tap(() => {
-                    alert('Вы откликнулись на вакансию');
-                    location.reload();
+                switchMap((summary: ISummary | undefined) => {
+                    if (!summary) {
+                        alert('Сначала добавте резюме');
+                        this._router.navigate(['cabinet/resume-creation']);
+
+                        return EMPTY;
+                    }
+                    return this.vacancyService.respondToVacancy(+this.id)
+                        .pipe(
+                            tap(() => {
+                                alert('Вы откликнулись на вакансию');
+                                location.reload();
+                            }),
+                        )
                 }),
                 takeUntil(this.destroy$)
             )
-            .subscribe();
+            .subscribe()
     }
 
     protected onDetailClick(): void {
