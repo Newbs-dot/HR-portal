@@ -6,6 +6,7 @@ import { API_URL, LOGOUT_EVENT } from '../tokens';
 import { IBadResponse } from '../dto/response/bad-response.interface';
 import { AuthModel } from '../models';
 import { Tokens } from '../../enums';
+import { IUser } from '../../user';
 
 @Injectable()
 export class AuthService {

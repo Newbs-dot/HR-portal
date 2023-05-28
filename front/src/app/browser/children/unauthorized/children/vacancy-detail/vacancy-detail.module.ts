@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VacancyDetailPageComponent } from './pages';
-import { FooterComponent, HeaderComponent } from '../../components';
 import { SalaryDevidePipe } from '../../../../../common';
+import { FooterComponent, HeaderComponent } from '../../../../components';
 
 const components: any[] = [];
 

@@ -24,17 +24,17 @@
         <div class='company-departments'>
             <ul *ngIf="departaments$ | async as departaments">
                 <li (click)="onDepartamentClick(departaments[0])">
-                    <div class="developer-img"></div>
+
                     {{departaments[0].departamentName}}
                     <hr>
                 </li>
                 <li (click)="onDepartamentClick(departaments[1])">
-                    <div class="manager-img"></div>
+
                     {{departaments[1].departamentName}}
                     <hr>
                 </li>
                 <li (click)="onDepartamentClick(departaments[2])">
-                    <div class="tester-img"></div>
+
                     {{departaments[2].departamentName}}
                     <hr>
                 </li>

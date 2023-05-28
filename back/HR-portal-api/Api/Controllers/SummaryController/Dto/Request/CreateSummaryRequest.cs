@@ -10,5 +10,5 @@ public class CreateSummaryRequest : TokenModel
 
     public string Description { get; set; }
 
-    public string File { get; set; }
+    public string? File { get; set; }
 }

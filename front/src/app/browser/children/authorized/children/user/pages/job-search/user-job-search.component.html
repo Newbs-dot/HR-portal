@@ -12,20 +12,7 @@
 
 </head>
 <body>
-<header class="text-black">
-  <div class="container">
-    <nav class="flex p-[42px] w-screen">
-      <a href="#"><img src = "" alt=""/></a>
-      <ul class="flex gap-[62px] items-center">
-        <li class="pl font-bold "><a href="">Вакансии</a></li>
-        <li class="font-bold"><a href="">Департаменты</a></li>
-      </ul>
-      <ul class="flex absolute gap-[42px] items-center right-20">
-        <li class = "flex"><a class="" href="/cabinet/profile">Иван</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<app-user-header [isWhiteLogo]="false"></app-user-header>
 
 <main>
 
@@ -118,7 +105,6 @@
                 <div class = 'department'>
                   <div class = 'department-logo'></div>
                   <div class = 'department-name'>department</div>
-                  <div class = 'like'></div>
                 </div>
                 <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
                 <div class = 'salary'>От 60 000 до 100 000 рублей</div>

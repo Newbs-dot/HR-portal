@@ -1,4 +1,4 @@
-<app-header [showDepartament]="false" [isWhiteTeheme]="false"></app-header>
+<app-header [showDepartament]="false" [isWhiteLogo]="false"></app-header>
 
 <div class='page-wrapper' *ngIf="vacancy$ | async as vacancy">
     <div class="upper-row">
@@ -21,11 +21,10 @@
                 </div>
                 <div class='sidebar-buttons'>
                     <button class='send-resume' (click)="onButtonClick()">Отправить резюме</button>
-                    <div (click)="onButtonClick()" class="like"></div>
                 </div>
             </div>
             <div class='contacts'>
-                <button class="look-contacts" (click)="onButtonClick()">Посмотреть контакты</button>
+                <button class="look-contacts" (click)="onContactsClick(vacancy)">Посмотреть контакты</button>
             </div>
         </div>
         <div class='right'>

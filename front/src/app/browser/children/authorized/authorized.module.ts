@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AuthenticatorGuardService, Roles, SalaryDevidePipe} from '../../../common';
-import { UserResumeComponent } from './components/user-resume/user-resume.component';
+import { AuthenticatorGuardService, Roles, SalaryDevidePipe } from '../../../common';
 
 const components: any[] = [];
 
@@ -12,11 +11,10 @@ const routes: Routes = [
     {
         path: '',
         loadChildren: () => import('./children/user/user.module').then((m: any) => m.UserModule),
-
-        //canActivate: [AuthenticatorGuardService],
-        //data: {
-        //    role: Roles.User
-        //}
+        canActivate: [AuthenticatorGuardService],
+        data: {
+            role: Roles.User
+        }
     },
     {
         path: 'head',

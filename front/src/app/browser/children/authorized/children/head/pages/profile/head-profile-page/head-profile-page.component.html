@@ -1,0 +1,24 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<div class="flex flex-col justify-between">
+    <app-user-header [isWhiteLogo]="false"></app-user-header>
+    <div class='main-center'>
+        <div class="categories">
+            <ul class="im">
+                <li (click)="onTabClick(i)"
+                    [ngClass]="i === selectedIndex ? 'but1' : 'uwu'"
+                    *ngFor="let tab of tabsKeys; let i = index"
+                >
+                    <a>{{tab}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+</div>
+
+
+

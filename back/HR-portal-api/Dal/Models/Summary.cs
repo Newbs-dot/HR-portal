@@ -12,7 +12,7 @@ public class Summary : IBaseModel
 
     public string Description { get; set; }
 
-    public string File { get; set; }
+    public string? File { get; set; }
 
     public bool IsActive { get; set; }
 

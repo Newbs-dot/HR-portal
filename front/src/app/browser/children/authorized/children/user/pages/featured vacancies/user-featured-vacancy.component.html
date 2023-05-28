@@ -1,37 +1,39 @@
-
 <div class="flex flex-col h-screen justify-between">
-
-  <app-header [isWhiteTeheme] = 'false' [showLogin] = 'false' [showDepartament] = 'true' [isAuthorized]="true"></app-header>
-  <main>
-    <div class = 'main-center'>
-      <div class="categories">
-        <ul class="im">
-          <li class="uwu"><a href="/cabinet/reviewed">Рассмотренные</a></li>
-          <a class="but1"><li>Избранные вакансии</li></a>
-          <li class="uwu"> <a href="/cabinet/profile">Профиль</a></li>
-        </ul>
-      </div>
-      <div>
-        <h1 style="margin-top: 30px" class = 'vacancy-header'>Избранные вакансии</h1>
-      </div>
-
-      <div class = 'new-vacancies'>
-        <ul>
-          <li *ngFor="let vacancy of vacancies$ | async">
-            <app-vacancy
-              id="{{vacancy.id}}"
-              departamentName="{{vacancy.departament.departamentName}}"
-              name="{{vacancy.name}}"
-              salary="{{vacancy.salary}}"
-              description="{{vacancy.description}}"
-              [tags]="vacancy.tags"
-            ></app-vacancy>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </main>
-  <app-footer></app-footer>
+    
+    <app-user-header [isWhiteLogo]='false' [showDepartament]='false'></app-user-header>
+    <main>
+        <div class='main-center'>
+            <div class="categories">
+                <ul class="im">
+                    <li class="uwu"><a href="/cabinet/reviewed">Рассмотренные</a></li>
+                    <a class="but1">
+                        <li>Избранные вакансии</li>
+                    </a>
+                    <li class="uwu"><a href="/cabinet/profile">Профиль</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1 style="margin-top: 30px" class='vacancy-header'>Избранные вакансии</h1>
+            </div>
+            
+            <div class='new-vacancies'>
+                <ul>
+                    <li *ngFor="let vacancy of vacancies$ | async">
+                        <app-vacancy
+                            [respondedUsers]="vacancy.respondedUsers"
+                            id="{{vacancy.id}}"
+                            departamentName="{{vacancy.departament.departamentName}}"
+                            name="{{vacancy.name}}"
+                            salary="{{vacancy.salary}}"
+                            description="{{vacancy.description}}"
+                            [tags]="vacancy.tags"
+                        ></app-vacancy>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <app-footer></app-footer>
 
 </div>
 

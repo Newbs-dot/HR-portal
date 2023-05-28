@@ -47,7 +47,6 @@ public class VacancyController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     public async Task<IActionResult> CreateVacancy([FromBody] VacancyCreateRequest request)
     {
         if (request.AccessToken == null)
@@ -91,7 +90,6 @@ public class VacancyController : ControllerBase
     }
 
     [HttpPost("current/created")]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     public async Task<ActionResult<List<VacancyResponse>>> GetCurrentVacanciesCreated(
         [FromBody] GetVacancyCurrentRequest request)
     {
@@ -115,7 +113,6 @@ public class VacancyController : ControllerBase
     }
 
     [HttpPost("current/responded")]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     public async Task<ActionResult<List<VacancyResponse>>> GetCurrentVacanciesResponded(
         [FromBody] GetVacancyCurrentRequest request)
     {
@@ -139,7 +136,6 @@ public class VacancyController : ControllerBase
     }
 
     [HttpPost("respond/id")]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     public async Task<IActionResult> RespondToVacancy(long id, [FromBody] RespondToVacancyRequest request)
     {
         if (request.AccessToken == null)
@@ -156,9 +152,6 @@ public class VacancyController : ControllerBase
 
         if (vacancy == null)
             return BadRequest("invalid vacancy id");
-
-        if (!vacancy.IsActive)
-            return BadRequest("vacancy should be active");
 
         if (vacancy.RespondedUsers == null)
             vacancy.RespondedUsers = new List<long>();
@@ -226,7 +219,6 @@ public class VacancyController : ControllerBase
     }
 
     [HttpDelete("id")]
-    [Authorize(Policy = PolicyConstants.AllRoles)]
     public async Task<IActionResult> DeleteVacancy(long id)
     {
         try

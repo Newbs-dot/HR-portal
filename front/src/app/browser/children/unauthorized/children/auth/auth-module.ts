@@ -4,8 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent, RegistrationPageComponent } from './pages';
 import { TuiErrorModule, TuiTextfieldControllerModule, TuiButtonModule, TuiHintModule, TuiGroupModule } from '@taiga-ui/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule,TuiFieldErrorPipeModule } from '@taiga-ui/kit';
-import { HeaderComponent } from '../../components';
+import { TuiDataListWrapperModule, TuiInputModule, TuiMultiSelectModule, TuiFieldErrorPipeModule, TuiInputPasswordModule } from '@taiga-ui/kit';
+import { HeaderComponent } from '../../../../components';
 
 const components: any[] = [];
 
@@ -42,6 +42,7 @@ const routes: Routes = [
         TuiHintModule,
         TuiGroupModule,
         HeaderComponent,
+        TuiInputPasswordModule,
     ],
     declarations: [...components, ...pages],
 })

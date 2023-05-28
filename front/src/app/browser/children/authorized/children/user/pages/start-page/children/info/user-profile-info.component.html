@@ -1,0 +1,6 @@
+<body *tuiLet="user$ | async as user" >
+<app-user-profile *tuiLet="summary$ | async as summary"  [fullName]="user?.userFullName" [salary]="summary?.salary"
+                  [experience]="summary?.experience" [about]="summary?.description" [phone]="user?.phoneNumber">
+</app-user-profile>
+
+</body>

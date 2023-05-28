@@ -72,7 +72,6 @@ namespace Dal.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("File")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("IsActive")
@@ -131,6 +130,9 @@ namespace Dal.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("text");
+
+                    b.Property<long?>("DepartamentId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)

@@ -5,6 +5,8 @@ public class UserResponse
     public long Id { get; set; }
 
     public string? UserFullName { get; set; } = null!;
+    
+    public long? DepartamentId { get; set; } = null!;
 
     public IEnumerable<string> Roles { get; set; } = null!;
 

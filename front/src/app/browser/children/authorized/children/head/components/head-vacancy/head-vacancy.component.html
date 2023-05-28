@@ -1,0 +1,19 @@
+<div class='vacancy'>
+    <div class='department'>
+        <div class='department-logo'></div>
+        <div class='department-name'>{{departamentName}}</div>
+    </div>
+    <h2 class='vacancy-name'>{{name}}</h2>
+    <div class='salary'>От {{salary | salaryDevide}} рублей</div>
+    <p class='vacancy-descripton'>
+        {{description}}
+    </p>
+    <div class="vacancy-hashtag">
+        <div class="hashtag" *ngFor="let tag of getCompetents(tags)">
+            {{tag.name}}
+        </div>
+    </div>
+    <div class='vacancy-buttons'>
+        <button class='details' (click)="onDetailClick()">{{buttonName}}</button>
+    </div>
+</div>

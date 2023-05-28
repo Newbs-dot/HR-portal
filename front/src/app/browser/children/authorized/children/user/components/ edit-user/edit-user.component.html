@@ -1,0 +1,50 @@
+<div class='main-center'>
+    <h1>{{title}}</h1>
+    <div class="resume-creation-block">
+        <form [formGroup]="resumeForm">
+            <div class="tui-form__row">
+                <div class="form-wrapper">
+                    
+                    <h2>ФИО</h2>
+                    <tui-input
+                        formControlName="fullNameValue">Введите полное ФИО<input tuiTextfield/>
+                    </tui-input>
+                    
+                    <h2>Телефон</h2>
+                    <tui-input-phone
+                        formControlName="phone">Телефон<input tuiTextfield/>
+                    </tui-input-phone>
+                    
+                    <h2>Опыт</h2>
+                    <div tuiGroup class="group" [collapsed]="true">
+                        <tui-radio-block *ngFor="let exp of experience"
+                                         formControlName="experienceValue"
+                                         contentAlign="right"
+                                         size="l"
+                                         [item]="exp"
+                                         [hideRadio]="false">
+                            {{ exp }}
+                        </tui-radio-block>
+                    </div>
+                    
+                    <h2>Желаемая зарплата</h2>
+                    <tui-input-slider
+                        [min]="min"
+                        [max]="max"
+                        [steps]="totalSteps"
+                        [keySteps]="keySteps"
+                        formControlName="salaryValue">
+                        Введите желаемую зарплату
+                    </tui-input-slider>
+                    
+                    <h2>Обо мне</h2>
+                    <tui-text-area [expandable]="true"
+                                   formControlName="aboutValue">Расскажите о себе
+                    </tui-text-area>
+                
+                </div>
+            </div>
+        </form>
+    </div>
+    <button (click)="onSaveResumeClick()" class="publish-resume">{{buttonName}}</button>
+</div>

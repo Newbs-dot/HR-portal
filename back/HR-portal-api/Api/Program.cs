@@ -4,6 +4,7 @@ using HR_portal_api.DependencyRegistration;
 using HR_portal_api.Policy;
 using Logic.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +27,17 @@ builder.Services.AddCors(c => c.AddPolicy("cors", opt =>
     opt.AllowAnyMethod();
     opt.WithOrigins(builder.Configuration.GetSection("Cors:Urls").Get<string[]>()!);
 }));
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 1;
+    options.Password.RequiredUniqueChars = 1;
+    options.Password.RequireNonAlphanumeric = false;
+});
 
 builder.Services.AddLogicServices();
 

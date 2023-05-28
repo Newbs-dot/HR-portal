@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { getCompetentsOfTags, getTagsOfTags, ITag, IVacancy, TagType, VacancyService } from '../../../../../../../common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
+import { PreviousRouteService } from '../../../../../../../common/previous-route-service/previous-route.service';
 
 @Component({
     selector: 'app-vacancy-detail',
@@ -18,6 +19,7 @@ export class VacancyDetailPageComponent {
 
     constructor(
         protected readonly vacancyService: VacancyService,
+        protected readonly previousRouteService: PreviousRouteService,
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
     ) {
@@ -33,7 +35,13 @@ export class VacancyDetailPageComponent {
     }
 
     public onReturnButtonClick(): void {
-        this._router.navigate(['/main'], { relativeTo: this._activatedRoute });
+        let previousUrl: string = this.previousRouteService.getPreviousUrl() ?? '/main';
+        previousUrl = previousUrl.includes('/vacancies/') ? '/' : previousUrl;
+        this._router.navigate([`/${ previousUrl }`], { relativeTo: this._activatedRoute });
+    }
+
+    public onContactsClick(vacancy: IVacancy): void {
+        this._router.navigate([`/departaments/${ vacancy.departament.id }`])
     }
 
     public onButtonClick(): void {

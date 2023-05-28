@@ -1,75 +1,72 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link href="https://fonts.googleapis.com/icon?family=Montserrat:100,200,300,400,500,600,700,800"
-        rel="stylesheet">
-  <link rel="stylesheet" href="styles/head-featvacancy.component.scss">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-
-</head>
-<body>
-
-<div class="flex flex-col h-screen justify-between">
-  <header class="text-black">
-    <div class="container">
-      <nav class="flex p-[42px] w-screen">
-        <a href="#"><img src = "" alt=""/></a>
-        <ul class="flex gap-[62px] items-center">
-          <li class="pl font-bold "><a href="/cabinet/search">Вакансии</a></li>
-          <li class="font-bold"><a href="">Департаменты</a></li>
-        </ul>
-        <ul class="flex absolute gap-[42px] items-center right-20">
-          <li class = "flex"><a class="" href="#">Иван</a></li>
-        </ul>
-      </nav>
+<div>
+    <app-user-header [isWhiteLogo]="false"></app-user-header>
+    <div class='page-wrapper'>
+        <h1 class='vacancy-header'>Вакансии</h1>
+        <div class='row'>
+            <div class='left'>
+                <form class='sidebar-column' [formGroup]="filterForm">
+                    <div class='sidebar-header'>
+                        <h1>Фильтр</h1>
+                        <button class='reset-filters' (click)="onClearButtonClick()">Сбросить фильтры</button>
+                    </div>
+                    <ul class='filters'>
+                        <li><h2>Сфера деятельности</h2>
+                            <ul class='tags'>
+                                <tui-filter
+                                    formControlName="competents"
+                                    size="s"
+                                    [items]="(competents$ | async)!"
+                                    (ngModelChange)="onCompetentsChange($event)"
+                                ></tui-filter>
+                            </ul>
+                        </li>
+                        <li><h2>Департамент</h2>
+                            <ul class='tags'>
+                                <tui-filter
+                                    class="filter-item"
+                                    formControlName="departaments"
+                                    size="s"
+                                    [items]="(departaments$ | async)!"
+                                    (ngModelChange)="onDepartamentsChange($event)"
+                                ></tui-filter>
+                            </ul>
+                        </li>
+                        <li><h2>Желаемые компетенции</h2>
+                            <ul class='competence-tags'>
+                                <tui-filter
+                                    formControlName="tags"
+                                    size="s"
+                                    [items]="(tags$ | async)!"
+                                    (ngModelChange)="onTagsChange($event)"
+                                ></tui-filter>
+                            </ul>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div class='right'>
+                <form [formGroup]="form">
+                    <div class="lupa"></div>
+                    <input formControlName="search" class='search' type="text" placeholder="Например, дизайнер">
+                </form>
+                <div class='new-vacancies' *ngIf="vacancies$ | async as vacancies">
+                    <ul>
+                        <ng-container *ngIf="getFilteredVacancies(vacancies, form.controls.search.valueChanges | async) as filteredList">
+                            <li *ngFor="let filteredVacancy of filteredList">
+                                <app-vacancy
+                                    id="{{filteredVacancy.id}}"
+                                    departamentName="{{filteredVacancy.departament.departamentName}}"
+                                    name="{{filteredVacancy.name}}"
+                                    salary="{{filteredVacancy.salary}}"
+                                    description="{{filteredVacancy.description}}"
+                                    [tags]="filteredVacancy.tags"
+                                ></app-vacancy>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <main>
-    <div class = 'main-center'>
-      <div class="categories">
-        <ul class="im">
-          <li class="uwu"><a href="/cabinet/head/my-vacancies">Мои вакансии</a></li>
-          <li class="uwu"><a href="/cabinet/head/searchhead">Поиск резюме</a></li>
-          <li class="but1"> <a>Избранные резюме</a></li>
-          <li class="uwu"><a href="/cabinet/head/profile">Профиль</a></li>
-        </ul>
-      </div>
-    </div>
-  </main>
-
-  <footer class="">
-    <div class="container "></div>
-    <div class="flex gap-[80px] justify-center h-[150px] w-screen bg-white p-[40px] ">
-      <div>
-        <div>Департаментам</div>
-        <ul>
-          <li><a class="font-bold" href="#">Размещение вакансий </a></li>
-          <li><a class="font-bold" href="#">Страница департамента</a></li>
-        </ul>
-      </div>
-      <div>
-        <div>Соискателям</div>
-        <ul>
-          <li><a class="font-bold" href="#">Поиск вакансии </a></li>
-          <li><a class="font-bold" href="#">Подборки вакансий </a></li>
-        </ul>
-      </div>
-      <div>
-        <div>О нас</div>
-        <ul>
-          <li><a class="font-bold" href="#">Наша страница</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+    <app-footer></app-footer>
 </div>
-</body>
-
-</html>
-
-

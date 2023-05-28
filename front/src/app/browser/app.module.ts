@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TUI_LANGUAGE, TUI_RUSSIAN_LANGUAGE } from '@taiga-ui/i18n';
 import { of, Subject } from 'rxjs';
 import { API_URL, AuthenticatorGuardService, AuthService, LOGOUT_EVENT } from '../common';
+import { PreviousRouteService } from '../common/previous-route-service/previous-route.service';
 
 const routes: Routes = [
     {
@@ -59,7 +60,8 @@ const routes: Routes = [
             useValue: new Subject<void>()
         },
         AuthenticatorGuardService,
-        AuthService
+        AuthService,
+        PreviousRouteService
     ],
     bootstrap: [AppComponent]
 })
