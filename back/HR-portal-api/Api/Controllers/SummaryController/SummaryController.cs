@@ -128,7 +128,7 @@ public class SummaryController : ControllerBase
 
         return summeries
             .Where(s => respondedUsers
-                .Any(users => users.Any(userId => userId == s.CreatedBy))
+                .Any(users => users?.Any(userId => userId == s.CreatedBy) ?? false)
             )
             .Distinct()
             .Select(s => GetResponse(s).Result)
