@@ -6,13 +6,16 @@ import { TuiButtonModule, TuiErrorModule, TuiGroupModule, TuiHintModule, TuiText
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreatedVacanciesHeadComponent, EditProfileComponent, HeadProfileInfoComponent, HeadProfilePageComponent } from './pages/profile';
 import { FooterComponent } from '../../../../components';
-import { HeadHeaderComponent, HeadProfileComponent, HeadVacancyComponent, UserResumeComponent } from './components';
 import { CURRENT_ROLE_URL, SalaryDevidePipe } from '../../../../../common';
 import { HeadCreateVacancy, HeadFeaturedVacancy } from './pages';
 import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detail-page.component';
 import { HeadSummeriesComponent } from './pages/summaries/head-summeries.component';
 import { EditVacancyComponent } from './pages/edit-summary/edit-vacancy.component';
 import { TuiLetModule } from '@taiga-ui/cdk';
+import { HeadHeaderComponent } from './components/head-header/head-header.component';
+import { UserResumeComponent } from './components/user-resume/user-resume.component';
+import { HeadVacancyComponent } from './components/head-vacancy/head-vacancy.component';
+import { HeadProfileComponent } from './components/head-profile/head-profile.component';
 
 
 const pages: any[] = [
