@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreatedVacanciesHeadComponent, EditProfileComponent, HeadProfileInfoComponent, HeadProfilePageComponent } from './pages/profile';
 import { FooterComponent } from '../../../../components';
 import { CURRENT_ROLE_URL, SalaryDevidePipe } from '../../../../../common';
-import { HeadCreateVacancy, HeadFeaturedVacancy } from './pages';
+import {HeadCreateVacancy, HeadFeaturedVacancy, HeadMainPageComponent} from './pages';
 import { VacancyDetailPageComponent } from './pages/vacancy-detail/vacancy-detail-page.component';
 import { HeadSummeriesComponent } from './pages/summaries/head-summeries.component';
 import { EditVacancyComponent } from './pages/edit-summary/edit-vacancy.component';
@@ -78,6 +78,10 @@ const routes: Routes = [
     {
         path: 'summeries',
         component: HeadSummeriesComponent
+    },
+    {
+        path: 'main',
+        component: HeadMainPageComponent
     },
     {
         path: 'vacancies',

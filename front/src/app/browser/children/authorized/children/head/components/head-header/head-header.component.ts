@@ -37,7 +37,7 @@ export class HeadHeaderComponent {
     }
 
     protected onHomeButtonClick(): void {
-        this._router.navigate([`cabinet/head/profile/`]);
+        this._router.navigate([`cabinet/head/main`]);
     }
 
     protected onProfileButtonClick(): void {

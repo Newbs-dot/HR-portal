@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+*{
+  overflow:hidden;
+}
 .break{
   background-color:lightgrey;
   width: 3px;
@@ -38,6 +40,7 @@
 }
 .page-wrapper {
   padding: 150px 250px 150px 250px;
+
 }
 .lower-row{
   display: grid;
