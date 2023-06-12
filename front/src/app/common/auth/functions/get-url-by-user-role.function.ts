@@ -2,7 +2,7 @@ export function getUrlByUserRole(role: string): string {
     if (role === 'DepartmentsHead') {
         return 'head';
     }
-    if (role === 'Admin') {
+    if (role === 'Administrator') {
         return 'admin';
     }
     if (role === 'User') {
