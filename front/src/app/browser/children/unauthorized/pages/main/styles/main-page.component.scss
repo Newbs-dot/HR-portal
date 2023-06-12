@@ -174,25 +174,15 @@ span.sl-2{
   align-items: flex-end;
 }
 /*VACANCY*/
-hr{
-  background: black;
-  height: 4px;
 
-}
-.company-departments ul{
-  display: flex;
- justify-content: center;
-  gap: 100px;
-
-}
 .company-departments li{
-  margin-left: 50px;
-  margin-right: 50px;
-  text-align: center;
   font-weight: 500;
   font-size: 32px;
-  width: 300px;
-  line-height: 40px;
-
+  margin: 10px;
+  cursor: pointer;
 }
 
+.company-departments li:before{
+  color: black;
+  content: '•';
+}

@@ -16,17 +16,20 @@ import { HeadHeaderComponent } from './components/head-header/head-header.compon
 import { UserResumeComponent } from './components/user-resume/user-resume.component';
 import { HeadVacancyComponent } from './components/head-vacancy/head-vacancy.component';
 import { HeadProfileComponent } from './components/head-profile/head-profile.component';
+import {DepartamentsDetailHeadComponent} from "./pages/departaments-detail/departaments-detail-head.component";
 
 
 const pages: any[] = [
     HeadProfilePageComponent,
+    HeadMainPageComponent,
     HeadProfileInfoComponent,
     CreatedVacanciesHeadComponent,
     HeadCreateVacancy,
     HeadFeaturedVacancy,
     VacancyDetailPageComponent,
     HeadSummeriesComponent,
-    EditVacancyComponent
+    EditVacancyComponent,
+    DepartamentsDetailHeadComponent,
 ];
 
 const routes: Routes = [
@@ -82,6 +85,15 @@ const routes: Routes = [
     {
         path: 'main',
         component: HeadMainPageComponent
+    },
+    {
+        path: 'departaments',
+        children: [
+            {
+                path: ':id',
+                component: DepartamentsDetailHeadComponent
+            }
+        ]
     },
     {
         path: 'vacancies',
