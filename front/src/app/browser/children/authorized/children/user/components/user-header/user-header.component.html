@@ -1,6 +1,6 @@
 <header>
     <div class="costil-for-main-page">
-        <nav class="flex p-[42px] w-screen text-white" *ngIf="isWhiteLogo">
+        <nav class="flex py-[22px] px-[92px] w-screen text-white" *ngIf="isWhiteLogo">
             <ul class="flex gap-[62px] items-center">
                 <li class="logo-white pointer" (click)="onHomeButtonClick()"></li>
                 <li class="pl pointer" (click)="onVacancyButtonClick()"><a>Вакансии</a></li>
@@ -10,8 +10,8 @@
             </ul>
         </nav>
     </div>
-    
-    <nav class="flex p-[42px] w-screen  bg-white" *ngIf="!isWhiteLogo">
+
+    <nav class="flex py-[22px] px-[92px] w-screen  bg-white" *ngIf="!isWhiteLogo">
         <ul class="flex gap-[62px] items-center">
             <li class="logo-dark pointer" (click)="onHomeButtonClick()"></li>
             <li class="pl pointer" (click)="onVacancyButtonClick()">Вакансии</li>
