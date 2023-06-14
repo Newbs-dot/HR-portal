@@ -13,7 +13,7 @@
             </ul>
         </nav>
     </div>
-        <nav class="flex p-[42px] w-screen text-black"*ngIf="!isWhiteLogo">
+        <nav class="flex p-[42px] w-screen text-black bg-white"*ngIf="!isWhiteLogo">
             <ul class="flex gap-[62px] items-center">
               <li class="logo-dark pointer" (click)="onHomeButtonClick()"></li>
               <li class="pl pointer" (click)="onVacancyButtonClick()" *ngIf="showVacancies"><a>Вакансии</a></li>
