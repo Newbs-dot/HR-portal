@@ -19,10 +19,10 @@
     font-size: 14px;
     line-height: 20px;
     margin: 10px 5px 10px 5px;
-    padding: 5px;
     display: inline-flex;
     background-color: lightgray;
     border-radius: 5px;
+    padding: 6px 12px;
 }
 
 .sidebar-tags .like {
@@ -30,12 +30,12 @@
 }
 
 .vacancy-upper-name {
+    padding: 6px 12px;
     text-align: center;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
     margin: 10px 5px 10px 5px;
-    padding: 5px;
 
     background-color: lightgray;
     border-radius: 5px;
@@ -148,7 +148,7 @@
 }
 
 .arrow:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .like {
