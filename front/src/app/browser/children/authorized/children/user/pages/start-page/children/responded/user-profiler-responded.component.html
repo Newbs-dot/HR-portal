@@ -1,6 +1,6 @@
 <body class="main-center">
-
-<div class="new-vacancies">
+<div class="placeholder" *ngIf="(vacancies$ | async)?.length===0">Вы пока не откликнулись ни на одну вакансию</div>
+<div class="new-vacancies" *ngIf="(vacancies$ | async)?.length!==0">
     <ul>
         <li *ngFor="let vacancy of vacancies$ | async">
             <app-vacancy

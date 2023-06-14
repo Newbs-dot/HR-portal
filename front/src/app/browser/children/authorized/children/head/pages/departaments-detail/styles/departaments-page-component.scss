@@ -5,6 +5,13 @@
 * {
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
+
+}
+.head-text{
+  padding-top: 20px;
+  text-align: justify;
+  font-size: 18px;
+  font-weight: 400;
 }
 h1{
   font-size: 54px;
@@ -81,9 +88,8 @@ span.sl-2{
   align-items: center;
 }
 .department-head-wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  gap:100px;
+  display: grid;
+  grid-template-columns: 3fr 1fr 4fr;
 }
 .break-block{
   background:url("../../../../../../../../../img/break.png") center/cover no-repeat;
@@ -100,6 +106,7 @@ span.sl-2{
   font-size: 32px;
   font-weight: 700;
   line-height: 39px;
+  margin-bottom: 10px;
 }
 .head-img{
   background:url("../../../../../../../../../img/head.png") center/cover no-repeat;
@@ -124,6 +131,7 @@ span.sl-2{
   grid-template-columns: 500px 1fr;
   align-items: center;
   gap: 70px;
+
 }
 .employee-review-img{
   background:url("../../../../../../../../../img/review-img.png") center/cover no-repeat;
@@ -133,6 +141,10 @@ span.sl-2{
 .review-wrapper{
   position: relative;
 
+
+}
+.text{
+  position: relative;
 }
 .review{
   font-size: 25px;
@@ -145,7 +157,6 @@ span.sl-2{
   background:url("../../../../../../../../../img/quote_upper.png") center/cover no-repeat;
   width: 150px;
   height: 100px;
-
 }
 .quote-lower{
   position: absolute;
@@ -153,6 +164,20 @@ span.sl-2{
   background:url("../../../../../../../../../img/quote_lower.png") center/cover no-repeat;
   width: 150px;
   height: 100px;
+}
+.quote-upper-head{
+  background:url("../../../../../../../../../img/quote_upper.png") center/cover no-repeat;
+  width: 50px;
+  height: 40px;
+
+}
+.quote-lower-head{
+  position: absolute;
+  right: 0;
+  background:url("../../../../../../../../../img/quote_lower.png") center/cover no-repeat;
+  width: 50px;
+  height: 40px;
+
 }
 /*VACANCY*/
 .vacancy-descripton{
@@ -169,7 +194,7 @@ span.sl-2{
   background-color: white;
   flex-grow: 1;
   width: 40%;
-  padding:20px 20px 60px 20px;
+  padding:20px;
 }
 
 .department-vacancies ul{

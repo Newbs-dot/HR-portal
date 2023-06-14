@@ -6,6 +6,22 @@
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
 }
+.head-text{
+  padding-top: 20px;
+  text-align: justify;
+  font-size: 18px;
+  font-weight: 400;
+}
+.department-head-wrapper{
+  display: grid;
+  grid-template-columns: 3fr 1fr 4fr;
+}
+.head-name{
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 39px;
+  margin-bottom: 10px;
+}
 h1{
   font-size: 54px;
   font-weight: 600;
@@ -80,10 +96,22 @@ span.sl-2{
   border-radius: 20px;
   align-items: center;
 }
-.department-head-wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  gap:100px;
+
+.quote-upper-head{
+  background:url("../../../../../../../../../img/quote_upper.png") center/cover no-repeat;
+  width: 50px;
+  height: 40px;
+}
+.text{
+  position: relative;
+}
+.quote-lower-head{
+  position: absolute;
+  right: 0;
+  background:url("../../../../../../../../../img/quote_lower.png") center/cover no-repeat;
+  width: 50px;
+  height: 40px;
+
 }
 .break-block{
   background:url("../../../../../../../../../img/break.png") center/cover no-repeat;
@@ -169,7 +197,7 @@ span.sl-2{
   background-color: white;
   flex-grow: 1;
   width: 40%;
-  padding:20px 20px 60px 20px;
+  padding:20px;
 }
 
 .department-vacancies ul{
