@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdministratorLayoutComponent } from './components';
-import { AdministratorStartPageComponent } from './pages';
+import { AdministratorLayoutComponent } from './components/layout/administrator-layout.component';
+import { AdministratorStartPageComponent } from './pages/start-page/administrator-start-page.component';
 
 const components: any[] = [];
 
