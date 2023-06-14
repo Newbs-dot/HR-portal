@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,6 +87,88 @@ span.sl-2 {
   align-items: center;
 }
 
+.department-head-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+.break-block {
+  background: url("../../../../../../../../../img/break.png") center/cover no-repeat;
+  width: 13px;
+  height: 500px;
+}
+
+.department-head-bg {
+  background: url("../../../../../../../../../img/head-vector.png") center/cover no-repeat;
+  width: 400px;
+  height: 500px;
+}
+
+.head-name {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 39px;
+}
+
+.head-img {
+  background: url("../../../../../../../../../img/head.png") center/cover no-repeat;
+  width: 400px;
+  height: 500px;
+}
+
+.vacancy-department-header {
+  white-space: nowrap;
+  display: flex;
+  position: relative;
+}
+
+.find-all-jobs {
+  right: 0;
+  align-self: center;
+  position: absolute;
+  color: grey;
+}
+
+.employee-review {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.employee-review-img {
+  background: url("../../../../../../../../../img/review-img.png") center/cover no-repeat;
+  width: 500px;
+  height: 700px;
+}
+
+.review-wrapper {
+  position: relative;
+}
+
+.review {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 29px;
+  padding: 100px 70px 100px 70px;
+  text-align: justify;
+}
+
+.quote-upper {
+  background: url("../../../../../../../../../img/quote_upper.png") center/cover no-repeat;
+  width: 150px;
+  height: 100px;
+}
+
+.quote-lower {
+  position: absolute;
+  right: 0;
+  background: url("../../../../../../../../../img/quote_lower.png") center/cover no-repeat;
+  width: 150px;
+  height: 100px;
+}
+
 /*VACANCY*/
 .vacancy-descripton {
   height: 100px;
@@ -97,7 +178,7 @@ span.sl-2 {
   margin-top: 10px;
 }
 
-.new-vacancies li {
+.department-vacancies li {
   border-radius: 20px;
   margin: 10px;
   font-weight: 500;
@@ -108,7 +189,7 @@ span.sl-2 {
   padding: 20px 20px 60px 20px;
 }
 
-.new-vacancies ul {
+.department-vacancies ul {
   display: flex;
   flex-wrap: wrap;
 }
@@ -191,22 +272,4 @@ span.sl-2 {
   align-items: flex-end;
 }
 
-/*VACANCY*/
-hr {
-  background: black;
-  height: 4px;
-}
-
-.company-departments li {
-  font-weight: 500;
-  font-size: 32px;
-  margin: 10px;
-  cursor: pointer;
-}
-
-.company-departments li:before {
-  color: black;
-  content: "•";
-}
-
-/*# sourceMappingURL=main-authorized.component.css.map */
+/*# sourceMappingURL=departaments-page-component.css.map */

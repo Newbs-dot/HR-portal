@@ -1,9 +1,10 @@
+@charset "UTF-8";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 * {
   font-family: "Montserrat", sans-serif;
-  /*overflow: hidden;  Hide scrollbars */
+  overflow: hidden;
 }
 
 h1 {
@@ -29,19 +30,6 @@ h2 {
   margin-bottom: 3em;
 }
 
-.main-bg {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background: url("./../../../../../../../img/yg1.png") no-repeat center center fixed;
-  width: 100vw;
-}
-
-header {
-  position: relative;
-}
-
 nav {
   z-index: 1000;
   position: absolute;
@@ -50,14 +38,32 @@ nav {
   top: 0px;
 }
 
+.wrapper {
+  display: inline-block;
+  width: 100vw;
+  height: 1080px;
+  background: url("../../../../../../../img/yg1.png") center/cover no-repeat;
+}
+
 .slogan {
-  position: absolute;
-  font-weight: 800;
-  font-size: 100px;
   margin-top: 400px;
-  margin-left: 300px;
-  width: 800px;
-  line-height: 120px;
+  container-type: inline-size;
+  font-weight: 800;
+  line-height: 110px;
+  margin-left: 170px;
+  font-size: 100px;
+}
+
+.search {
+  background: black;
+  width: 350px;
+  height: 100px;
+  font-weight: 600;
+  font-size: 32px;
+  margin-left: 170px;
+  margin-top: 110px;
+  color: white;
+  border-radius: 20px;
 }
 
 span.sl-1 {
@@ -80,20 +86,6 @@ span.sl-2 {
   width: 100%;
   border-radius: 20px;
   align-items: center;
-}
-
-.search {
-  background: black;
-  width: 350px;
-  height: 100px;
-  position: absolute;
-  margin-top: 800px;
-  margin-left: 300px;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 39px;
-  color: white;
-  border-radius: 20px;
 }
 
 /*VACANCY*/
@@ -200,43 +192,16 @@ span.sl-2 {
 }
 
 /*VACANCY*/
-hr {
-  background: black;
-  height: 4px;
-}
-
-.company-departments ul {
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-}
-
 .company-departments li {
-  margin-left: 50px;
-  margin-right: 50px;
-  text-align: center;
   font-weight: 500;
   font-size: 32px;
-  width: 300px;
-  line-height: 40px;
+  margin: 10px;
+  cursor: pointer;
 }
 
-.developer-img {
-  background: url("./../../../../../../../img/programmer.png") center no-repeat;
-  width: 450px;
-  height: 450px;
-}
-
-.manager-img {
-  background: url("./../../../../../../../img/manager.png") center no-repeat;
-  width: 450px;
-  height: 450px;
-}
-
-.tester-img {
-  background: url("./../../../../../../../img/programmer2.png") center no-repeat;
-  width: 450px;
-  height: 450px;
+.company-departments li:before {
+  color: black;
+  content: "•";
 }
 
 /*# sourceMappingURL=main-page.component.css.map */
