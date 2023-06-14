@@ -27,6 +27,8 @@
 //
 .page-wrapper {
   padding: 150px 250px 150px 250px;
+  min-height: 710px;
+
 }
 
 .row {
@@ -189,11 +191,13 @@
   flex-grow: 1;
   width: 100%;
   padding: 20px 20px 20px 20px;
+
 }
 
 .new-vacancies ul {
   display: flex;
   flex-wrap: wrap;
+  min-height:210px;
 }
 
 .vacancy {

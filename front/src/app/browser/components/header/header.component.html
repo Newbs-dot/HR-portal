@@ -13,17 +13,18 @@
             </ul>
         </nav>
     </div>
-        <nav class="flex p-[42px] w-screen text-black"*ngIf="!isWhiteLogo">
+    <div class='costil-for-main-page'>
+        <nav class="flex p-[42px] w-screen text-black bg-white" *ngIf="!isWhiteLogo">
             <ul class="flex gap-[62px] items-center">
-              <li class="logo-dark pointer" (click)="onHomeButtonClick()"></li>
-              <li class="pl pointer" (click)="onVacancyButtonClick()" *ngIf="showVacancies"><a>Вакансии</a></li>
-              <li class="pointer" (click)="onDepartamentsButtonClick()" *ngIf="showDepartament"><a>Департаменты</a></li>
-              <span class="flex absolute gap-[40px] items-center right-20" *ngIf="!isAuth">
+                <li class="logo-dark pointer" (click)="onHomeButtonClick()"></li>
+                <li class="pl pointer" (click)="onVacancyButtonClick()" *ngIf="showVacancies"><a>Вакансии</a></li>
+                <li class="pointer" (click)="onDepartamentsButtonClick()" *ngIf="showDepartament"><a>Департаменты</a></li>
+                <span class="flex absolute gap-[40px] items-center right-20" *ngIf="!isAuth">
                     <li class="flex pointer"><a class="" (click)="onLoginButtonClick()">Войти</a></li>
                     <li class="text-white flex pointer"><a class="py-2 px-5 bg-[#6F08FF] rounded-full" (click)="onRegisterButtonClick()">Зарегистрироваться</a></li>
                   </span>
-              <li class="profile pointer" (click)="onProfileButtonClick()" *ngIf="isAuth">Профиль</li>
+                <li class="profile pointer" (click)="onProfileButtonClick()" *ngIf="isAuth">Профиль</li>
             </ul>
         </nav>
-
+    </div>
 </header>

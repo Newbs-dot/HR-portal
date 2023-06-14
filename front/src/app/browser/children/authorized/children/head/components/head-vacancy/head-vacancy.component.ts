@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AsyncPipe, NgForOf, NgIf, NgStyle } from '@angular/common';
-import { getCompetentsOfTags, ITag, IUser, SalaryDevidePipe } from '../../../../../../../common';
+import { getCompetentsOfTags, ITag, SalaryDevidePipe } from '../../../../../../../common';
 
 @Component({
     selector: 'app-vacancy',

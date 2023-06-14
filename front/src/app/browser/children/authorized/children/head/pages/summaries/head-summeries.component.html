@@ -5,6 +5,7 @@
                 <div class="lupa"></div>
                 <input formControlName="search" class='search' type="text" placeholder="Например, Иванов Иван Иванович">
             </form>
+
             <div class='new-vacancies' *ngIf="summeries$ | async as summaries">
                 <ul>
                     <ng-container *ngIf="getFilteredSummeries(summaries, form.controls.search.valueChanges | async) as filteredList">

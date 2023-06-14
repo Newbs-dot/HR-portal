@@ -1,3 +1,7 @@
+* {
+  overflow: hidden;
+}
+
 .vacancy-hashtag {
   display: flex;
   justify-content: flex-start;
@@ -89,6 +93,9 @@
 .tags {
   display: flex;
   flex-flow: row wrap;
+}
+.tags__filter-item {
+  padding-bottom: 10px;
 }
 
 .competence-tags li:last-child {

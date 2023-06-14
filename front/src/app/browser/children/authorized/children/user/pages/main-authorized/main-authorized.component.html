@@ -15,7 +15,7 @@
                         name="{{vacancy.name}}"
                         salary="{{vacancy.salary}}"
                         description="{{vacancy.description}}"
-                        [tags]="vacancy.tags"
+                        [tags]=[]
                     ></app-vacancy>
                 </li>
             </ul>
@@ -24,19 +24,13 @@
         <div class='company-departments'>
             <ul *ngIf="departaments$ | async as departaments">
                 <li (click)="onDepartamentClick(departaments[0])">
-
                     {{departaments[0].departamentName}}
-                    <hr>
                 </li>
                 <li (click)="onDepartamentClick(departaments[1])">
-
                     {{departaments[1].departamentName}}
-                    <hr>
                 </li>
                 <li (click)="onDepartamentClick(departaments[2])">
-
                     {{departaments[2].departamentName}}
-                    <hr>
                 </li>
             </ul>
         </div>

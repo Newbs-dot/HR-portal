@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
 import {Observable} from 'rxjs';
 import {DepartamentService, IVacancy, VacancyService} from '../../../../../../../../../common';
 import {ActivatedRoute, Router} from "@angular/router";
@@ -12,6 +12,8 @@ import {ActivatedRoute, Router} from "@angular/router";
     styleUrls: ['./styles/user-profile-responded.component.scss'],
 })
 export class UserProfilerRespondedComponent {
+    @Input()
+    public hasVacancies: boolean = false;
     protected readonly vacancies$: Observable<IVacancy[]>;
     constructor(
     protected vacancyService: VacancyService,
