@@ -1,0 +1,20 @@
+<div class='main-center'>
+  <h1>{{title}}</h1>
+  <div class="resume-creation-block">
+    <form [formGroup]="resumeForm">
+      <div class="tui-form__row">
+        <div class="form-wrapper">
+          <h2>ФИО</h2>
+          <tui-input
+            formControlName="fullNameValue">Введите полное ФИО<input tuiTextfield/>
+          </tui-input>
+          <h2>Телефон</h2>
+          <tui-input-phone
+            formControlName="phoneValue">Телефон<input tuiTextfield/>
+          </tui-input-phone>
+        </div>
+      </div>
+    </form>
+  </div>
+  <button (click)="onSaveResumeClick()" class="publish-resume">Изменить профиль</button>
+</div>

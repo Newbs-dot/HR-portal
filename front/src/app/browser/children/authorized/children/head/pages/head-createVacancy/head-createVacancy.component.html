@@ -1,0 +1,59 @@
+<app-user-header [isWhiteLogo]="false"></app-user-header>
+<div class="flex flex-col h-screen justify-between">
+    <div class='main-center'>
+        <h1>Создание вакансии</h1>
+        <div class="resume-creation-block">
+            <form [formGroup]="resumeForms">
+                <div class="tui-form__row">
+                    <div class="form-wrapper">
+                        <h2>Должность</h2>
+                        <tui-input
+                            formControlName="vacancyNameValue">Название вакансии<input tuiTextfield/>
+                        </tui-input>
+                        
+                        <h2>Заработная плата</h2>
+                        <tui-input-slider
+                            [min]="min"
+                            [max]="max"
+                            [steps]="totalSteps"
+                            [keySteps]="keySteps"
+                            formControlName="salaryValue">
+                            Введите заработную зарплату
+                        </tui-input-slider>
+                        
+                        <h2>Описание вакансии</h2>
+                        <tui-text-area [expandable]="true"
+                                       formControlName="aboutValue">
+                        </tui-text-area>
+                        <h2>Опыт</h2>
+                        <div tuiGroup class="group" [collapsed]="true">
+                            <tui-radio-block *ngFor="let exp of experience"
+                                             formControlName="experienceValue"
+                                             contentAlign="right"
+                                             size="l"
+                                             [item]="exp"
+                                             [hideRadio]="false">
+                                {{ exp }}
+                            </tui-radio-block>
+                        </div>
+                        <h2>Требования</h2>
+                        <tui-input-tag [expandable]="true"
+                                       [tuiTextfieldLabelOutside]="true"
+                                       formControlName="requirementsValue">
+                        </tui-input-tag>
+                        
+                        <h2>Условия</h2>
+                        <tui-input-tag [expandable]="true"
+                                       [tuiTextfieldLabelOutside]="true"
+                                       formControlName="conditionsValue">
+                        </tui-input-tag>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <button class="publish-resume" (click)="onSaveVacancyClick()">Создать вакансию</button>
+    </div>
+    <app-footer></app-footer>
+</div>
+
+

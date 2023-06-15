@@ -1,0 +1,78 @@
+<app-user-header [isWhiteLogo]="false"></app-user-header>
+
+<div class='page-wrapper' *ngIf="vacancy$ | async as vacancy">
+    <div class="upper-row">
+        <div class='upper-block'>
+            <div class='arrow' (click)="onReturnButtonClick()"></div>
+            <div class='break'></div>
+            <div class='vacancy-upper-name'>Вакансия</div>
+            <div class='date'>22 марта 2023</div>
+        </div>
+    </div>
+    <div class='lower-row'>
+        <div class='left'>
+            <div class='sidebar-column'>
+                <div class='sidebar-header'>
+                    <div class="department-logo-big"></div>
+                    <h1>{{vacancy.departament.departamentName}}</h1>
+                </div>
+                <div class='sidebar-content'>
+                    <p>{{vacancy.departament.description}}</p>
+                </div>
+                <div class='sidebar-buttons'>
+                    <button class='send-resume' (click)="onButtonClick()" [disabled]="isDisable" [ngStyle]="isDisable ? {'opacity': '.3'} : null">
+                        {{isDisable ? 'Вы уже отправили свое резюме' : 'Отправить резюме'}}
+                    </button>
+                </div>
+            </div>
+            <div class='contacts'>
+                <button class="look-contacts" (click)="onContactsClick(vacancy)">Посмотреть контакты</button>
+            </div>
+        </div>
+        <div class='right'>
+            <div class='sidebar-column'>
+                <div class="sidebar-tags">
+                    <ul>
+                        <li *ngFor="let tags of getCompetentsOfTags(vacancy.tags)">
+                            {{tags.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h1>{{vacancy.name}}</h1>
+                </div>
+                <ul class='filters'>
+                    <h2>От {{(vacancy.salary + '') | salaryDevide}} рублей</h2>
+                    <p>{{vacancy.description}}</p>
+                    <li><h2>Желаемые компетенции</h2>
+                        <ul class='competence-tags'>
+                            <li *ngFor="let tag of getTagsOfTags(vacancy.tags)">
+                                #{{tag.name}}
+                            </li>
+                        </ul>
+                    </li>
+                    <h2>Требования</h2>
+                    <li>
+                        <div class="vacancy-conditions" *ngFor="let condition of splitConditions(vacancy.vacancyRequrements)">
+                            •{{condition}}
+                            <br>
+                        </div>
+                    </li>
+                    
+                    <h2>Условия</h2>
+                    <li>
+                        <div class="vacancy-conditions" *ngFor="let condition of splitConditions(vacancy.vacancyconditions)">
+                            •{{condition}}
+                            <br>
+                        </div>
+                    </li>
+                
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+
+
+

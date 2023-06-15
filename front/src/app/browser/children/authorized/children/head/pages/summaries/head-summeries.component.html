@@ -1,0 +1,25 @@
+<app-user-header [isWhiteLogo]="false"></app-user-header>
+<div class='page-wrapper'>
+    <h1 class='vacancy-header'>Резюме</h1>
+            <form [formGroup]="form">
+                <div class="lupa"></div>
+                <input formControlName="search" class='search' type="text" placeholder="Например, Иванов Иван Иванович">
+            </form>
+
+            <div class='new-vacancies' *ngIf="summeries$ | async as summaries">
+                <ul>
+                    <ng-container *ngIf="getFilteredSummeries(summaries, form.controls.search.valueChanges | async) as filteredList">
+                        <li *ngFor="let filteredSummary of filteredList">
+                            <app-resume
+                                fullName="{{filteredSummary.createdBy.userFullName}}"
+                                id="{{filteredSummary.id}}"
+                                salary="{{filteredSummary.salary}}"
+                                experience="{{filteredSummary.experience}}"
+                                description="{{filteredSummary.description}}"
+                            ></app-resume>
+                        </li>
+                    </ng-container>
+                </ul>
+            </div>
+</div>
+<app-footer></app-footer>

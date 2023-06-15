@@ -1,0 +1,53 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-center {
+  margin-left: 23%;
+  margin-right: 20%;
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 54px;
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.main-center {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+/*VACANCY*/
+.new-vacancies li {
+  border-radius: 20px;
+  margin: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: white;
+  width: 45%;
+  padding: 20px 20px 60px 20px;
+}
+
+.new-vacancies ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=user-profile-responded.component.css.map */

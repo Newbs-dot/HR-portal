@@ -1,0 +1,53 @@
+<main>
+    <app-header></app-header>
+    <div class="wrapper">
+        <div class="slogan"><span class='sl-1'>ЭТА РАБОТА</span><br> <span class='sl-2'> ЖДЕТ ТЕБЯ</span></div>
+        <button class="search" (click)="onFindJobClick()">Найти работу</button>
+    </div>
+    <div class='main-center' #departaments *ngIf="departament$ | async as departament">
+        <h1>Глава департамента</h1>
+        <div class="department-head-wrapper">
+            <div class="department-head-bg">
+                <div class="head-img"></div>
+            </div>
+            <div class="break-block"></div>
+          <div class="text">
+            <h2 class="head-name">{{departament.headFullName}}</h2>
+            <div class="quote-upper-head"></div>
+            <p class="head-text">«IT-Artel» – это слаженная команда единомышленников и профессионалов своей отрасли: наш главный приоритет в работе – это клиенториентированность, любая потребность клиента – наша прямая задача к оперативному и качественному исполнению. Отмечу, что инфраструктура внутри компании не перегружена высоким ранжированием должностных позиций и инструкций, все ребята очень отзывчивые и каждый всегда готов и даже рад помочь своему коллеге или заказчику, что не мало важно - сотрудники нашей команды имеют большой опыт работы в IT сфере и весьма высокие компетенции.
+            </p>
+            <div class="quote-lower-head"></div>
+          </div>
+
+        </div>
+
+        <div class="vacancy-department-header">
+            <h1>Вакансии компании</h1>
+            <button class='find-all-jobs' (click)="onFindAllJobs()">Смотреть все</button>
+        </div>
+        <div class="department-vacancies">
+            <ul>
+                <li *ngFor="let vacancy of vacancies$ | async">
+                    <app-vacancy
+                        id="{{vacancy.id}}"
+                        departamentName="{{vacancy.departament.departamentName}}"
+                        name="{{vacancy.name}}"
+                        salary="{{vacancy.salary}}"
+                        description="{{vacancy.description}}"
+                        [tags]="vacancy.tags"
+                    ></app-vacancy>
+                </li>
+            </ul>
+        </div>
+        <h1>Отзывы сотрудников</h1>
+        <div class="employee-review">
+            <div class="employee-review-img"></div>
+            <div class="review-wrapper">
+                <div class="quote-upper"></div>
+                <p class="review">{{departament.departamentReview}}</p>
+                <div class="quote-lower"></div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</main>

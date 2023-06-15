@@ -1,0 +1,1 @@
+export * from './vacancy/vacancy.component';

@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+header{
+  background-color: white;
+}
+.vacancy-header{
+  font-weight: 600;
+  font-size: 54px;
+  margin-left: 10px;
+  margin-bottom: 40px;
+}
+
+.main-center{
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 3em;
+  margin-top: 3em;
+
+}
+
+h1{
+  font-size: 2em;
+  font-weight: bold;
+}
+h2{
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.but1{
+  height: 58px;
+  background-color: #6F08FF;
+  border-radius: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+  display: flex;
+  margin: 20px 20px 20px 20px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+
+}
+
+.uwu{
+  color: black;
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px 20px 20px;
+  width: 100%;
+  border-radius: 20px;
+  align-items: center;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+
+}
+.categories ul li{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  white-space: nowrap;
+
+}
+.categories ul{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.categories{
+  display: inline-block;
+  background-color: white;
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x:hidden;
+}
+
+.im{
+  padding-left: 20px;
+}
+
+.pad{
+  padding-left: 40%;
+}
+
+.cat ul li{
+  color: black;
+  display: flex;
+  margin: 20px 10px 20px 20px;
+  border-radius: 20px;
+
+}
+.cat ul{
+  display: flex;
+
+}
+//
+
+.publish-resume{
+  height: 56px;
+  margin-top: 20px;
+  background-color: black;
+  border-radius: 10px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  color: white;
+  display: flex;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.resume-creation-block{
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 20px;
+}
+.form-wrapper > *{
+  margin: 20px;
+}

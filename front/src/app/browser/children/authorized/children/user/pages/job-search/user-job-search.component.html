@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+  <link rel="stylesheet" href="styles/user-job-search.component.scss">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+<body>
+<app-user-header [isWhiteLogo]="false"></app-user-header>
+
+<main>
+
+  <div class='page-wrapper'>
+    <h1 class = 'vacancy-header'>Вакансии</h1>
+    <div class='row'>
+      <div class='left'>
+        <div class='sidebar-column'>
+          <div class ='sidebar-header'>
+            <h1>Фильтр</h1>
+            <button class = 'reset-filters'>Сбросить фильтры</button>
+          </div>
+            <ul class = 'filters'>
+              <li><h2>Сфера деятельности</h2>
+                <ul class = 'tags'>
+                  <li>Маркетинг</li>
+                  <li>Продажи</li>
+                  <li>Разработка</li>
+                  <li>HR</li>
+                  <li>Дизайн</li>
+                  <li>Выбрать +</li>
+                </ul>
+              </li>
+              <li><h2>Департамент</h2>
+                <ul class = 'tags'>
+                  <li>Департамент1</li>
+                  <li>Департамент1</li>
+                  <li>Выбрать +</li>
+                </ul>
+              </li>
+              <li><h2>Желаемые компетенции</h2>
+                <ul class = 'competence-tags'>
+                  <li>#figma</li>
+                  <li>#интерфейсы</li>
+                  <li>#html</li>
+                  <li>Добавить +</li>
+                </ul>
+              </li>
+              <li><h2>Тип занятости</h2>
+                <ul class = 'tags'>
+                  <li>Полная занятость</li>
+                  <li>Проектная работа</li>
+                  <li>Выбрать +</li>
+                </ul>
+              </li>
+              <li><h2>Заработная плата</h2>
+                <form action="" method="get" class="salary-form">
+                  <div>
+                    <input type="text" name="name" id="name" required>
+                  </div>
+                </form>
+              </li>
+              <li><h2>Опыт работы</h2>
+                <div class="radio">
+                  <div class="form_radio">
+                    <input id="radio-1" type="radio" name="radio" value="1" checked>
+                    <label for="radio-1">Без опыта</label>
+                  </div>
+                  <div class="form_radio">
+                    <input id="radio-2" type="radio" name="radio" value="2">
+                    <label for="radio-2">От одного месяца до года</label>
+                  </div>
+                  <div class="form_radio">
+                    <input id="radio-3" type="radio" name="radio" value="3">
+                    <label for="radio-3">От одного года до 3 лет</label>
+                  </div>
+                  <div class="form_radio">
+                    <input id="radio-4" type="radio" name="radio" value="4" disabled>
+                    <label for="radio-4">От 3 до 6 лет</label>
+                  </div>
+                  <div class="form_radio">
+                    <input id="radio-5" type="radio" name="radio" value="5" disabled>
+                    <label for="radio-5">Более 6 лет</label>
+                  </div>
+                </div>
+              </li>
+            </ul>
+        </div>
+      </div>
+      <div class='right'>
+        <form>
+          <div class="lupa"></div>
+          <input class = 'search' type="text" placeholder="Например, дизайнер">
+
+        </form>
+        <div class = 'new-vacancies'>
+          <ul>
+            <li>
+              <div class = 'vacancy'>
+                <div class = 'department'>
+                  <div class = 'department-logo'></div>
+                  <div class = 'department-name'>department</div>
+                </div>
+                <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
+                <div class = 'salary'>От 60 000 до 100 000 рублей</div>
+                <p class = 'vacancy-descripton'>
+                  Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
+                </p>
+
+                <div class = 'vacancy-buttons'>
+                  <button class = 'respond'>Откликнуться</button>
+                  <button class = 'details'>Подробнее</button>
+
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class = 'vacancy'>
+                <div class = 'department'>
+                  <div class = 'department-logo'></div>
+                  <div class = 'department-name'>department</div>
+                  <div class = 'like'></div>
+                </div>
+                <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
+                <div class = 'salary'>От 60 000 до 100 000 рублей</div>
+                <p class = 'vacancy-descripton'>
+                  Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
+                </p>
+
+                <div class = 'vacancy-buttons'>
+                  <button class = 'respond'>Откликнуться</button>
+                  <button class = 'details'>Подробнее</button>
+
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class = 'vacancy'>
+                <div class = 'department'>
+                  <div class = 'department-logo'></div>
+                  <div class = 'department-name'>department</div>
+                  <div class = 'like'></div>
+                </div>
+                <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
+                <div class = 'salary'>От 60 000 до 100 000 рублей</div>
+                <p class = 'vacancy-descripton'>
+                  Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
+                </p>
+
+                <div class = 'vacancy-buttons'>
+                  <button class = 'respond'>Откликнуться</button>
+                  <button class = 'details'>Подробнее</button>
+
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class = 'vacancy'>
+                <div class = 'department'>
+                  <div class = 'department-logo'></div>
+                  <div class = 'department-name'>department</div>
+                  <div class = 'like'></div>
+                </div>
+                <h2 class = 'vacancy-name'>Проектировщик интерфесов</h2>
+                <div class = 'salary'>От 60 000 до 100 000 рублей</div>
+                <p class = 'vacancy-descripton'>
+                  Команда международных проектов ищет проектировщика интерфейов (UX/UI), который вместе с продуктовой командой займется проектированием сложного технического
+                </p>
+
+                <div class = 'vacancy-buttons'>
+                  <button class = 'respond'>Откликнуться</button>
+                  <button class = 'details'>Подробнее</button>
+
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="">
+  <div class="container "></div>
+  <div class="flex gap-[80px] justify-center h-[150px] w-screen bg-white p-[40px] ">
+    <div>
+      <div>Департаментам</div>
+      <ul>
+        <li><a class="font-bold" href="#">Размещение вакансий </a></li>
+        <li><a class="font-bold" href="#">Страница департамента</a></li>
+      </ul>
+    </div>
+    <div>
+      <div>Соискателям</div>
+      <ul>
+        <li><a class="font-bold" href="#">Поиск вакансии </a></li>
+        <li><a class="font-bold" href="#">Подборки вакансий </a></li>
+      </ul>
+    </div>
+    <div>
+      <div>О нас</div>
+      <ul>
+        <li><a class="font-bold" href="#">Наша страница</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+
+</html>
+
+
